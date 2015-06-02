@@ -1,0 +1,72 @@
+/* app css stylesheet */
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+  content: "";
+  padding: 0;
+}
+
+/* NewStyle01.css:445 */
+div.section div.sectionTitle {
+  background-color: #81C784;
+  color: black;
+  font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
+  padding: 12px;
+  border-top: none;
+  font-size: 16px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.26);
+  font-weight: normal;
+  letter-spacing: 1px;
+}
+
+/* NewStyle01.css:447 */
+div.section div.sectionBody {
+  padding: 12px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.26);
+  font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
+  /* background-color: lightgrey; */
+}
+
+/* NewStyle01.css:550 */
+div.cntHeader {
+  background-color: #43A047;
+  color: white;
+  /* font-weight: lighter; */
+  font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
+  padding: 12px;
+  border-top: none;
+  font-size: 16px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.26);
+  font-weight: normal;
+  letter-spacing: 1px;
+}
+
+table.timesheetHourEntry {
+  border-collapse: collapse;
+  margin-top: 4px;
+  width: 100%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.26);
+}

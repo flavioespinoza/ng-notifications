@@ -1,0 +1,85 @@
+.panel-body .card-title {
+  color: #3F51B5; }
+
+.panel-default > .panel-heading {
+  background-color: #3F51B5; }
+
+.panel-heading .md-fab {
+  background-color: #FF4081; }
+
+.panel-default > .panel-heading {
+  color: white; }
+
+.panel-body .card-field {
+  color: #969696; }
+
+.primary {
+  color: #FF4081; }
+
+body .card-field,
+body .card-title,
+html .card-field,
+html .card-title {
+  display: block;
+  -webkit-margin-before: 12px;
+  -webkit-margin-after: 12px;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0; }
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none; }
+
+.md-whiteframe-z3 {
+  overflow: hidden; }
+
+.panel, .panel-heading {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  border: none; }
+
+.panel-default > .panel-heading {
+  border: none;
+  font-size: 48px;
+  font-weight: bold; }
+
+.panel-heading {
+  padding: 6px 12px; }
+
+.panel-body .card-title {
+  margin-bottom: 1px;
+  font-weight: 400; }
+.panel-body .card-field {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 16px;
+  font-weight: 500; }
+  .panel-body .card-field .card-field-label {
+    position: relative;
+    width: 48px;
+    font-size: 12px;
+    float: left;
+    line-height: 20px; }
+
+md-divider {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  border-top: 1px solid lightgray; }
+
+.panel-heading {
+  position: relative; }
+  .panel-heading .md-fab {
+    position: absolute;
+    right: 24px;
+    bottom: -20px; }
+    .panel-heading .md-fab div {
+      position: relative; }
+      .panel-heading .md-fab div i {
+        font-size: 20px;
+        position: absolute;
+        top: 5px;
+        left: 6px; }
+
+/*# sourceMappingURL=contacts.css.map */
