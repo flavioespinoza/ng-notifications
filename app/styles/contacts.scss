@@ -113,3 +113,92 @@ md-divider {
   }
 }
 
+md-input-container {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  overflow-x: hidden;
+  padding: 2px 2px 4px;
+}
+
+.modal-content {
+  position: relative;
+  background-color: #fff;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border: 1px solid #999;
+  border: 1px solid rgba(0, 0, 0, .2);
+  border-radius: 0;
+  outline: 0;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+}
+#contactSection {
+  position: relative;
+  width: 620px;
+  margin: 0 auto;
+}
+
+#editContactModalSection {
+  .panel {
+    margin-bottom: 0;
+  }
+}
+
+.md-select-menu-container {
+  z-index: 2000;
+}
+
+md-select {
+  display: inline-block;
+  width: 108px;
+  margin-top: 23px;
+  margin-left: 12px;
+}
+md-select:not([disabled]):focus .md-select-label {
+  border-bottom: 2px solid;
+  padding-bottom: 12px;
+}
+.md-select-label {
+  padding-bottom: 13px;
+}
+#editContactModalFooter {
+  position: relative;
+  height: 48px;
+  padding: 4px;
+  text-align: right;
+  //border-top: 1px solid #e5e5e5;
+  background-color: rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  .md-button {
+    min-width: 100px;
+  }
+  .md-warn {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+  }
+  .md-primary {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+  }
+}
+
+md-dialog {
+  width: 50%;
+  min-width: 320px;
+  max-width: 640px;
+}
+
+#addNewPhone {
+  .md-raised {
+    margin-left: 20px;
+    height: 40px;
+    margin-top: 18px;
+  }
+}

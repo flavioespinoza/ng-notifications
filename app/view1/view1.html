@@ -1,25 +1,15 @@
-<div class="container">
-
-
-
+<section id="contactSection">
   <md-list>
     <md-list-item ng-repeat="c in contacts track by $index">
       <div class="panel panel-default md-whiteframe-z1">
         <div class="panel-heading md-whiteframe-z1">
-
-
           <div class="panel-title">{{c.name}}</div>
-
-
-          <button class="md-fab md-button md-mini" ng-click="editContact(c)">
+          <button class="md-fab md-button md-mini" ng-click="editContact($event, c)">
             <div>
               <i class="fa fa-edit"></i>
             </div>
             <div class="md-ripple-container"></div>
           </button>
-
-
-
         </div>
         <div class="panel-body">
           <md-list>
@@ -73,7 +63,7 @@
       </div>
     </md-list-item>
   </md-list>
-</div>
+</section>
 
 
 

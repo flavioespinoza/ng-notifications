@@ -1,0 +1,88 @@
+
+
+
+
+<md-dialog id="editContactModalSection">
+  <form>
+    <md-dialog-content class="sticky-container">
+      <!--<md-subheader class="md-sticky-no-effect">Edit Contact</md-subheader>-->
+
+      <md-list>
+        <md-list-item>
+          <div class="panel panel-default md-whiteframe-z1">
+            <div class="panel-heading md-whiteframe-z1">
+              <div class="panel-title">Edit Contact</div>
+            </div>
+            <div class="panel-body">
+              <md-input-container>
+                <label>First Name</label>
+                <input type="text" ng-model="contact.firstName">
+              </md-input-container>
+              <md-input-container>
+                <label>Middle Name or Initial</label>
+                <input type="text" ng-model="contact.middleName">
+              </md-input-container>
+              <md-input-container>
+                <label>Last Name</label>
+                <input type="text" ng-model="contact.lastName">
+              </md-input-container>
+            </div>
+          </div>
+        </md-list-item>
+
+        <md-list-item>
+          <div class="panel panel-default md-whiteframe-z1">
+            <div class="panel-heading md-whiteframe-z1">
+              <div class="panel-title">Edit Phone</div>
+              <button class="md-fab md-button md-mini" ng-click="addPhone()">
+                <div>
+                  <i class="fa fa-plus"></i>
+                </div>
+                <div class="md-ripple-container"></div>
+              </button>
+            </div>
+            <div class="panel-body">
+              <md-input-container ng-repeat="p in contact.phone track by $index">
+                <label>Number</label>
+                <input type="text" ng-model="p.number">
+              </md-input-container>
+
+              <div class="md-padding">
+                <div id="addNewPhone">
+
+                  <div ng-repeat="a in newPhoneForm track by $index" layout="row">
+                    <!-- Add Phone Number -->
+                    <md-input-container>
+                      <label>Add New Phone Number</label>
+                      <input type="text" ng-model="a.newPhoneNumber">
+                    </md-input-container>
+
+                    <!-- Select Phone Type -->
+                    <md-select placeholder="Phone Type" ng-model="a.phoneTypes.type">
+                      <md-option ng-repeat="t in a.phoneTypes" value="{{t.type}}">{{t.type}}</md-option>
+                    </md-select>
+                    <md-button class="md-raised md-warn" ng-click="removeNewPhone(a.id)">Remove</md-button>
+                  </div>
+
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </md-list-item>
+
+      </md-list>
+
+    </md-dialog-content>
+    <div class="md-actions" layout="row">
+      <span flex></span>
+      <md-button ng-click="answer('not useful')" class="md-primary">
+        Not Useful
+      </md-button>
+      <md-button ng-click="answer('useful')" class="md-primary">
+        Useful
+      </md-button>
+    </div>
+  </form>
+</md-dialog>
