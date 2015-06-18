@@ -1,4 +1,9 @@
 <section id="contactSection">
+
+  <!-- if there is an error, display its message -->
+  <div ng-if="error" class="alert alert-danger" role="alert">{{error.message}}</div>
+
+
   <md-list>
     <md-list-item ng-repeat="c in contacts track by $index">
       <div class="panel panel-default md-whiteframe-z1">
@@ -64,6 +69,7 @@
     </md-list-item>
   </md-list>
 </section>
+
 
 
 

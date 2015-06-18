@@ -1,3 +1,5 @@
+// SolarCity global colors
+
 %color-primary, %text-color-primary {
   color: #3F51B5
 }
@@ -22,6 +24,62 @@
   color: #FF4081;
 }
 
+%border-primary {
+  border: 1px solid #FF4081;
+}
+
+
+// SolarCity md-class global styles
+
+label {
+  display: inline-block;
+  max-width: 100%;
+  margin-top: 12px;
+  margin-bottom: -6px;
+  font-weight: bold;
+}
+
+.md-button {
+  min-width: 40px;
+}
+
+.md-close {
+  height: 40px;
+  width: 40px;
+  border-radius: 20px !important;
+  font-size: 16px;
+}
+
+md-backdrop.md-opaque.md-default-theme {
+  background-color: rgba(0,0,0,0.5) !important;
+}
+
+.md-select-menu-container.md-active {
+  @extend %border-primary;
+}
+
+md-select-menu:not(.md-overflow) md-content {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+md-select-menu.md-default-theme md-option:focus:not([selected]) {
+  background-color: white !important;
+}
+
+md-select-menu.md-default-theme md-option:hover:not([selected]) {
+  background-color: rgb(232,234,246) !important;
+}
+
+md-list-item, md-list-item .md-list-item-inner {
+  display: block;
+}
+md-divider.md-default-theme {
+  position: relative;
+}
+
+
+
 body .card-field,
 body .card-title,
 html .card-field,
@@ -39,9 +97,15 @@ ul {
   list-style-type: none;
 }
 
-.md-whiteframe-z3 {
-  overflow: hidden;
+#contactSection {
+  position: relative;
+  width: 50%;
+  min-width: 320px;
+  max-width: 640px;
+  margin: 0 auto;
 }
+
+
 
 .panel, .panel-heading {
   -webkit-border-radius: 0;
@@ -106,46 +170,25 @@ md-divider {
       i {
         font-size: 20px;
         position: absolute;
-        top: 5px;
+        top: 10px;
         left: 6px;
       }
     }
   }
 }
 
-md-input-container {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  position: relative;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  overflow-x: hidden;
-  padding: 2px 2px 4px;
-}
-
-.modal-content {
-  position: relative;
-  background-color: #fff;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-  border: 1px solid #999;
-  border: 1px solid rgba(0, 0, 0, .2);
-  border-radius: 0;
-  outline: 0;
-  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
-  box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
-}
-#contactSection {
-  position: relative;
-  width: 620px;
-  margin: 0 auto;
-}
-
 #editContactModalSection {
+
+  md-list {
+    padding: 0;
+  }
+
   .panel {
     margin-bottom: 0;
+    .panel-body {
+      padding-left: 6px;
+      padding-right: 6px;
+    }
   }
 }
 
@@ -153,27 +196,14 @@ md-input-container {
   z-index: 2000;
 }
 
-md-select {
-  display: inline-block;
-  width: 108px;
-  margin-top: 23px;
-  margin-left: 12px;
-}
-md-select:not([disabled]):focus .md-select-label {
-  border-bottom: 2px solid;
-  padding-bottom: 12px;
-}
-.md-select-label {
-  padding-bottom: 13px;
-}
+
+
 #editContactModalFooter {
   position: relative;
   height: 48px;
   padding: 4px;
   text-align: right;
-  //border-top: 1px solid #e5e5e5;
   background-color: rgba(0, 0, 0, 0.12);
-  overflow: hidden;
   .md-button {
     min-width: 100px;
   }
@@ -195,10 +225,152 @@ md-dialog {
   max-width: 640px;
 }
 
-#addNewPhone {
+.scroll-container {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+
+.items-section {
+  position: relative;
+}
+
+
+.add-alert {
+  position: absolute;
+  padding: 24px 12px 12px 12px;
+  top: 24px;
+  left: 20%;
+  right: 20%;
+  border: 2px solid red;
+  z-index: 2000;
   .md-raised {
-    margin-left: 20px;
-    height: 40px;
     margin-top: 18px;
   }
+}
+
+.fade-disabled {
+  opacity: .25;
+  pointer-events: none;
+}
+
+.items-slip {
+  position: relative;
+  md-input-container {
+    width: 40%;
+  }
+  md-select {
+    width: 40%;
+    margin-left: 5%;
+  }
+  .md-close, .md-sort {
+    width: 40px;
+    height: 40px;
+    margin-top: 30px;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 6px;
+    text-align: center;
+    @extend %text-color-action;
+  }
+}
+
+.phone-list:first-child {
+  border-top: 4px solid lightgray;
+  border-bottom: 4px solid lightgray;
+}
+
+#reorder {
+  .group:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  ul {
+    max-width: 200px;
+    list-style: none;
+    margin: 20px auto;
+  }
+
+  li {
+    background-color: white;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 2px;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    img {
+      display: block;
+      float: left;
+    }
+  }
+
+  .handle {
+    float: right;
+    //cursor: -webkit-grab;
+    &:after {
+      content: "\2261";
+      font-size: 35px;
+      line-height: 50px;
+      color: gray;
+    }
+  }
+
+  .slip-reordering {
+    -webkit-box-shadow: 0 0 5px 5px rgba(0,0,0,0.02);
+    box-shadow: 0 0 5px 5px rgba(0,0,0,0.03);
+  }
+}
+
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter,
+.animate-repeat.ng-leave {
+  -webkit-transition:all linear 0.5s;
+  transition:all linear 0.5s;
+}
+
+.animate-repeat.ng-leave.ng-leave-active,
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter {
+  opacity:0;
+  max-height:0;
+}
+
+.animate-repeat.ng-leave,
+.animate-repeat.ng-move.ng-move-active,
+.animate-repeat.ng-enter.ng-enter-active {
+  opacity:1;
+  max-height: 84px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  height: 30px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  background: rgba(255,64,129,0.25);
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(255,64,129,0.25);
+}
+
+
+@media (min-width: 600px) {
+  #phoneNumbersSection .md-padding {
+    padding: 6px; }
 }

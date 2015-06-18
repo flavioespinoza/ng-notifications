@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap', 'ngMaterial']);
+var app = angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap', 'ngMaterial', 'slip', 'elasticsearch']);
 
 app.config(['$routeProvider', function ($routeProvider) {
   $routeProvider.when('/view1', {
@@ -9,10 +9,50 @@ app.config(['$routeProvider', function ($routeProvider) {
   });
 }]);
 
-app.controller('View1Ctrl', ['$scope', '$log', '$mdDialog', '$compile', function ($scope, $log, $mdDialog, $compile) {
+app.service('es', function (esFactory) {
+  return esFactory({
+    host: 'localhost:9200',
+    apiVersion: '1.2',
+    log: 'trace'
+  });
+});
+
+app.controller('View1Ctrl', ['$scope', '$log', '$mdDialog', 'es', 'esFactory', function ($scope, $log, $mdDialog, es, esFactory) {
+
+  //$scope.contacts = [];
+  //
+  //var query = {
+  //  "query": {
+  //    "term": {
+  //      "_id": "nikki_vasquez"
+  //    }
+  //  }
+  //};
+  //
+  //es.search({
+  //  index: 'contacts',
+  //  type: 'contact',
+  //  body: query
+  //})
+  //  .then(function (resp) {
+  //    var _source = resp.hits.hits[0]._source;
+  //    $scope.contacts.push(_source);
+  //  })
+  //  .catch(function (err) {
+  //    $scope.contacts = null;
+  //    $scope.error = err;
+  //
+  //    if (err instanceof esFactory.errors.NoConnections) {
+  //      $scope.error = new Error('Unable to connect to elasticsearch. ' +
+  //        'Make sure that it is running and listening at http://localhost:9200');
+  //    }
+  //  });
+
+
 
   $scope.contacts = [
     {
+      id: '111111',
       type: 'Primary',
       firstName: 'Nikki',
       middleName: '',
@@ -65,12 +105,12 @@ app.controller('View1Ctrl', ['$scope', '$log', '$mdDialog', '$compile', function
       email: [
         {
           type: 'Home',
-          email: 'nikki@aaa.com',
+          email: 'nikki@home.com',
           primary: true
         },
         {
           type: 'Work',
-          email: 'nikki@bbb.com',
+          email: 'nikki@work.com',
           primary: false
         }
       ],
@@ -100,7 +140,11 @@ app.controller('View1Ctrl', ['$scope', '$log', '$mdDialog', '$compile', function
 
     },
     {
+      id: '222222',
       type: 'Secondary',
+      firstName: 'Jonathan',
+      middleName: '',
+      lastName: 'Vasquez',
       name: 'Jonathan Vasquez',
       credit: '650 < 750',
       property_relationship: 'Owner',
@@ -185,6 +229,7 @@ app.controller('View1Ctrl', ['$scope', '$log', '$mdDialog', '$compile', function
     }
   ];
 
+
   $scope.showAdvanced = function (contact) {
     $mdDialog.show({
       templateUrl: 'view1/view1-modal.html',
@@ -201,21 +246,6 @@ app.controller('View1Ctrl', ['$scope', '$log', '$mdDialog', '$compile', function
 
   $scope.editContact = function (ev, contact) {
 
-    //var modalInstance = $modal.open({
-    //  templateUrl: 'view1/view1-modal.html',
-    //  controller: 'ModalInstanceCtrl',
-    //  resolve: {
-    //    contact: function () {
-    //      return contact;
-    //    }
-    //  }
-    //});
-    //
-    //modalInstance.result.then(function (selectedItem) {
-    //  $scope.selected = selectedItem;
-    //}, function () {
-    //  $log.info('Modal dismissed at: ' + new Date());
-    //});
 
     $mdDialog.show({
       templateUrl: 'view1/view1-modal.html',
@@ -225,8 +255,10 @@ app.controller('View1Ctrl', ['$scope', '$log', '$mdDialog', '$compile', function
         contact: contact
       }
     })
-      .then(function (answer) {
-        $scope.alert = 'You said the information was "' + answer + '".';
+      .then(function (editedContact) {
+
+        console.log(editedContact);
+
       }, function () {
         $scope.alert = 'You cancelled the dialog.';
       });
@@ -234,65 +266,144 @@ app.controller('View1Ctrl', ['$scope', '$log', '$mdDialog', '$compile', function
   };
 
   function ModalInstanceCtrl($scope, $mdDialog, contact) {
+
     $scope.contact = contact;
 
-    $scope.newPhone = {
-      type: '',
-      number: '',
-      primary: null
-    };
-
-    $scope.phoneTypes = [
+    $scope.types = [
       {type: 'Mobile'},
       {type: 'Home'},
       {type: 'Work'},
       {type: 'Other'}
     ];
 
-    $scope.newPhoneForm = [];
+
+    $scope.beforeReorder = function (e) {
 
 
-    $scope.addPhone = function () {
+      if (/demo-no-reorder/.test(e.target.className)) {
+        e.preventDefault();
+      }
+    };
 
-      if ($scope.newPhoneForm.length === 0) {
-        $scope.newPhoneForm.push({
-          id: 1,
-          newPhoneNumber: '',
-          phoneTypes: [
-            {type: 'Mobile'},
-            {type: 'Home'},
-            {type: 'Work'},
-            {type: 'Other'}
-          ]
-        });
-      } else {
-        $scope.newPhoneForm.push({
-          id: $scope.newPhoneForm.length + 1,
-          newPhoneNumber: '',
-          phoneTypes: [
-            {type: 'Mobile'},
-            {type: 'Home'},
-            {type: 'Work'},
-            {type: 'Other'}
-          ]
-        });
+    $scope.beforeSwipe = function (e) {
+      if (e.target.nodeName == 'INPUT' || /demo-no-swipe/.test(e.target.className)) {
+        e.preventDefault();
+      }
+    };
 
-        console.log($scope.newPhoneForm);
+    $scope.beforeWait = function (e) {
+      if (e.target.className.indexOf('instant') > -1) {
+        e.preventDefault();
+      }
+    };
 
+    $scope.afterSwipe = function (e) {
+      e.target.parentNode.appendChild(e.target);
+    };
+
+    $scope.reorder = function (e, spliceIndex, originalIndex, item) {
+      var scopeListItem;
+      if (item === 'phone') {
+        scopeListItem = $scope.contact.phone;
+      } else if (item === 'email') {
+        scopeListItem = $scope.contact.email;
+      }
+      var listItem = scopeListItem[originalIndex];
+      scopeListItem.splice(originalIndex, 1);
+      scopeListItem.splice(spliceIndex, 0, listItem);
+      for (var i = 0; i < scopeListItem.length; i++) {
+        if (i === 0) {
+          scopeListItem[i].primary = true;
+        } else {
+          scopeListItem[i].primary = false;
+        }
       }
 
+      console.error(scopeListItem);
 
+      return true;
     };
 
-    $scope.removeNewPhone = function (id) {
-      $scope.newPhoneForm = _.without($scope.newPhoneForm, _.findWhere($scope.newPhoneForm, {id: id}));
+    $scope.addPhoneAlert = false;
+    $scope.addEmailAlert = false;
+
+    $scope.phoneNumberPattern = (function() {
+      var regexp = /^\(?(\d{3})\)?[ .-]?(\d{3})[ .-]?(\d{4})$/;
+      return {
+        test: function(value) {
+          if( $scope.requireTel === false ) {
+            return true;
+          }
+          return regexp.test(value);
+        }
+      };
+    })();
+
+    $scope.addItem = function (item) {
+
+      var scopeAddListItem;
+
+      if (item === 'phone') {
+        scopeAddListItem = $scope.contact.phone;
+        for (var i = 0; i < scopeAddListItem.length; i++) {
+          if (!scopeAddListItem[i].number || !scopeAddListItem[i].type) {
+            $scope.addPhoneAlert = true;
+          }
+        }
+        if (scopeAddListItem.length === 0) {
+          scopeAddListItem.push({
+            type: '',
+            number: '',
+            primary: true
+          });
+        } else {
+          if (!$scope.addPhoneAlert) {
+            scopeAddListItem.push({
+              type: '',
+              number: '',
+              primary: false
+            });
+          }
+        }
+      } else if (item === 'email') {
+        scopeAddListItem = $scope.contact.email;
+        for (var i = 0; i < scopeAddListItem.length; i++) {
+          if (!scopeAddListItem[i].email || !scopeAddListItem[i].type) {
+            $scope.addEmailAlert = true;
+          }
+        }
+        if (scopeAddListItem.length === 0) {
+          scopeAddListItem.push({
+            type: '',
+            email: '',
+            primary: true
+          });
+        } else {
+          if (!$scope.addEmailAlert) {
+            scopeAddListItem.push({
+              type: '',
+              email: '',
+              primary: false
+            });
+          }
+        }
+      }
     };
 
-    $scope.clearValue = function (a) {
+    $scope.hideAlert = function (item) {
+      if (item === 'phone') {
+        $scope.addPhoneAlert = false;
+      } else if (item === 'email') {
+        $scope.addEmailAlert = false;
+      }
+    };
 
-      console.log(a);
-
-      //$scope.newPhoneForm = undefined;
+    $scope.removeItem = function (item, value) {
+      if (item === 'phone') {
+        $scope.contact.phone = _.without($scope.contact.phone, _.findWhere($scope.contact.phone, {number: value}));
+      } else if (item === 'email') {
+        $scope.contact.email = _.without($scope.contact.email, _.findWhere($scope.contact.email, {email: value}));
+      }
     };
 
     $scope.hide = function () {
@@ -302,8 +413,16 @@ app.controller('View1Ctrl', ['$scope', '$log', '$mdDialog', '$compile', function
       $mdDialog.cancel();
     };
 
-    $scope.ok = function (newPhone) {
-      $mdDialog.ok
+    $scope.save = function (contact) {
+
+      var editedContact = contact;
+      editedContact.phone = _.without(editedContact.phone, _.findWhere(editedContact.phone, {number: ''}));
+      editedContact.phone = _.without(editedContact.phone, _.findWhere(editedContact.phone, {type: ''}));
+      editedContact.email = _.without(editedContact.email, _.findWhere(editedContact.email, {email: ''}));
+      editedContact.email = _.without(editedContact.email, _.findWhere(editedContact.email, {type: ''}));
+
+      $mdDialog.hide(editedContact);
+
     };
 
     $scope.answer = function (answer) {
@@ -312,5 +431,39 @@ app.controller('View1Ctrl', ['$scope', '$log', '$mdDialog', '$compile', function
 
   }
 
-
 }]);
+
+app.directive('addressVerify', function ($modal) {
+  return {
+    require: 'ngModel',
+    scope: {
+      addressVerify: '='
+    },
+    link: function (scope, element, attrs, ctrl) {
+
+      // on focus show modal
+      element.bind('focus', function () {
+        showModal();
+      });
+
+      function showModal() {
+        scope.modalInstance = $modal.open({
+          templateUrl: 'app/views/modals/addressVerify.html',
+          size: 'lg',
+          scope: scope
+        });
+      }
+
+      scope.closeVerifyAddressModal = function (result, addressObj) {
+        ctrl.$setValidity('addressVerify', result);
+        if (result) {
+          scope.addressVerify = addressObj;
+        }
+        scope.modalInstance.dismiss('close');
+      };
+
+    }
+  };
+});
+
+

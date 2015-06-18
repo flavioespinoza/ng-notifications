@@ -1,0 +1,325 @@
+﻿<div class="form-container">
+    <div class="container-header"><span class="app-groupname">Purchasing</span><span class="app-groupname">Vendor</span><span class="app-name">Create Vendor</span><a class="app-name pull-right" href="" onclick="window.history.go(-1);"><span class="glyphicon glyphicon-backward">&nbsp;</span>Back</a></div>
+    <!--{{myVendor}}-->
+    <div class="container-content">
+        <form angular-validator-submit="SaveVendor()" novalidate name="createPartForm" angular-validator>
+            <!--General-->
+            <fieldset>
+                <legend class="legend-orange" ng-click="isCollapsePartMaintenance = !isCollapsePartMaintenance"><span class="glyphicon glyphicon-plus right-pad-10" ng-show="isCollapsePartMaintenance"></span><span class="glyphicon glyphicon-minus right-pad-10" ng-show="!isCollapsePartMaintenance"></span>General</legend>
+                <div collapse="isCollapsePartMaintenance">
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2 warp-sc-searchDiv-MinHeight">
+                        <label>Vendor#</label>
+                        <!--<input type="text" ng-model="createVendorInput.VendorModel" typeahead-on-select="PopulateVendor(createVendorInput.VendorModel,'Vendor')" class="form-control input-sm" placeholder="Type Vendor" typeahead-min-length="3" typeahead="obj as obj.vendorDisplayName for obj in AutoSuggestVendor($viewValue) | filter:$viewValue | limitTo:20" name="txtPlanner" typeahead-editable="false" invalid-message="'Invalid Username.'" />-->
+                        <input type="text" readonly="readonly" ng-model="createVendorInput.VendorId" class="form-control input-sm" typeahead-min-length="3" name="txtVendor" typeahead-editable="false" invalid-message="'Invalid Username.'" />
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2  warp-sc-searchDiv-MinHeight">
+                        <label class="mandatory">Vendor Name</label>
+                        <br />
+                        <input type="text" required name="txtVendorName" ng-model="createVendorInput.VendorName" class="form-control input-sm" />
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-1  warp-sc-searchDiv-MinHeight">
+                        <label class="mandatory">Status</label>
+                        <select class="selectHeight form-control input-sm" ng-model="createVendorInput.VendorStatusId" name="ddStatus" required ng-options="value.statusId as value.statusName for value in VendorStatuses">
+                            <option value=""> -Select- </option>
+                        </select>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2  warp-sc-searchDiv-MinHeight">
+                        <label class="mandatory">Vendor Type</label>
+                        <select class="form-control input-sm" ng-model="createVendorInput.VendorType" name="ddBusinessClass" required>
+                            <option value=""> -Select- </option>
+                            <option value="PhotoVolt">PhotoVolt</option>
+                            <option value="Inventory">Inventory</option>
+                            <option value="Electrical Equipment">Electrical Equipment</option>
+                            <option value="Mounting Hardware">Mounting Hardware</option>
+                            <option value="Manufacturing Raw Materials">Manufacturing Raw Materials</option>
+                            <option value="Manufacturing Consumables">Manufacturing Consumables</option>
+                            <option value="Manufacturing Semi Finished Goods">Manufacturing Semi Finished Goods</option>
+                            <option value="Manufacturing Equipment">Manufacturing Equipment</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2 warp-sc-searchDiv-MinHeight">
+                        <label>Parent Vendor</label>
+                        <input type="text" ng-model="createVendorInput.ParentVendorModel" typeahead-on-select="PopulateVendor(createVendorInput.ParentVendorModel,'ParentVendor')" class="form-control input-sm" placeholder="Type Parent Vendor" typeahead-min-length="3" typeahead="obj as obj.vendorDisplayName for obj in AutoSuggestVendor($viewValue) | filter:$viewValue | limitTo:20" name="txtParentVendor" typeahead-editable="false" />
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2  warp-sc-searchDiv-MinHeight">
+                        <label>Vendor Website</label>
+                        <input name="txtVendorWebsite" type="text" min="0" invalid-message="'should be non-negative'" ng-model="createVendorInput.VendorWebsite" class="form-control input-sm" />
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2  warp-sc-searchDiv-MinHeight">
+                        <label class="mandatory">Business Structure</label>
+                        <select class="form-control input-sm" ng-model="createVendorInput.BusinessStructure" name="ddBusinessStructure" ng-options="value.id as value.value for value in BusinessStructures" required>
+                            <option value=""> -Select- </option>
+                        </select>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2  warp-sc-searchDiv-MinHeight">
+                        <label>Business Class</label>
+                        <div id="ddBusinessClass" ng-dropdown-multiselect="" options="BusinessClasses" selected-model="createVendorInput.BusinessClass" extra-settings="businessClassSettings"></div>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2  warp-sc-searchDiv-MinHeight">
+                        <label class="mandatory">Business Type</label>
+                        <select class="form-control input-sm" ng-model="createVendorInput.BusinessType" name="ddBusinessType" required>
+                            <option value=""> -Select- </option>
+                            <option value="Manufacturer">Manufacturer</option>
+                            <option value="Distributor">Distributor</option>
+                            <option value="Retailer">Retailer</option>
+                            <option value="Service Provider">Service Provider</option>
+                            <option value="Subcontractor">Subcontractor</option>
+                            <option value="Government Agency">Government Agency</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2  warp-sc-searchDiv-MinHeight">
+                        <label>Region Served</label>
+                        <div id="ddRegionServed" ng-dropdown-multiselect="" options="Regions" selected-model="createVendorInput.RegionServed" extra-settings="regionServedSettings"></div>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2  warp-sc-searchDiv-MinHeight">
+                        <label>Solarcity Account Number</label>
+                        <input name="txtAccount" class="form-control input-sm" type="text" ng-model="createVendorInput.VendorAccountId" placeholder="Enter Account Number" />
+                    </div>
+
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2  warp-sc-searchDiv-MinHeight">
+                        <label>Year Founded</label>
+                        <input type="text" ng-model="createVendorInput.YearFounded" placeholder="Year Founded" class="form-control" name="txtYearFounded" />
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2  warp-sc-searchDiv-MinHeight">
+                        <label>NAICS Code</label>
+                        <input type="text" name="txtNAICSCode" ng-model="createVendorInput.NAICSCodeModel" typeahead-on-select="PopulateNAICSCode(createVendorInput.NAICSCodeModel)" class="form-control input-sm" placeholder="Type NAICS Code/Description" tooltip="Type NAICS Code/Description" typeahead-min-length="2" typeahead="obj as obj.displayName for obj in AutoSuggestNAICS($viewValue) | filter:$viewValue | limitTo:20" typeahead-editable="false" />
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-2  warp-sc-searchDiv-MinHeight">
+                        <label>INCO Terms</label>
+                        <select class="form-control input-sm" ng-model="createVendorInput.INCOTerms" name="ddINCOTerms" ng-options="value.id as value.value for value in INCOTermsList">
+                            <option value=""> -Select- </option>
+                        </select>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2  warp-sc-searchDiv-MinHeight">
+                        <label>DUNS Number</label>
+                        <input type="text" name="txtDunsNumber" placeholder="Enter DUNS Number" ng-model="createVendorInput.DUNSNumber" class="form-control" />
+                    </div>
+
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2  warp-sc-searchDiv-MinHeight">
+                        <label>Port Of Discharge</label>
+                        <input type="text" name="txtPortOfDischarge" placeholder="Enter Port Of Discharge" ng-model="createVendorInput.PortOfDischarge" class="form-control" />
+                    </div>
+                </div>
+            </fieldset>
+
+            <!--Contacts-->
+            <fieldset>
+                <legend class="legend-orange" ng-click="isCollapsePartMaintenanceOptions = !isCollapsePartMaintenanceOptions"><span class="glyphicon glyphicon-plus right-pad-10" ng-show="isCollapsePartMaintenanceOptions"></span><span class="glyphicon glyphicon-minus right-pad-10" ng-show="!isCollapsePartMaintenanceOptions"></span>Contacts</legend>
+                <div collapse="isCollapsePartMaintenanceOptions">
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2  warp-sc-searchDiv-MinHeight">
+                        <label>Primary Contact Name</label>
+                        <input type="text" name="txtPrimaryContactName" placeholder="Primary Contact Name" ng-model="createVendorInput.PrimaryContactName" class="form-control" />
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2  warp-sc-searchDiv-MinHeight">
+                        <label>Primary Contact Phone</label>
+                        <input type="text" name="txtPrimaryContactPhone" placeholder="Primary Contact Phone" ng-model="createVendorInput.PrimaryContactPhone" class="form-control" />
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2  warp-sc-searchDiv-MinHeight">
+                        <label>Primary Contact Email</label>
+                        <input type="text" name="txtPrimaryContactEmail" placeholder="Primary Contact Email" ng-model="createVendorInput.PrimaryContactEmail" class="form-control" />
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2  warp-sc-searchDiv-MinHeight">
+                        <label class="mandatory">AP Contact (SolarCity)</label>
+                        <input type="text" ng-model="createVendorInput.APContactModel" class="form-control input-sm" required placeholder="Type AP Contact" typeahead-min-length="3" typeahead="obj as obj.userName for obj in AutoSuggestUsers($viewValue) | filter:$viewValue | limitTo:20" typeahead-on-select="PopulateUser(createVendorInput.APContactModel,'APContact')" name="txtAPContact" typeahead-editable="false" invalid-message="'Invalid User.'" required />
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2 warp-sc-searchDiv-MinHeight">
+                        <label class="mandatory">Buyer (SolarCity)</label>
+                        <input type="text" ng-model="createVendorInput.BuyerModel" class="form-control input-sm" required placeholder="Type Buyer" typeahead-min-length="3" typeahead="obj as obj.userName for obj in AutoSuggestUsers($viewValue) | filter:$viewValue | limitTo:20" typeahead-on-select="PopulateUser(createVendorInput.BuyerModel,'Buyer')" name="txtBuyer" typeahead-editable="false" invalid-message="'Invalid User.'" required />
+                    </div>
+                </div>
+            </fieldset>
+
+            <!--Bank and Tax-->
+            <fieldset>
+                <!--{{createVendorInput}}-->
+                <legend class="legend-orange" ng-click="isCollapsePartMaintenanceOptions = !isCollapsePartMaintenanceOptions"><span class="glyphicon glyphicon-plus right-pad-10" ng-show="isCollapsePartMaintenanceOptions"></span><span class="glyphicon glyphicon-minus right-pad-10" ng-show="!isCollapsePartMaintenanceOptions"></span>Bank and Tax</legend>
+                <div collapse="isCollapsePartMaintenanceOptions">
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2  warp-sc-searchDiv-MinHeight">
+                        <label class="mandatory">Check Name</label>
+                        <input type="text" name="txtCheckName" required ng-model="createVendorInput.CheckName" class="form-control" />
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-1  warp-sc-searchDiv-MinHeight">
+                        <label class="mandatory">Tax Type</label>
+                        <select name="ddTaxType" required class="selectHeight form-control input-sm" ng-model="createVendorInput.TaxType" ng-options="value.id as value.value for value in TaxTypes">
+                            <option value="">-Select-</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2  warp-sc-searchDiv-MinHeight">
+                        <label class="mandatory">Tax Id</label>
+                        <input type="text" ng-model="createVendorInput.TaxId" class="form-control" name="txtTaxId" required />
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2 warp-sc-searchDiv-MinHeight">
+                        <label>Pay To Vendor</label>
+                        <input name="txtPayToVendor" type="text" ng-model="createVendorInput.PayToVendorModel" typeahead-on-select="PopulateVendor(createVendorInput.PayToVendorModel,'PayToVendor')" class="form-control input-sm" placeholder="Type pay to vendor" typeahead-min-length="3" typeahead="obj as obj.vendorDisplayName for obj in AutoSuggestVendor($viewValue) | filter:$viewValue | limitTo:20" name="txtPlanner" typeahead-editable="false" invalid-message="'Invalid Username.'" />
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2 warp-sc-searchDiv-MinHeight">
+                        <label class="mandatory">Payment Terms</label>
+                        <select class="form-control input-sm" ng-model="createVendorInput.PaymentTerms" name="ddBusinessStructure" ng-options="value.paymentTermId as value.paymentTerm for value in PaymentTermsData">
+                            <option value=""> -Select- </option>
+                        </select>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!--Shipping-->
+            <fieldset>
+                <legend class="legend-orange" ng-click="isCollapsePartCurrencyMaintenance = !isCollapsePartCurrencyMaintenance"><span class="glyphicon glyphicon-plus right-pad-10" ng-show="isCollapsePartCurrencyMaintenance"></span><span class="glyphicon glyphicon-minus right-pad-10" ng-show="!isCollapsePartCurrencyMaintenance"></span>Shipping</legend>
+                <div collapse="isCollapsePartCurrencyMaintenance">
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-1  warp-sc-searchDiv-MinHeight">
+                        <label>FOB Point</label>
+                        <select class="selectHeight form-control input-sm" ng-model="createVendorInput.FOBPoint" name="ddFOBPoint" required>
+                            <option value="None">None</option>
+                            <option value="Origin">Origin</option>
+                            <option value="Destination">Destination</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2  warp-sc-searchDiv-MinHeight">
+                        <label class="mandatory">Shipping Charges</label>
+                        <select class="selectHeight form-control input-sm" ng-model="createVendorInput.ShippingCharges" name="ddShippingCharges" required>
+                            <option value=""> -Select- </option>
+                            <option value="Included">Included</option>
+                            <option value="Pre-pay and add">Pre-pay and add</option>
+                            <option value="Third party bill">Third party bill</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-2  warp-sc-searchDiv-MinHeight">
+                        <label class="mandatory">Country Of Origin</label>
+                        <input type="text" ng-model="createVendorInput.CountryOfOriginModel" typeahead-on-select="PopulateAutoSuggest(createVendorInput.CountryOfOriginModel,'CountryOfOrigin')" class="form-control input-sm" placeholder="Type Country" typeahead-min-length="3" typeahead="obj as obj.country for obj in GetCountry($viewValue) | filter:$viewValue | limitTo:20" name="txtCountry" required typeahead-editable="false" invalid-message="'Invalid CountryName.'" />
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4  warp-sc-searchDiv-MinHeight">
+                        <label>
+                            Notes
+                        </label>
+                        <textarea type="text" ng-model="createVendorInput.Note" class="form-control" />
+                    </div>
+                </div>
+            </fieldset>
+            <!--{{vendorAddresses}}-->
+            <!--Address-->
+            <fieldset>
+                <legend class="legend-orange" ng-click="isCollapsePartResourcePlanningMaintenance = !isCollapsePartResourcePlanningMaintenance"><span class="glyphicon glyphicon-plus right-pad-10" ng-show="isCollapsePartResourcePlanningMaintenance"></span><span class="glyphicon glyphicon-minus right-pad-10" ng-show="!isCollapsePartResourcePlanningMaintenance"></span>Address</legend>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6  warp-sc-searchDiv-MinHeight" collapse="isCollapsePartResourcePlanningMaintenance">
+                    <div class="table-wrapper">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Action</th>
+                                    <th width="20%">Address Type</th>
+                                    <th>Full Address</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in vendorAddresses">
+                                    <td class="warp-RowEdit-Action-Column-Style">
+                                        <!--Save Edit Cancle button-->
+                                        <!--Edit--><span ng-hide="item.isEdit || EditModel.isEditEnabled" ng-click="item.isEdit=true;item.isChanged=true; EditItem(item);" class="glyphicon glyphicon-edit warp-RowEdit-glyphicon-green"></span><span ng-show="!item.isEdit && EditModel.isEditEnabled" class="glyphicon glyphicon-edit warp-RowEdit-glyphicon-disabled"></span>
+                                        <!--Reset--><span ng-show="item.isEdit" ng-click="ResetItem(item)" class="glyphicon glyphicon-floppy-remove warp-RowEdit-glyphicon-orange"></span><span ng-show="item.isEdit" class="warp-RowEdit-Divider-Style">|</span>
+                                        <!--Delete--><!--<span ng-hide="item.isEdit || EditModel.isEditEnabled" ng-click="DeletePOLine(item)" class="glyphicon glyphicon glyphicon glyphicon-remove warp-RowEdit-glyphicon-orange"></span>-->
+                                        <!--Save--><span ng-show="item.isEdit" ng-click="SaveItem(item)" class="glyphicon glyphicon-floppy-saved warp-RowEdit-glyphicon-green"></span>
+                                    <td>{{item.addressTypeName}}</td>
+                                    <td>
+                                        <span ng-hide="item.isEdit">{{item.googleAdress.fullAddressObject.formatted_address}}</span><input type="text" style="width:100% !important;" ng-show="item.isEdit" placeholder="Select Address" address-verify="item.googleAdress" ng-model="item.googleAdress.fullAddressObject.formatted_address">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </fieldset>
+            <div class="form-group center-align">
+                <button ng-show="true" ng-disabled="EditModel.isEditEnabled" type="submit" class="buttonClass">Save Vendor</button>
+                <br />
+            </div>
+            <br />
+            <br />
+        </form>
+    </div>
+
+    <!--Items-->
+    <fieldset ng-show="ScreenUIManager.IsItemVendorGridVisible && ItemVendors">
+        <legend class="legend-orange" ng-click="isCollapseItems = !isCollapseItems"><span class="glyphicon glyphicon-plus right-pad-10" ng-show="isCollapseItems"></span><span class="glyphicon glyphicon-minus right-pad-10" ng-show="!isCollapseItems"></span>Items</legend>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6  warp-sc-searchDiv-MinHeight" collapse="isCollapseItems">
+            <!--<input type="button" ng-click="openitem('lg',null)" value="+ Add New Item" />-->
+
+            <div class="table-wrapper">
+                <table class="table table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th>Item Number</th>
+                            <th>Vendor's Item Number</th>
+                            <th>Unit</th>
+                            <th>Lead Time</th>
+                            <th>Country Of Origin</th>
+                            <th>Warranty Days</th>
+                            <!--<th>City</th>
+                            <th>State</th>
+                            <th>Zip Code</th>-->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in ItemVendors">
+                            <td>{{item.displayItemNumber}}</td>
+                            <td>{{item.vendorItemNumber}}</td>
+                            <td>{{item.itemVendorOrderUnit}}</td>
+                            <td>{{item.leadTime}}</td>
+                            <td>{{item.countryOfOrigin}}</td>
+                            <td>{{item.warrantyDays}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </fieldset>
+    <script type="text/ng-template" id="myModalContent.html">
+        <style>
+            input.ng-invalid.ng-dirty {
+                background-color: linen;
+                border: 1px solid #ff0000;
+            }
+        </style>
+        <div class="modal-header alert-success">
+            <h3 class="modal-title">Assign Item to Vendor</h3>
+        </div>
+        <form angular-validator-submit="AssignItem()" novalidate name="assignVendor" angular-validator>
+            <div class="row" style="padding:15px;">
+                <legend class="scheduler-border" style="margin-top:20px;">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                        <label>Item Number</label>
+                        <div><input name="txtVendorItemNumber" required type="text" ng-model="ItemVendorFilter.ItemNumber" class="form-control input-sm" placeholder="Vendor Item Number" typeahead-min-length="3" typeahead-on-select="populateItem(ItemVendorFilter.ItemNumber)" typeahead="obj as obj.displayItemNumber for obj in AutoSuggestItem($viewValue) | filter:$viewValue | limitTo:20" /></div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                        <label>Vendor's Item Number</label>
+                        <div><input name="txtVendorItemNumber" required type="text" ng-model="ItemVendorFilter.VendorItemNumber" class="form-control input-sm" placeholder="Vendor Item Number" /></div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                        <label>Order Unit</label>
+                        <div>
+                            <select name="ddOrderUnit" required class="selectHeight form-control input-sm" ng-options="item.unitId as item.unitName for item in ItemUnits" ng-value="item.itemTypeId" ng-model="ItemVendorFilter.OrderUnit">
+                                <option value=""> -Select- </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                        <label>Lead Time</label>
+                        <div><input name="txtLeadTime" required type="text" ng-model="ItemVendorFilter.LeadTime" class="form-control input-sm" placeholder="Enter Lead Time" /></div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                        <label>Country of Origin</label>
+                        <div><input name="txtCountryOfOrigin" required type="text" ng-model="ItemVendorFilter.CountryOforigin" class="form-control input-sm" placeholder="Enter Country" /></div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                        <label>Warranty days</label>
+                        <div><input name="txtWarrantyDays" required type="text" ng-model="ItemVendorFilter.WarrantyDays" class="form-control input-sm" placeholder="Enter Warranty days" /></div>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" ng-hide="ItemVendorFilter.IsEdit" class="btn btn-success">Assign Item</button>
+                <button type="submit" ng-show="ItemVendorFilter.IsEdit" class="btn btn-success">Edit Vendor</button>
+                <input type="button" ng-show="ItemVendorFilter.IsEdit" class="btn btn-warning" value="Delete Vendor" ng-click="DeleteItemVendor()" confirm="Are you sure that you want to delete this Vendor from Item?" />
+                <input type="button" class="btn btn-warning" ng-click="cancel()" value="Cancel" />
+            </div>
+        </form>
+    </script>
+</div>
+
+</div>

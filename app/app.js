@@ -7,7 +7,9 @@ angular.module('myApp', [
   'myApp.view2',
   'myApp.version',
   'ui.bootstrap',
-  'ngMaterial'
+  'ngMaterial',
+  'slip',
+  'elasticsearch'
 ])
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/view1'});
