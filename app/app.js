@@ -16,14 +16,16 @@ angular.module('myApp', [
 ])
   .controller('MyAppCtrl', ['$scope', function ($scope) {
     $scope.menu = [
-      //{
-      //  title: 'View 1',
-      //  url: '/view1'
-      //},
-      //{
-      //  title: 'View 2',
-      //  url: '/view2'
-      //},
+      {
+        title: 'View 1',
+        url: '/view1',
+        icon: 'fa fa-envelope-o'
+      },
+      {
+        title: 'View 2',
+        url: '/view2',
+        icon: 'fa fa-bar-chart'
+      },
       {
         title: 'Notifications',
         url: '/notifications',
