@@ -1,19 +1,10 @@
 /**
  * Created by flavor on 6/24/15.
  */
-var app = angular.module('myApp.viewNotifications', []);
+var app = angular.module('myApp.notifications', []);
 
-app.controller('ViewNotificationsCtrl', ['$scope', '$http', '$parse', function ($scope, $http, $parse) {
-  //
-  //$http.get('user')
-  //  .success(function (data) {
-  //    $scope.user = data.user;
-  //  })
-  //  .error(function (err) {
-  //    console.log(err);
-  //  });
+app.controller('notificationsCtrl', ['$scope', '$http', '$parse', function ($scope, $http, $parse) {
 
-  
   $scope.userObj = {
     name: 'Ender Wiggin',
     title: 'PE Admin',
@@ -26,7 +17,6 @@ app.controller('ViewNotificationsCtrl', ['$scope', '$http', '$parse', function (
       value: val
     }
   });
-
 
   $scope.priorityList = [
     {title: 'Normal'},
@@ -41,7 +31,6 @@ app.controller('ViewNotificationsCtrl', ['$scope', '$http', '$parse', function (
     {title: 'Office', value: 'office'},
     {title: 'State', value: 'state'}
   ];
-
 
   $scope.notification = {
     composer: '',
@@ -114,7 +103,7 @@ app.controller('ViewNotificationsCtrl', ['$scope', '$http', '$parse', function (
 
         for (var i = 0; i < $scope.checkboxes.length; i++) {
           var obj = $scope.checkboxes[i];
-          
+
         }
 
         $scope.checkboxes[0].visible = true;

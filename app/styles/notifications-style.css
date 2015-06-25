@@ -44,6 +44,9 @@ label {
 #notificationInfo md-input-container {
   margin-right: 12px; }
 
+.foo {
+  color: red; }
+
 .md-button {
   min-width: 40px; }
 
@@ -290,4 +293,4 @@ md-dialog {
   #phoneNumbersSection .md-padding {
     padding: 6px; } }
 
-/*# sourceMappingURL=contacts.css.map */
+/*# sourceMappingURL=notifications-style.css.map */

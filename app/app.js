@@ -2,10 +2,8 @@
 
 angular.module('myApp', [
   'ngRoute',
-  'myApp.view1',
-  'myApp.view2',
+  'myApp.notifications',
   'myApp.d3Directives',
-  'myApp.viewNotifications',
   'myApp.viewAnalytics',
   'myApp.version',
   'ui.bootstrap',
@@ -17,17 +15,7 @@ angular.module('myApp', [
   .controller('MyAppCtrl', ['$scope', function ($scope) {
     $scope.menu = [
       {
-        title: 'View 1',
-        url: '/view1',
-        icon: 'fa fa-envelope-o'
-      },
-      {
-        title: 'View 2',
-        url: '/view2',
-        icon: 'fa fa-bar-chart'
-      },
-      {
-        title: 'Notifications',
+        title: 'notifications',
         url: '/notifications',
         icon: 'fa fa-envelope-o'
       },
@@ -42,17 +30,9 @@ angular.module('myApp', [
     $routeProvider.otherwise({redirectTo: '/notifications'});
 
     $routeProvider
-      .when('/view1', {
-        templateUrl: 'view1/view1.html',
-        controller: 'View1Ctrl'
-      })
-      .when('/view2', {
-        templateUrl: 'view2/view2.html',
-        controller: 'View2Ctrl'
-      })
       .when('/notifications', {
-        templateUrl: 'view-notifications/view-notifications.html',
-        controller: 'ViewNotificationsCtrl'
+        templateUrl: 'view-notifications/notifications.html',
+        controller: 'notificationsCtrl'
       })
       .when('/analytics', {
         templateUrl: 'view-analytics/view-analytics.html',
