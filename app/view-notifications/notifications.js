@@ -11,7 +11,7 @@ app.controller('notificationsCtrl', ['$scope', '$http', '$parse', function ($sco
     email: 'ender.wiggin@solarcity.com'
   };
 
-  $scope.composer = _.map($scope.userObj, function(val, key){
+  $scope.composer = _.map($scope.userObj, function (val, key) {
     return {
       title: key,
       value: val
@@ -26,10 +26,11 @@ app.controller('notificationsCtrl', ['$scope', '$http', '$parse', function ($sco
   ];
 
   $scope.recipientList = [
-    {title: 'All Employees', value: 'allEmployees'},
-    {title: 'Department', value: 'department'},
-    {title: 'Office', value: 'office'},
-    {title: 'State', value: 'state'}
+    {title: 'All Employees'},
+    {title: 'Department'},
+    {title: 'Office'},
+    {title: 'State'},
+    {title: 'Upload CSV'}
   ];
 
   $scope.notification = {
@@ -84,6 +85,13 @@ app.controller('notificationsCtrl', ['$scope', '$http', '$parse', function ($sco
         {title: 'AZ'},
         {title: 'UT'}
       ]
+    },
+    {
+      name: 'Upload CSV',
+      visible: false,
+      boxes: [
+        {title: '', checked: false}
+      ]
     }
   ];
 
@@ -93,31 +101,20 @@ app.controller('notificationsCtrl', ['$scope', '$http', '$parse', function ($sco
   };
 
   $scope.$watch(
-    function( $scope ) {
-      return($scope.recipient.selected);
-
+    function ($scope) {
+      return ($scope.recipient.selected);
     },
-    function( newValue ) {
-
-      if (newValue === 'All Employees'){
-
-        for (var i = 0; i < $scope.checkboxes.length; i++) {
-          var obj = $scope.checkboxes[i];
-
+    function (newValue) {
+      for (var i = 0; i < $scope.checkboxes.length; i++) {
+        for (var j = 0; j < $scope.checkboxes[i].boxes.length; j++) {
+          if ($scope.checkboxes[i].name === newValue) {
+            $scope.checkboxes[i].visible = true;
+          } else {
+            $scope.checkboxes[i].visible = false;
+            $scope.checkboxes[i].boxes[j].checked = false;
+          }
         }
-
-        $scope.checkboxes[0].visible = true;
-        $scope.checkboxes[1].visible = false;
-        $scope.checkboxes[2].visible = false;
-        $scope.checkboxes[3].visible = false;
-      } else if (newValue === 'Department'){
-        $scope.checkboxes[0].visible = false;
-        $scope.checkboxes[1].visible = true;
-        $scope.checkboxes[2].visible = false;
-        $scope.checkboxes[3].visible = false;
       }
-
-
     }
   );
 
@@ -142,6 +139,7 @@ app.controller('notificationsCtrl', ['$scope', '$http', '$parse', function ($sco
       message: notification.message,
       recipients: csvContent
     };
+    console.log($scope.notification);
   };
 
 

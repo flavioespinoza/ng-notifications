@@ -53,7 +53,7 @@
     <div class="panel-heading md-whiteframe-z1">
       <div class="panel-title">Recipients</div>
     </div>
-    <md-content layout-padding>
+    <md-content layout-padding layout="row" id="selectRecipient">
       <md-select placeholder="Recipients" ng-model="recipient.selected">
         <md-option ng-repeat="p in recipientList" value="{{p.title}}">{{p.title}}</md-option>
       </md-select>
@@ -62,7 +62,7 @@
         <div class="md-padding">
           <fieldset class="standard">
             <div layout="row" layout-wrap md-scroll-y flex>
-              <md-checkbox flex="15" layout="row" ng-repeat="b in checkboxes[0].boxes track by $index" ng-model="b.checked" aria-label="{{b.title}}">
+              <md-checkbox flex="50" layout="row" ng-repeat="b in checkboxes[0].boxes track by $index" ng-model="b.checked" aria-label="{{b.title}}">
                 {{b.title}}
               </md-checkbox>
             </div>
@@ -74,7 +74,7 @@
         <div class="md-padding">
           <fieldset class="standard">
             <div layout="row" layout-wrap md-scroll-y flex>
-              <md-checkbox flex="15" layout="row" ng-repeat="b in checkboxes[1].boxes track by $index" ng-model="b.checked" aria-label="{{b.title}}">
+              <md-checkbox flex="20" layout="row" ng-repeat="b in checkboxes[1].boxes track by $index" ng-model="b.checked" aria-label="{{b.title}}">
                 {{b.title}}
               </md-checkbox>
             </div>
@@ -86,7 +86,7 @@
         <div class="md-padding">
           <fieldset class="standard">
             <div layout="row" layout-wrap md-scroll-y flex>
-              <md-checkbox flex="15" layout="row" ng-repeat="b in checkboxes[1].boxes track by $index" ng-model="b.checked" aria-label="{{b.title}}">
+              <md-checkbox flex="20" layout="row" ng-repeat="b in checkboxes[2].boxes track by $index" ng-model="b.checked" aria-label="{{b.title}}">
                 {{b.title}}
               </md-checkbox>
             </div>
@@ -94,29 +94,35 @@
         </div>
       </div>
 
-      <div ng-if="csv.content" class="block left">
-        <md-button class="md-raised md-primary" ng-click="sendToGroup(group)">SEND</md-button>
+      <div ng-show="checkboxes[3].visible">
+        <div class="md-padding">
+          <fieldset class="standard">
+            <div layout="row" layout-wrap md-scroll-y flex>
+              <md-checkbox flex="20" layout="row" ng-repeat="b in checkboxes[3].boxes track by $index" ng-model="b.checked" aria-label="{{b.title}}">
+                {{b.title}}
+              </md-checkbox>
+            </div>
+          </fieldset>
+        </div>
       </div>
+
+      <div ng-show="checkboxes[4].visible">
+        <md-content layout-padding>
+          <ng-csv-import
+              class="import"
+              content="csv.content"
+              header="true"
+              separator="false"
+              result="csv.result"></ng-csv-import>
+          <div ng-if="csv.content" class="block right">
+            <h3>List of Employee IDs</h3>
+            <div class="content"><pre>{{ csv.content }}</pre></div>
+            <md-button class="md-raised md-primary" ng-click="sendNotification(csv.result, notification, userObj)">SEND</md-button>
+          </div>
+      </div>
+
     </md-content>
   </div>
 
-  <!-- Upload Recipient CSV -->
-  <div class="panel panel-default md-whiteframe-z1">
-    <div class="panel-heading md-whiteframe-z1">
-      <div class="panel-title">Recipients</div>
-    </div>
-    <md-content layout-padding>
-      <ng-csv-import
-          class="import"
-          content="csv.content"
-          header="true"
-          separator="false"
-          result="csv.result"></ng-csv-import>
-      <div ng-if="csv.content" class="block left">
-        <h3>List of Employee IDs</h3>
-        <div class="content"><pre>{{ csv.content }}</pre></div>
-        <md-button class="md-raised md-primary" ng-click="sendNotification(csv.result, notification, userObj)">SEND</md-button>
-      </div>
-    </md-content>
-  </div>
+
 </section>
