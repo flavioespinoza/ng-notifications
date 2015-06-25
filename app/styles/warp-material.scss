@@ -10,16 +10,20 @@
   background-color: #fdb200;
 }
 
-%color-accent-active-bg {
-  background-color: rgba(255, 199, 0, 0.61);
+%color-accent-border {
+  border: 1px solid #fdb200 !important;
 }
 
 %color-accent-text {
-  color: #FFFFFF;
+  color: #fdb200 !important;
 }
 
-%color-text-dark {
-  color: #707070;
+%color-light-text {
+  color: #FFFFFF !important;
+}
+
+%color-dark-text {
+  color: #707070 !important;
 }
 
 .thumbnail > img,
@@ -216,7 +220,7 @@
 
 html {
   min-height: 100%;
-  background-image: linear-gradient(#e5e5e5, #ffffff);
+  background-image: none !important;
   background-color: #f9f9f9;
   background-size: cover;
   background-repeat: no-repeat;
@@ -346,7 +350,7 @@ html {
 #header nav ul li a, #header nav ul li button {
   font-weight: lighter;
   padding: 5px 10px;
-  @extend %color-text-dark;
+  @extend %color-dark-text;
   text-transform: capitalize;
   text-decoration: none !important;
   height: 30px;
@@ -364,7 +368,7 @@ html {
 #header nav ul li a:focus,
 #header nav ul li button:focus {
   outline: none;
-  @extend %color-text-dark;
+  @extend %color-dark-text;
 }
 
 #header nav ul:after {
@@ -489,7 +493,7 @@ html {
 }
 
 #header nav ul.main-header li a:hover {
-  @extend %color-text-dark;
+  @extend %color-dark-text;
 }
 
 #header nav ul.main-header li label {
@@ -497,7 +501,7 @@ html {
 }
 
 #header nav ul.collapsible-menu li:hover > a {
-  @extend %color-text-dark;
+  @extend %color-dark-text;
 }
 
 #header nav ul.collapsible-menu li ul {
@@ -531,8 +535,7 @@ html {
 }
 
 #header nav ul.collapsible-menu li ul li > a:hover {
-  @extend %color-primary-bg;
-  @extend %color-accent-text;
+  background-color: #eeeeee;
 }
 
 #header nav ul.collapsible-menu li ul li ul {
@@ -540,6 +543,7 @@ html {
   top: 0;
   left: 100%;
 }
+
 
 #header nav ul.collapsible-menu > li {
   border-left: none;
@@ -1183,7 +1187,7 @@ html {
   margin-right: -15px;
   padding: 5px 15px;
   margin-bottom: 5px;
-  @extend %color-accent-text;
+  @extend %color-light-text;
   @extend %color-primary-dark-bg;
   -moz-box-shadow: 0 3px 2px 0 rgba(0, 0, 0, 0.2);
   -webkit-box-shadow: 0 3px 2px 0 rgba(0, 0, 0, 0.2);
@@ -1191,7 +1195,7 @@ html {
 }
 
 .main-content .content-container .container-header {
-  @extend %color-text-dark;
+  @extend %color-dark-text;
 }
 
 .main-content .content-container .container-header .app-groupname:hover,
@@ -1252,30 +1256,30 @@ html {
 }
 
 .main-content ul.nav.nav-tabs {
-  border-bottom: 1px solid #3e9647;
+  border-bottom: 1px solid #00B675;
 }
 
 .main-content ul.nav.nav-tabs > li > a {
-  background-image: linear-gradient(#4bb756, #3e9647) !important;
-  background-color: #3e9647;
-  @extend %color-text-dark;
-  border: 1px solid #3e9647;
+  background-image: none !important;
+  background-color: #00B675;
+  @extend %color-dark-text;
+  border: 1px solid #00B675;
 }
 
 .main-content ul.nav.nav-tabs > li > a:hover {
-  background-image: linear-gradient(#3e9647, #4bb756) !important;
+  background-image: none !important;
   background-color: #4bb756;
 }
 
 .main-content ul.nav.nav-tabs > li.active > a {
   background-image: none !important;
   background-color: #FFFFFF;
-  color: #3e9647;
+  color: #00B675;
   border-bottom: 1px solid #FFFFFF;
 }
 
 .main-content .tab-content {
-  border: 1px solid #3e9647;
+  border: 1px solid #00B675;
   border-top: 0 none;
   padding-bottom: 20px;
 }
@@ -1288,7 +1292,7 @@ html {
 
 .main-content .app-groupname:after {
   content: " » ";
-  @extend %color-accent-text;
+  @extend %color-light-text;
 }
 
 .main-content legend {
@@ -1323,7 +1327,7 @@ html {
   @extend %color-accent-bg;
   border: 1px groove;
   background-image: none !important;
-  @extend %color-accent-text;
+  @extend %color-light-text;
   padding: 4px 12px 4px 12px;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
   text-transform: uppercase;
@@ -1362,7 +1366,7 @@ html {
   @extend %color-accent-bg;
   border: 1px groove;
   background-image: none !important;
-  @extend %color-accent-text;
+  @extend %color-light-text;
   padding: 4px 12px 4px 12px;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
   text-transform: uppercase;
@@ -1459,26 +1463,6 @@ html {
     float: left;
     width: 50%;
   }
-}
-
-.main-content .pagination .disabled span,
-.main-content .pagination .disabled a,
-.main-content .pagination .disabled a:hover,
-.main-content .pagination .disabled a:focus {
-  display: inline-block;
-  position: relative;
-  line-height: 32px;
-  border-radius: 2px;
-  font-weight: normal;
-  @extend %color-accent-bg;
-  font-size: 0.9em;
-  background-image: none !important;
-  @extend %color-text-dark;
-  padding: 4px 12px 4px 12px;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-  text-transform: uppercase;
-  margin-top: 12px;
-  margin-bottom: 12px;
 }
 
 .pagination > li:first-child > a, .pagination > li:first-child > span {
@@ -1853,33 +1837,40 @@ div div.control-group.controlgroup2 {
 }
 
 .table-wrapper {
-  overflow: hidden;
-  border: 1px solid transparent;
+  overflow: auto;
+  border: 1px solid #646464;
   border-top: 0 none;
   margin-bottom: 5px;
-  /* box-shadow: 0 1px 9px 0 rgba(0,0,0,.4); */
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
 }
 
 .table-wrapper .table {
   border: 0 none !important;
-  @extend %color-text-dark;
+  color: #000000;
   margin: 0;
   width: auto;
   min-width: 100%;
 }
 
+.table-wrapper .table thead {
+  background-image: none !important;
+  background-color: #a9a9a9;
+  font-weight: normal;
+  border: 0 none !important;
+  border-right: 1px solid #d3d3d3;
+}
+
 .table-wrapper .table thead th {
   border-bottom: 0 none !important;
   cursor: default;
-  @extend %color-text-dark;
+  color: #ffffff;
   text-shadow: none;
-  padding: 12px !important;
+  border-right: 1px solid #FFFFFF;
+  padding: 4px !important;
   font-size: small;
 }
 
 .table-wrapper .table thead th a {
-  @extend %color-accent-text;
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -1897,15 +1888,16 @@ div div.control-group.controlgroup2 {
 
 .table-wrapper .table thead .table-sub-header th {
   background-image: none;
-  background-color: #3e9647;
+  background-color: #f9f9f9;
 }
 
 .table-wrapper .table tbody td {
-  font-family: 'RobotoDraft', 'Roboto', 'Helvetica Neue, Helvetica, Arial', sans-serif;
+  border-right: 1px solid rgba(0, 0, 0, 0.075) !important;
+  font-weight: normal !important;
   font-size: small !important;
-  padding: 12px !important;
   white-space: nowrap !important;
 }
+
 
 .table-wrapper .table .table-hover > tbody > tr:hover > td,
 .table-wrapper .table .table-hover > tbody > tr:hover > th {
@@ -1923,11 +1915,11 @@ div div.control-group.controlgroup2 {
 }
 
 .table-wrapper .table tfoot {
-  background-color: #3e9647;
+  background-color: #f9f9f9;
 }
 
 .table-wrapper .table tfoot td {
-  @extend %color-text-dark;
+  color: #FFFFFF;
   font-size: small;
 }
 
@@ -1942,32 +1934,27 @@ div div.control-group.controlgroup2 {
   border-bottom: 0 none;
   background: none !important;
   background-image: none !important;
-  color: #3e9647;
+  color: #00B675;
   text-shadow: none;
-}
-
-.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
-  text-align: left;
-  padding: 1.6rem;
-  vertical-align: top;
-  border-top: 0;
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
 }
 
 .blue-links,
 .blue-links:hover {
-  color: #0645ad;
+  color: #00B675;
   font-weight: normal;
+}
+
+a {
+  color: #00B675;
+  text-decoration: none;
 }
 
 .pagination > .disabled > span,
 .pagination > .disabled > a,
 .pagination > .disabled > a:hover,
 .pagination > .disabled > a:focus {
-  /* border-color: #3e9647; */
-  color: #3e9647;
+  @extend %color-accent-border;
+  @extend %color-dark-text;
   font-weight: normal;
 }
 
@@ -1979,15 +1966,15 @@ div div.control-group.controlgroup2 {
   border-radius: 2px;
   font-weight: normal;
   font-size: 0.9em;
-  @extend %color-accent-bg;
   border: none;
   background-image: none !important;
-  @extend %color-accent-text;
   padding: 4px 12px 4px 12px;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
   text-transform: uppercase;
   margin-top: 12px;
   margin-bottom: 12px;
+  @extend %color-dark-text;
+  @extend %color-accent-border;
 }
 
 .pagination > .active > a,
@@ -1996,8 +1983,8 @@ div div.control-group.controlgroup2 {
 .pagination > .active > span:hover,
 .pagination > .active > a:focus,
 .pagination > .active > span:focus {
-  @extend %color-accent-active-bg;
-  @extend %color-accent-text;
+  @extend %color-accent-bg;
+  @extend %color-light-text;
 }
 
 label,
@@ -2154,9 +2141,9 @@ ul.dropdown-menu.ng-valid-date-disabled {
 
 ul.dropdown-menu.ng-valid-date th button,
 ul.dropdown-menu.ng-valid-date-disabled th button {
-  background-image: linear-gradient(#4bb756, #3e9647);
-  background-color: #3e9647;
-  @extend %color-text-dark;
+  background-image: none;
+  background-color: #00B675;
+  @extend %color-dark-text;
 }
 
 .modal-open .modal {
@@ -2290,20 +2277,20 @@ ul.dropdown-menu.ng-valid-date-disabled th button {
 }
 
 .job-costing-container {
-  border: 1px solid #3e9647;
+  border: 1px solid #00B675;
 }
 
 .job-costing-container div.header {
-  background-image: linear-gradient(#4bb756, #3e9647) !important;
-  background-color: #3e9647;
-  @extend %color-text-dark;
+  background-image: none;
+  background-color: #00B675;
+  @extend %color-dark-text;
   padding: 5px;
   height: 30px;
   line-height: 20px;
 }
 
 .job-costing-container div.header:hover {
-  background-image: linear-gradient(#3e9647, #4bb756) !important;
+  background-image: none;
   background-color: #4bb756;
 }
 
@@ -2558,12 +2545,12 @@ input[readonly].ng-valid-date {
 .cardHeader {
   background-color: #027FF4;
   font-size: 14pt;
-  @extend %color-text-dark;
+  @extend %color-dark-text;
   padding: 5px;
 }
 
 .cardClose {
-  @extend %color-text-dark;
+  @extend %color-dark-text;
   font-weight: bold;
   margin-right: 5px;
 }
@@ -2622,7 +2609,7 @@ input[readonly].ng-valid-date {
 }
 
 .green {
-  color: green;
+  color: #00B675;
 }
 
 .red {
@@ -2766,13 +2753,13 @@ div[ng-dropdown-multiselect] div button {
   padding: 5px 15px;
   margin: 0;
   font-weight: normal;
-  background-image: linear-gradient(#4bb756, #3e9647) !important;
-  background-color: #3e9647;
-  @extend %color-text-dark;
+  background-image: none !important;
+  background-color: #00B675;
+  @extend %color-dark-text;
 }
 
 .ifund-container .ifund-group .ifund-group-header label:hover {
-  background-image: linear-gradient(#3e9647, #4bb756) !important;
+  background-image: none !important;
   background-color: #4bb756;
 }
 
@@ -2782,7 +2769,7 @@ div[ng-dropdown-multiselect] div button {
   width: 100%;
   float: left !important;
   min-height: 200px;
-  border: 1px solid #3e9647;
+  border: 1px solid #00B675;
   padding: 20px;
 }
 
@@ -2864,32 +2851,32 @@ div[ng-dropdown-multiselect] div button {
 
 .ifund-container .ifund-group .ifund-list .ifund-list-tab label:hover {
   color: #ffffff;
-  background-image: linear-gradient(#ff6666, #d43f3a) !important;
+  background-image: none !important;
   background-color: #d43f3a;
   color: #FFFFFF;
 }
 
 .ifund-container .ifund-group .ifund-list .ifund-list-tab label:hover:hover {
-  background-image: linear-gradient(#d43f3a, #ff6666) !important;
+  background-image: none !important;
   background-color: #d0534f;
 }
 
-.ifund-container .ifund-group .ifund-list .ifund-list-tab label.state-green {
+.ifund-container .ifund-group .ifund-list .ifund-list-tab label.state-#00B675 {
   -moz-box-shadow: 0 1px 5px rgba(0, 109, 61, 0.5);
   -webkit-box-shadow: 0 1px 5px rgba(0, 109, 61, 0.5);
   box-shadow: 0 1px 5px rgba(0, 109, 61, 0.5);
   color: #006d3d;
 }
 
-.ifund-container .ifund-group .ifund-list .ifund-list-tab label.state-green:hover {
+.ifund-container .ifund-group .ifund-list .ifund-list-tab label.state-#00B675:hover {
   color: #ffffff;
-  background-image: linear-gradient(#4bb756, #3e9647) !important;
-  background-color: #3e9647;
+  background-image: none !important;
+  background-color: #00B675;
   color: #FFFFFF;
 }
 
-.ifund-container .ifund-group .ifund-list .ifund-list-tab label.state-green:hover:hover {
-  background-image: linear-gradient(#3e9647, #4bb756) !important;
+.ifund-container .ifund-group .ifund-list .ifund-list-tab label.state-#00B675:hover:hover {
+  background-image: none !important;
   background-color: #4bb756;
 }
 
@@ -2902,12 +2889,12 @@ div[ng-dropdown-multiselect] div button {
 
 .ifund-container .ifund-group .ifund-list .ifund-list-tab label.state-orange:hover {
   color: #ffffff;
-  background-image: linear-gradient(#fe8f04, #ffbb65) !important;
+  background-image: none !important;
   @extend %color-accent-bg;
 }
 
 .ifund-container .ifund-group .ifund-list .ifund-list-tab label.state-orange:hover:hover {
-  background-image: linear-gradient(#ffbb65, #fe8f04) !important;
+  background-image: none !important;
   background-color: #ffbb65;
 }
 
@@ -2937,11 +2924,11 @@ div[ng-dropdown-multiselect] div button {
   background-color: wheat !important;
 }
 
-.warp-RowEdit-glyphicon-green {
+.warp-RowEdit-glyphicon-#00B675 {
   font-size: 17px;
   cursor: pointer;
   float: right;
-  color: green;
+  color: #00B675;
 }
 
 .warp-RowEdit-glyphicon-orange {
@@ -2955,7 +2942,7 @@ div[ng-dropdown-multiselect] div button {
   font-size: 22px;
   cursor: pointer;
   float: right;
-  @extend %color-text-dark;
+  @extend %color-dark-text;
 }
 
 .warp-RowEdit-glyphicon-disabled {
@@ -2980,7 +2967,7 @@ label {
   margin-bottom: 0;
 }
 
-.warp-glyphicon-green {
+.warp-glyphicon-#00B675 {
   color: #DB4437;
   top: 0 !important;
 }
@@ -3039,22 +3026,22 @@ div.issueItemButton {
   border-bottom: 4px solid white;
   padding-bottom: 0px;
   margin-bottom: 8px;
-  @extend %color-text-dark;
+  @extend %color-dark-text;
 }
 
 .main-content .content-container .container-header .app-groupname, .main-content .content-container .container-header .app-name {
-  @extend %color-accent-text;
+  @extend %color-light-text;
   font-weight: normal;
   letter-spacing: 1px;
 }
 
 #header nav ul li[data-active="true"] a {
-  border-bottom: 4px solid green;
+  border-bottom: 4px solid #00B675;
 }
 
 .main-content .app-groupname:after {
   content: " > ";
-  @extend %color-accent-text;
+  @extend %color-light-text;
 
 }
 
@@ -3063,7 +3050,7 @@ input[type="button"] {
   background-color: darkgray;
   text-transform: capitalize;
   text-decoration: none;
-  @extend %color-text-dark;
+  @extend %color-dark-text;
   font-weight: normal;
   -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
@@ -3074,7 +3061,7 @@ input[type="button"] {
 }
 
 .table-wrapper .table thead th a {
-  @extend %color-accent-text;
+  @extend %color-light-text;
   text-decoration: none;
   font-weight: lighter;
   font-size: 12px;

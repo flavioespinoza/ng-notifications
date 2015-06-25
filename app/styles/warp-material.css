@@ -1,5 +1,5 @@
 @charset "UTF-8";
-.brand-background, #header .warp-header, #header nav ul.collapsible-menu li ul li > a:hover {
+.brand-background, #header .warp-header {
   background-color: #FFFFFF; }
 
 .main-content .content-container .container-header, .table-wrapper .table thead {
@@ -7,39 +7,39 @@
 
 .main-content button.buttonClass,
 .main-content input[type="button"], .main-content div.buttonClass,
-.main-content div.table-info, .main-content .pagination .disabled span,
-.main-content .pagination .disabled a,
-.main-content .pagination .disabled a:hover,
-.main-content .pagination .disabled a:focus, .pagination > li > a,
-.pagination > li > span, .ifund-container .ifund-group .ifund-list .ifund-list-tab label.state-orange:hover {
+.main-content div.table-info, .pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus, .ifund-container .ifund-group .ifund-list .ifund-list-tab label.state-orange:hover {
   background-color: #fdb200; }
 
-.pagination > .active > a,
-.pagination > .active > span,
-.pagination > .active > a:hover,
-.pagination > .active > span:hover,
-.pagination > .active > a:focus,
-.pagination > .active > span:focus {
-  background-color: rgba(255, 199, 0, 0.61); }
+.pagination > .disabled > span,
+.pagination > .disabled > a,
+.pagination > .disabled > a:hover,
+.pagination > .disabled > a:focus, .pagination > li > a,
+.pagination > li > span {
+  border: 1px solid #fdb200 !important; }
 
-#header nav ul.collapsible-menu li ul li > a:hover, .main-content .content-container .container-header, .main-content .app-groupname:after, .main-content button.buttonClass,
+.main-content .content-container .container-header, .main-content .app-groupname:after, .main-content button.buttonClass,
 .main-content input[type="button"], .main-content div.buttonClass,
-.main-content div.table-info, .table-wrapper .table thead th a, .pagination > li > a,
-.pagination > li > span, .pagination > .active > a,
+.main-content div.table-info, .pagination > .active > a,
 .pagination > .active > span,
 .pagination > .active > a:hover,
 .pagination > .active > span:hover,
 .pagination > .active > a:focus,
-.pagination > .active > span:focus, .main-content .content-container .container-header .app-groupname, .main-content .content-container .container-header .app-name {
-  color: #FFFFFF; }
+.pagination > .active > span:focus, .main-content .content-container .container-header .app-groupname, .main-content .content-container .container-header .app-name, .table-wrapper .table thead th a {
+  color: #FFFFFF !important; }
 
 #header nav ul li a, #header nav ul li button, #header nav ul li a:focus,
-#header nav ul li button:focus, #header nav ul.main-header li a:hover, #header nav ul.collapsible-menu li:hover > a, .main-content .content-container .container-header, .main-content ul.nav.nav-tabs > li > a, .main-content .pagination .disabled span,
-.main-content .pagination .disabled a,
-.main-content .pagination .disabled a:hover,
-.main-content .pagination .disabled a:focus, .table-wrapper .table, .table-wrapper .table thead th, .table-wrapper .table tfoot td, ul.dropdown-menu.ng-valid-date th button,
+#header nav ul li button:focus, #header nav ul.main-header li a:hover, #header nav ul.collapsible-menu li:hover > a, .main-content .content-container .container-header, .main-content ul.nav.nav-tabs > li > a, .pagination > .disabled > span,
+.pagination > .disabled > a,
+.pagination > .disabled > a:hover,
+.pagination > .disabled > a:focus, .pagination > li > a,
+.pagination > li > span, ul.dropdown-menu.ng-valid-date th button,
 ul.dropdown-menu.ng-valid-date-disabled th button, .job-costing-container div.header, .cardHeader, .cardClose, .ifund-container .ifund-group .ifund-group-header label, .warp-RowEdit-glyphicon-white, #header nav ul li[data-active="true"] a, #header nav ul li[data-active="true"] button, input[type="button"] {
-  color: #707070; }
+  color: #707070 !important; }
 
 .thumbnail > img,
 .thumbnail a > img,
@@ -195,7 +195,7 @@ ul.dropdown-menu.ng-valid-date-disabled th button, .job-costing-container div.he
     opacity: 1; } }
 html {
   min-height: 100%;
-  background-image: linear-gradient(#e5e5e5, #ffffff);
+  background-image: none !important;
   background-color: #f9f9f9;
   background-size: cover;
   background-repeat: no-repeat;
@@ -437,6 +437,9 @@ html {
   font-size: 12px;
   min-height: 30px;
   height: auto; }
+
+#header nav ul.collapsible-menu li ul li > a:hover {
+  background-color: #eeeeee; }
 
 #header nav ul.collapsible-menu li ul li ul {
   position: absolute;
@@ -997,25 +1000,25 @@ html {
     float: left;
     width: 100%; } }
 .main-content ul.nav.nav-tabs {
-  border-bottom: 1px solid #3e9647; }
+  border-bottom: 1px solid #00B675; }
 
 .main-content ul.nav.nav-tabs > li > a {
-  background-image: linear-gradient(#4bb756, #3e9647) !important;
-  background-color: #3e9647;
-  border: 1px solid #3e9647; }
+  background-image: none !important;
+  background-color: #00B675;
+  border: 1px solid #00B675; }
 
 .main-content ul.nav.nav-tabs > li > a:hover {
-  background-image: linear-gradient(#3e9647, #4bb756) !important;
+  background-image: none !important;
   background-color: #4bb756; }
 
 .main-content ul.nav.nav-tabs > li.active > a {
   background-image: none !important;
   background-color: #FFFFFF;
-  color: #3e9647;
+  color: #00B675;
   border-bottom: 1px solid #FFFFFF; }
 
 .main-content .tab-content {
-  border: 1px solid #3e9647;
+  border: 1px solid #00B675;
   border-top: 0 none;
   padding-bottom: 20px; }
 
@@ -1164,23 +1167,6 @@ html {
     padding-right: 15px;
     float: left;
     width: 50%; } }
-.main-content .pagination .disabled span,
-.main-content .pagination .disabled a,
-.main-content .pagination .disabled a:hover,
-.main-content .pagination .disabled a:focus {
-  display: inline-block;
-  position: relative;
-  line-height: 32px;
-  border-radius: 2px;
-  font-weight: normal;
-  font-size: 0.9em;
-  background-image: none !important;
-  padding: 4px 12px 4px 12px;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-  text-transform: uppercase;
-  margin-top: 12px;
-  margin-bottom: 12px; }
-
 .pagination > li:first-child > a, .pagination > li:first-child > span {
   margin-left: 0;
   border-bottom-left-radius: 2px;
@@ -1477,27 +1463,36 @@ div div.control-group.controlgroup2 {
     float: left;
     width: 50%; } }
 .table-wrapper {
-  overflow: hidden;
-  border: 1px solid transparent;
+  overflow: auto;
+  border: 1px solid #646464;
   border-top: 0 none;
-  margin-bottom: 5px;
-  /* box-shadow: 0 1px 9px 0 rgba(0,0,0,.4); */
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24); }
+  margin-bottom: 5px; }
 
 .table-wrapper .table {
   border: 0 none !important;
+  color: #000000;
   margin: 0;
   width: auto;
   min-width: 100%; }
 
+.table-wrapper .table thead {
+  background-image: none !important;
+  background-color: #a9a9a9;
+  font-weight: normal;
+  border: 0 none !important;
+  border-right: 1px solid #d3d3d3; }
+
 .table-wrapper .table thead th {
   border-bottom: 0 none !important;
   cursor: default;
+  color: #ffffff;
   text-shadow: none;
-  padding: 12px !important;
+  border-right: 1px solid #FFFFFF;
+  padding: 4px !important;
   font-size: small; }
 
 .table-wrapper .table thead th a {
+  color: #ffffff;
   text-decoration: none; }
 
 .table-wrapper .table thead th:last-child {
@@ -1511,12 +1506,12 @@ div div.control-group.controlgroup2 {
 
 .table-wrapper .table thead .table-sub-header th {
   background-image: none;
-  background-color: #3e9647; }
+  background-color: #f9f9f9; }
 
 .table-wrapper .table tbody td {
-  font-family: 'RobotoDraft', 'Roboto', 'Helvetica Neue, Helvetica, Arial', sans-serif;
+  border-right: 1px solid rgba(0, 0, 0, 0.075) !important;
+  font-weight: normal !important;
   font-size: small !important;
-  padding: 12px !important;
   white-space: nowrap !important; }
 
 .table-wrapper .table .table-hover > tbody > tr:hover > td,
@@ -1532,9 +1527,10 @@ div div.control-group.controlgroup2 {
   background-color: rgba(75, 183, 86, 0.2); }
 
 .table-wrapper .table tfoot {
-  background-color: #3e9647; }
+  background-color: #f9f9f9; }
 
 .table-wrapper .table tfoot td {
+  color: #FFFFFF;
   font-size: small; }
 
 .table-wrapper .table-width100 {
@@ -1547,29 +1543,22 @@ div div.control-group.controlgroup2 {
   border-bottom: 0 none;
   background: none !important;
   background-image: none !important;
-  color: #3e9647;
+  color: #00B675;
   text-shadow: none; }
-
-.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
-  text-align: left;
-  padding: 1.6rem;
-  vertical-align: top;
-  border-top: 0;
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease; }
 
 .blue-links,
 .blue-links:hover {
-  color: #0645ad;
+  color: #00B675;
   font-weight: normal; }
+
+a {
+  color: #00B675;
+  text-decoration: none; }
 
 .pagination > .disabled > span,
 .pagination > .disabled > a,
 .pagination > .disabled > a:hover,
 .pagination > .disabled > a:focus {
-  /* border-color: #3e9647; */
-  color: #3e9647;
   font-weight: normal; }
 
 .pagination > li > a,
@@ -1713,8 +1702,8 @@ ul.dropdown-menu.ng-valid-date-disabled {
 
 ul.dropdown-menu.ng-valid-date th button,
 ul.dropdown-menu.ng-valid-date-disabled th button {
-  background-image: linear-gradient(#4bb756, #3e9647);
-  background-color: #3e9647; }
+  background-image: none;
+  background-color: #00B675; }
 
 .modal-open .modal {
   display: block; }
@@ -1817,17 +1806,17 @@ ul.dropdown-menu.ng-valid-date-disabled th button {
     background-position: center;
     min-height: 800px !important; } }
 .job-costing-container {
-  border: 1px solid #3e9647; }
+  border: 1px solid #00B675; }
 
 .job-costing-container div.header {
-  background-image: linear-gradient(#4bb756, #3e9647) !important;
-  background-color: #3e9647;
+  background-image: none;
+  background-color: #00B675;
   padding: 5px;
   height: 30px;
   line-height: 20px; }
 
 .job-costing-container div.header:hover {
-  background-image: linear-gradient(#3e9647, #4bb756) !important;
+  background-image: none;
   background-color: #4bb756; }
 
 .half-page {
@@ -2081,7 +2070,7 @@ input[readonly].ng-valid-date {
   margin-top: -8px; }
 
 .green {
-  color: green; }
+  color: #00B675; }
 
 .red {
   color: red; }
@@ -2192,11 +2181,11 @@ div[ng-dropdown-multiselect] div button {
   padding: 5px 15px;
   margin: 0;
   font-weight: normal;
-  background-image: linear-gradient(#4bb756, #3e9647) !important;
-  background-color: #3e9647; }
+  background-image: none !important;
+  background-color: #00B675; }
 
 .ifund-container .ifund-group .ifund-group-header label:hover {
-  background-image: linear-gradient(#3e9647, #4bb756) !important;
+  background-image: none !important;
   background-color: #4bb756; }
 
 .ifund-container .ifund-group .ifund-list {
@@ -2205,7 +2194,7 @@ div[ng-dropdown-multiselect] div button {
   width: 100%;
   float: left !important;
   min-height: 200px;
-  border: 1px solid #3e9647;
+  border: 1px solid #00B675;
   padding: 20px; }
 
 .ifund-container .ifund-group .ifund-list .ifund-list-tab {
@@ -2273,28 +2262,28 @@ div[ng-dropdown-multiselect] div button {
 
 .ifund-container .ifund-group .ifund-list .ifund-list-tab label:hover {
   color: #ffffff;
-  background-image: linear-gradient(#ff6666, #d43f3a) !important;
+  background-image: none !important;
   background-color: #d43f3a;
   color: #FFFFFF; }
 
 .ifund-container .ifund-group .ifund-list .ifund-list-tab label:hover:hover {
-  background-image: linear-gradient(#d43f3a, #ff6666) !important;
+  background-image: none !important;
   background-color: #d0534f; }
 
-.ifund-container .ifund-group .ifund-list .ifund-list-tab label.state-green {
+.ifund-container .ifund-group .ifund-list .ifund-list-tab label.state-#00B675 {
   -moz-box-shadow: 0 1px 5px rgba(0, 109, 61, 0.5);
   -webkit-box-shadow: 0 1px 5px rgba(0, 109, 61, 0.5);
   box-shadow: 0 1px 5px rgba(0, 109, 61, 0.5);
   color: #006d3d; }
 
-.ifund-container .ifund-group .ifund-list .ifund-list-tab label.state-green:hover {
+.ifund-container .ifund-group .ifund-list .ifund-list-tab label.state-#00B675:hover {
   color: #ffffff;
-  background-image: linear-gradient(#4bb756, #3e9647) !important;
-  background-color: #3e9647;
+  background-image: none !important;
+  background-color: #00B675;
   color: #FFFFFF; }
 
-.ifund-container .ifund-group .ifund-list .ifund-list-tab label.state-green:hover:hover {
-  background-image: linear-gradient(#3e9647, #4bb756) !important;
+.ifund-container .ifund-group .ifund-list .ifund-list-tab label.state-#00B675:hover:hover {
+  background-image: none !important;
   background-color: #4bb756; }
 
 .ifund-container .ifund-group .ifund-list .ifund-list-tab label.state-orange {
@@ -2305,10 +2294,10 @@ div[ng-dropdown-multiselect] div button {
 
 .ifund-container .ifund-group .ifund-list .ifund-list-tab label.state-orange:hover {
   color: #ffffff;
-  background-image: linear-gradient(#fe8f04, #ffbb65) !important; }
+  background-image: none !important; }
 
 .ifund-container .ifund-group .ifund-list .ifund-list-tab label.state-orange:hover:hover {
-  background-image: linear-gradient(#ffbb65, #fe8f04) !important;
+  background-image: none !important;
   background-color: #ffbb65; }
 
 .ifund-container .ifund-group .ifund-list .ifund-list-tab .ifund-list-radio {
@@ -2331,11 +2320,11 @@ div[ng-dropdown-multiselect] div button {
 .warning-row > td {
   background-color: wheat !important; }
 
-.warp-RowEdit-glyphicon-green {
+.warp-RowEdit-glyphicon-#00B675 {
   font-size: 17px;
   cursor: pointer;
   float: right;
-  color: green; }
+  color: #00B675; }
 
 .warp-RowEdit-glyphicon-orange {
   font-size: 17px;
@@ -2366,7 +2355,7 @@ div[ng-dropdown-multiselect] div button {
 label {
   margin-bottom: 0; }
 
-.warp-glyphicon-green {
+.warp-glyphicon-#00B675 {
   color: #DB4437;
   top: 0 !important; }
 
@@ -2420,7 +2409,7 @@ div.issueItemButton {
   letter-spacing: 1px; }
 
 #header nav ul li[data-active="true"] a {
-  border-bottom: 4px solid green; }
+  border-bottom: 4px solid #00B675; }
 
 .main-content .app-groupname:after {
   content: " > "; }

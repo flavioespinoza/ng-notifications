@@ -1,13 +1,7 @@
 'use strict';
 
-var app = angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap', 'ngMaterial', 'slip', 'elasticsearch']);
+var app = angular.module('myApp.view1', []);
 
-app.config(['$routeProvider', function ($routeProvider) {
-  $routeProvider.when('/view1', {
-    templateUrl: 'view1/view1.html',
-    controller: 'View1Ctrl'
-  });
-}]);
 
 app.service('es', function (esFactory) {
   return esFactory({
@@ -17,7 +11,8 @@ app.service('es', function (esFactory) {
   });
 });
 
-app.controller('View1Ctrl', ['$scope', '$log', '$mdDialog', 'es', 'esFactory', function ($scope, $log, $mdDialog, es, esFactory) {
+app.controller('View1Ctrl', ['$scope', '$log', '$mdDialog', 'es', 'esFactory',
+  function ($scope, $log, $mdDialog, es, esFactory) {
 
   //$scope.contacts = [];
   //
