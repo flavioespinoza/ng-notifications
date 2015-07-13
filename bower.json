@@ -11,6 +11,17 @@
     "angular-loader": "1.2.x",
     "angular-mocks": "~1.2.x",
     "html5-boilerplate": "~4.3.0",
-    "underscore": "1.8.3"
+    "underscore": "1.8.3",
+    "bootstrap": "~3.3.5",
+    "jquery": "~2.1.4",
+    "angular-csv-import": "~0.0.16",
+    "elasticsearch": "~5.0.0",
+    "slip": "~1.2.0",
+    "angular-slip": "~1.0.5",
+    "ui-bootstrap": "~0.13.0",
+    "d3": "~3.5.6",
+    "angular-material": "~0.10.0",
+    "angular-bootstrap": "~0.13.0",
+    "font-awesome": "~4.3.0"
   }
 }

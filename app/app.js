@@ -5,7 +5,6 @@ angular.module('myApp', [
   'myApp.notifications',
   'myApp.d3Directives',
   'myApp.viewAnalytics',
-  'myApp.version',
   'ui.bootstrap',
   'ngMaterial',
   'slip',
@@ -13,6 +12,9 @@ angular.module('myApp', [
   'ngCsvImport'
 ])
   .controller('MyAppCtrl', ['$scope', function ($scope) {
+
+    $scope.title = 'ng-sandbox';
+
     $scope.menu = [
       {
         title: 'notifications',
