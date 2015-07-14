@@ -7,8 +7,8 @@
 .panel-heading .md-fab {
   background-color: #FF4081; }
 
-#launchPadSection, #launchPadModalSection, .app-container, body {
-  background-color: #e2e2e2; }
+.grey-bg, #launchPadSection, #launchPadModalSection, .app-container, body {
+  background-color: #e2e2e2 !important; }
 
 .panel-default > .panel-heading {
   color: white; }
@@ -22,11 +22,11 @@
 .md-select-menu-container.md-active {
   border: 1px solid #FF4081; }
 
-.foo {
-  position: relative;
-  width: 50%;
-  height: 40px;
-  background-color: red; }
+.white-bg {
+  background-color: white !important; }
+
+.red-bg {
+  background-color: red !important; }
 
 .btn {
   opacity: 0; }
@@ -51,13 +51,10 @@ label {
   min-width: 40px; }
 
 .md-close {
-  height: 40px;
-  width: 40px;
-  border-radius: 20px !important;
   font-size: 16px; }
 
 md-backdrop.md-opaque.md-default-theme {
-  background-color: rgba(0, 0, 0, 0.5) !important; }
+  background-color: rgba(0, 0, 0, 0.8) !important; }
 
 md-select-menu:not(.md-overflow) md-content {
   padding-top: 0;
@@ -336,6 +333,8 @@ md-dialog {
   position: relative;
   height: 48px;
   width: 20%;
+  padding-top: 4px;
+  padding-right: 6px;
   float: left; }
   #launchPadSection .notification-icon-trigger .fa-stack, #launchPadModalSection .notification-icon-trigger .fa-stack {
     width: 100%;
@@ -345,7 +344,7 @@ md-dialog {
     font-size: 56px;
     text-align: right; }
   #launchPadSection .notification-icon-trigger .fa-stack-1x, #launchPadModalSection .notification-icon-trigger .fa-stack-1x {
-    font-size: 36px;
+    font-size: 32px;
     text-align: right;
     padding-right: 12px; }
   #launchPadSection .notification-icon-trigger .fa-stack-1x-2, #launchPadModalSection .notification-icon-trigger .fa-stack-1x-2 {
@@ -363,14 +362,32 @@ md-dialog {
 #launchPadSection md-card-content, #launchPadModalSection md-card-content {
   padding: 12px; }
 #launchPadSection .modal-form, #launchPadModalSection .modal-form {
+  height: 100%;
   overflow: hidden; }
-#launchPadSection #footer, #launchPadModalSection #footer {
-  background-color: white; }
+#launchPadSection #modalHeader .md-toolbar-tools > h4, #launchPadSection #modalHeader .md-toolbar-tools > h2, #launchPadModalSection #modalHeader .md-toolbar-tools > h4, #launchPadModalSection #modalHeader .md-toolbar-tools > h2 {
+  width: 100%;
+  text-align: center;
+  color: white; }
+#launchPadSection #modalFooter, #launchPadModalSection #modalFooter {
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  padding: 12px; }
+  #launchPadSection #modalFooter h4, #launchPadModalSection #modalFooter h4 {
+    width: 100%;
+    text-align: center;
+    color: white; }
+
+#launchPadModalSection {
+  height: 100%; }
 
 md-dialog md-dialog-content {
   padding: 12px; }
 
 md-content.md-docs-dark-theme {
   background-color: transparent; }
+
+:focus {
+  outline-color: white !important; }
 
 /*# sourceMappingURL=notifications-style.css.map */

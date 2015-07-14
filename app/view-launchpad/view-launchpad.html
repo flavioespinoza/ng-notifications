@@ -1,3 +1,4 @@
+<!-- Launch Pad Landing Page -->
 <section id="launchPadSection">
   <md-list>
     <md-list-item ng-repeat="l in launchPad track by $index" class="md-whiteframe-z2">
@@ -21,17 +22,18 @@
   </md-list>
 </section>
 
+<!-- Notifications Modal -->
 <script type="text/ng-template" id="dialog1.tmpl.html">
   <md-dialog aria-label="NOTIFICATIONS" id="launchPadModalSection">
     <form class="modal-form">
-      <md-toolbar ng-class="{'md-warn': criticalMessages.length > 0}" md-theme="docs-dark">
+      <md-toolbar id="modalHeader" ng-class="{'md-warn': criticalMessages.length > 0}">
         <div class="md-toolbar-tools">
           <h4 ng-show="criticalMessages.length > 0">YOU HAVE CRITICAL NOTIFICATIONS</h4>
           <h2 ng-show="criticalMessages.length <= 0">YOUR NOTIFICATIONS</h2>
         </div>
       </md-toolbar>
       <md-dialog-content>
-        <md-card ng-repeat="m in messages | orderBy:'priority'" class="fx-fade-up fx-speed-1000 fx-trigger fx-easing-quad">
+        <md-card ng-repeat="m in messages | orderBy:'priority'" class="fx-zoom-normal fx-speed-800 fx-trigger fx-easing-quad">
           <md-card-content>
             <h2 class="md-title">{{m.title}}</h2>
             <p>
@@ -39,16 +41,21 @@
             </p>
           </md-card-content>
           <div class="md-actions" layout="row" layout-align="end center">
-            <md-button class="md-raised" ng-click="acknowledgeMessage(m, date)" ng-class="{'md-warn': m.priority == 'critical'}">
-              Acknowledge
+            <md-button class="md-raised grey-bg" ng-click="acknowledgeMessage(m, date)" ng-class="{'md-warn': m.priority == 'critical', 'md-fab md-mini': m.priority != 'critical'}">
+              <span ng-show="m.priority == 'critical'">Acknowledge</span>
+              <span ng-hide="m.priority == 'critical'">
+                <i class="fa fa-check"></i>
+              </span>
             </md-button>
           </div>
         </md-card>
       </md-dialog-content>
-      <div id="footer" class="md-actions" layout="row">
+      <div id="modalFooter" layout="row" ng-class="{'red-bg': criticalMessages.length > 0, '': criticalMessages.length <= 0}">
         <span flex></span>
-        <md-button ng-click="close()" ng-hide="criticalMessages.length > 0" class="md-raised md-primary">
-          CLOSE
+
+        <h4 ng-show="criticalMessages.length > 0">{{criticalMessagesInstructions}}</h4>
+        <md-button class="md-fab md-close" ng-click="close()" ng-hide="criticalMessages.length > 0" class="md-raised">
+          <i class="fa fa-close"></i>
         </md-button>
       </div>
     </form>

@@ -12,7 +12,7 @@
 }
 
 %color-light-bg {
-  background-color: #e2e2e2;
+  background-color: #e2e2e2 !important;
 }
 
 %text-color-light {
@@ -31,11 +31,14 @@
   border: 1px solid #FF4081;
 }
 
-.foo {
-  position: relative;
-  width: 50%;
-  height: 40px;
-  background-color: red;
+.white-bg {
+  background-color: white !important;
+}
+.grey-bg {
+  @extend %color-light-bg;
+}
+.red-bg {
+  background-color: red !important;
 }
 
 .btn {
@@ -72,14 +75,11 @@ label {
 }
 
 .md-close {
-  height: 40px;
-  width: 40px;
-  border-radius: 20px !important;
   font-size: 16px;
 }
 
 md-backdrop.md-opaque.md-default-theme {
-  background-color: rgba(0,0,0,0.5) !important;
+  background-color: rgba(0, 0, 0, 0.8) !important;
 }
 
 .md-select-menu-container.md-active {
@@ -105,8 +105,6 @@ md-list-item, md-list-item .md-list-item-inner {
 md-divider.md-default-theme {
   position: relative;
 }
-
-
 
 body .card-field,
 body .card-title,
@@ -411,9 +409,11 @@ md-dialog {
 }
 
 #launchPadSection, #launchPadModalSection {
+
   @extend %color-light-bg;
 
   md-list-item {
+
     position: relative;
     width: 100%;
     height: 84px;
@@ -464,6 +464,8 @@ md-dialog {
     position: relative;
     height: 48px;
     width: 20%;
+    padding-top: 4px;
+    padding-right: 6px;
     float: left;
     .fa-stack {
       width: 100%;
@@ -475,7 +477,7 @@ md-dialog {
       text-align: right;
     }
     .fa-stack-1x {
-      font-size: 36px;
+      font-size: 32px;
       text-align: right;
       padding-right: 12px;
     }
@@ -487,6 +489,7 @@ md-dialog {
       font-size: 56px;
     }
   }
+
   .notification-icon-trigger:focus {
     outline-color: white;
   }
@@ -505,14 +508,36 @@ md-dialog {
   }
 
   .modal-form {
+    height: 100%;
     overflow: hidden;
   }
 
-  #footer {
-    background-color: white;
+  #modalHeader {
+    .md-toolbar-tools > h4, .md-toolbar-tools > h2 {
+      width: 100%;
+      text-align: center;
+      color: white;
+    }
+  }
+
+  #modalFooter {
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    padding: 12px;
+    h4 {
+      width: 100%;
+      text-align: center;
+      color: white;
+    }
   }
 
 }
+
+#launchPadModalSection {
+  height: 100%;
+}
+
 
 md-dialog md-dialog-content {
   padding: 12px;
@@ -530,5 +555,6 @@ body {
   @extend %color-light-bg;
 }
 
-
-
+:focus {
+  outline-color: white !important;
+}
