@@ -3,50 +3,14 @@
  */
 var app = angular.module('myApp.viewLaunchPad', ['ngMaterial']);
 
-app.controller('ViewLaunchPadCtrl', ['$scope', '$window', '$mdDialog', '$timeout', '$q', function ($scope, $window, $mdDialog, $timeout, $q) {
+app.controller('ViewLaunchPadCtrl', ['$scope', '$window', '$mdDialog', 'PEMessagesService', function ($scope, $window, $mdDialog, PEMessagesService) {
 
-  var messages = [
-    {
-      id: 0,
-      acknowledged: false,
-      dateAcknowledged: '',
-      priority: 'normal',
-      title: 'Message Title',
-      msg: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.?'
-    },
-    {
-      id: 1,
-      acknowledged: false,
-      dateAcknowledged: '',
-      priority: 'normal',
-      title: 'Message Title',
-      msg: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquid blanditiis eveniet excepturi expedita ipsum iste molestiae, mollitia, necessitatibus ratione similique sunt ut? Alias aliquid blanditiis eveniet excepturi expedita ipsum iste molestiae, mollitia, necessitatibus ratione similique sunt ut'
-    },
-    {
-      id: 2,
-      acknowledged: false,
-      dateAcknowledged: '',
-      priority: 'normal',
-      title: 'Message Title',
-      msg: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquid blanditiis similique sunt ut?'
-    },
-    {
-      id: 3,
-      acknowledged: false,
-      dateAcknowledged: '',
-      priority: 'normal',
-      title: 'Message Title',
-      msg: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquid blanditiis eveniet excepturi expedita ipsum iste molestiae, mollitia, necessitatibus ratione similique sunt ut? eveniet excepturi expedita ipsum iste molestiae, mollitia, necessitatibus ratione'
-    },
-    {
-      id: 4,
-      acknowledged: false,
-      dateAcknowledged: '',
-      priority: 'normal',
-      title: 'Message Title',
-      msg: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquid blanditiis ut?'
-    }
-  ];
+  var messages = PEMessagesService.getCurrentMessages();
+  var allMessages = PEMessagesService.getAllMessages();
+
+  console.log('messages', messages);
+  console.log('allMessages', allMessages);
+
   $scope.messages = _.sortBy(messages, 'priority');
   $scope.criticalMessages = _.where(messages, {priority: 'critical'});
   $scope.launchPad = [
@@ -136,7 +100,7 @@ function DialogController($scope, $mdDialog, messages) {
       acknowledged.acknowledged = true;
       acknowledged.dateAcknowledged = _date;
       $scope.criticalMessages = _.without($scope.criticalMessages, _.findWhere($scope.criticalMessages, {id: _msg.id}));
-      //TODO: Add event listner to transition other cards smoothly upwards as the on that was clicked fades out
+      //TODO: Add event listener to transition other cards smoothly upwards as the on that was clicked fades out
     }
 
     $scope.messages = _.without($scope.messages, _.findWhere($scope.messages, {id: _msg.id}));

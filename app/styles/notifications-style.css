@@ -13,7 +13,7 @@
 .panel-default > .panel-heading {
   color: white; }
 
-.panel-body .card-field {
+.panel-body .card-field, #launchPadSection .md-subheader .md-subheader-inner, #launchPadModalSection .md-subheader .md-subheader-inner {
   color: #969696; }
 
 .primary, .items-slip .md-close, .items-slip .md-sort {
@@ -364,6 +364,13 @@ md-dialog {
 #launchPadSection .modal-form, #launchPadModalSection .modal-form {
   height: 100%;
   overflow: hidden; }
+#launchPadSection .start-date, #launchPadSection .due-date, #launchPadModalSection .start-date, #launchPadModalSection .due-date {
+  width: 50%;
+  float: left; }
+#launchPadSection .due-date, #launchPadModalSection .due-date {
+  text-align: right; }
+#launchPadSection .md-subheader .md-subheader-inner, #launchPadModalSection .md-subheader .md-subheader-inner {
+  padding: 0 0 12px 0; }
 #launchPadSection #modalHeader .md-toolbar-tools > h4, #launchPadSection #modalHeader .md-toolbar-tools > h2, #launchPadModalSection #modalHeader .md-toolbar-tools > h4, #launchPadModalSection #modalHeader .md-toolbar-tools > h2 {
   width: 100%;
   text-align: center;

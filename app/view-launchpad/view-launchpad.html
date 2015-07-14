@@ -12,7 +12,6 @@
       </div>
       <div class="notification-icon-trigger" ng-click="showMessages($event, messages)" ng-show="l.id === 'notifications'">
         <span class="fa-stack fa-lg" ng-show="l.id === 'notifications'">
-          <i class="fa fa-circle fa-stack-2x"></i>
           <i class="fa fa-inverse fa-stack-1x" ng-class="{'fa-stack-1x-2': messages.length > 9}">{{messages.length}}</i>
         </span>
         <span class="fa-stack fa-lg" ng-show="l.id === 'notifications' && criticalMessages.length > 0">
@@ -33,15 +32,17 @@
         </div>
       </md-toolbar>
       <md-dialog-content>
-        <md-card ng-repeat="m in messages | orderBy:'priority'" class="fx-zoom-normal fx-speed-800 fx-trigger fx-easing-quad">
+        <md-card ng-repeat="m in messages | orderBy:'priorityID'" class="fx-zoom-normal fx-speed-800 fx-trigger fx-easing-quad">
           <md-card-content>
+            <md-subheader class="start-date">Sent: {{m.startDate | date:'MMM d, yyyy'}}</md-subheader>
+            <md-subheader class="due-date">Due: {{m.endDate | date:'MMM d, yyyy'}}</md-subheader>
             <h2 class="md-title">{{m.title}}</h2>
             <p>
               {{m.msg}}
             </p>
           </md-card-content>
           <div class="md-actions" layout="row" layout-align="end center">
-            <md-button class="md-raised grey-bg" ng-click="acknowledgeMessage(m, date)" ng-class="{'md-warn': m.priority == 'critical', 'md-fab md-mini': m.priority != 'critical'}">
+            <md-button class="md-raised" ng-click="acknowledgeMessage(m, date)" ng-class="{'md-warn': m.priority == 'critical', 'md-fab md-mini grey-bg': m.priority != 'critical'}">
               <span ng-show="m.priority == 'critical'">Acknowledge</span>
               <span ng-hide="m.priority == 'critical'">
                 <i class="fa fa-check"></i>
@@ -52,7 +53,6 @@
       </md-dialog-content>
       <div id="modalFooter" layout="row" ng-class="{'red-bg': criticalMessages.length > 0, '': criticalMessages.length <= 0}">
         <span flex></span>
-
         <h4 ng-show="criticalMessages.length > 0">{{criticalMessagesInstructions}}</h4>
         <md-button class="md-fab md-close" ng-click="close()" ng-hide="criticalMessages.length > 0" class="md-raised">
           <i class="fa fa-close"></i>

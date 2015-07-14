@@ -223,7 +223,6 @@ md-divider {
 }
 
 
-
 #editContactModalFooter {
   position: relative;
   height: 48px;
@@ -511,6 +510,22 @@ md-dialog {
     height: 100%;
     overflow: hidden;
   }
+
+  .start-date, .due-date {
+    width: 50%;
+    float: left;
+  }
+
+  .due-date {
+    text-align: right;
+  }
+
+  .md-subheader .md-subheader-inner {
+    padding: 0 0 12px 0;
+    @extend %text-color-medium;
+  }
+
+
 
   #modalHeader {
     .md-toolbar-tools > h4, .md-toolbar-tools > h2 {
