@@ -2,50 +2,58 @@
 
 angular.module('myApp', [
   'ngRoute',
+  'myApp.viewLaunchPad',
   'myApp.notifications',
   'myApp.d3Directives',
-  'myApp.viewAnalytics',
   'ui.bootstrap',
   'ngMaterial',
+  'ngAnimate',
+  'ngFx',
   'slip',
   'elasticsearch',
   'ngCsvImport'
 ])
   .controller('MyAppCtrl', ['$scope', function ($scope) {
 
-    $scope.title = 'ng-sandbox';
+    $scope.title = 'PE Notifications';
 
     $scope.menu = [
       {
-        title: 'notifications',
-        url: '/notifications',
-        icon: 'fa fa-envelope-o'
+        title: 'Launch Pad',
+        url: '/launchpad',
+        icon: 'fa fa-rocket'
       },
       {
-        title: 'Analytics',
-        url: '/analytics',
-        icon: 'fa fa-bar-chart'
+        title: 'Notifications',
+        url: '/notifications',
+        icon: 'fa fa-envelope-o'
       }
     ]
+
   }])
   .config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.otherwise({redirectTo: '/notifications'});
+    $routeProvider.otherwise({redirectTo: '/launchpad'});
 
     $routeProvider
+      .when('/launchpad', {
+        templateUrl: 'view-launchpad/view-launchpad.html',
+        controller: 'ViewLaunchPadCtrl'
+      })
       .when('/notifications', {
         templateUrl: 'view-notifications/notifications.html',
         controller: 'notificationsCtrl'
-      })
-      .when('/analytics', {
-        templateUrl: 'view-analytics/view-analytics.html',
-        controller: 'ViewAnalyticsCtrl'
       });
 
   }])
   .config( function($mdThemingProvider){
     // Configure a dark theme with primary foreground yellow
     $mdThemingProvider.theme('docs-dark', 'default')
-      .primaryPalette('yellow')
-      .dark();
+      .primaryPalette('grey', {
+        'default': '700'
+      })
+      .accentPalette('purple', {
+        'default': '200' // use shade 200 for default, and keep all other shades the same
+      });
+
   });
 

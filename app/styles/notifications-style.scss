@@ -4,12 +4,15 @@
   color: #3F51B5
 }
 %color-primary-bg {
-  //background-color: #8AC542;
   background-color: #3F51B5;
 }
 
 %color-action-bg {
   background-color: #FF4081;
+}
+
+%color-light-bg {
+  background-color: #e2e2e2;
 }
 
 %text-color-light {
@@ -63,11 +66,6 @@ label {
     margin-right: 12px;
   }
 }
-
-.foo {
-  color: red;
-}
-
 
 .md-button {
   min-width: 40px;
@@ -250,7 +248,8 @@ md-divider {
 }
 
 md-dialog {
-  width: 50%;
+  width: 95%;
+  min-height: 95%;
   min-width: 320px;
   max-width: 640px;
 }
@@ -404,3 +403,132 @@ md-dialog {
   #phoneNumbersSection .md-padding {
     padding: 6px; }
 }
+
+//Launch Pad Styling
+
+#parentContentSection {
+  background-color: transparent;
+}
+
+#launchPadSection, #launchPadModalSection {
+  @extend %color-light-bg;
+
+  md-list-item {
+    position: relative;
+    width: 100%;
+    height: 84px;
+    margin-bottom: 6px;
+    padding: 12px;
+    background-color: white;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+
+    .md-avatar {
+      position: relative;
+      width: 64px;
+      height: 64px;
+      background-color: darkgrey;
+      color: white;
+      font-size: 24px;
+      text-align: center;
+      line-height: 62px;
+      float: left;
+      margin: 0;
+      -webkit-border-radius: 32px;
+      -moz-border-radius: 32px;
+      border-radius: 32px;
+    }
+
+    .md-list-item-text {
+      position: relative;
+      margin-left: 12px;
+      margin-top: 12px;
+      float: left;
+    }
+
+    #timeSheet {
+      background-color: red;
+    }
+
+  }
+
+  .go-to-url {
+    position: relative;
+    height: 64px;
+    width: 80%;
+    float: left;
+  }
+
+  .notification-icon-trigger {
+    position: relative;
+    height: 48px;
+    width: 20%;
+    float: left;
+    .fa-stack {
+      width: 100%;
+      line-height: 3em;
+      text-align: right;
+    }
+    .fa-stack-2x {
+      font-size: 56px;
+      text-align: right;
+    }
+    .fa-stack-1x {
+      font-size: 36px;
+      text-align: right;
+      padding-right: 12px;
+    }
+    .fa-stack-1x-2 {
+      font-size: 24px;
+      padding-right: 8px;
+    }
+    .fa-exclamation-triangle {
+      font-size: 56px;
+    }
+  }
+  .notification-icon-trigger:focus {
+    outline-color: white;
+  }
+
+  .md-actions {
+    border-top: 2px solid lightgray;
+  }
+
+  md-card {
+    margin: 0;
+    margin-bottom: 12px;
+  }
+
+  md-card-content {
+    padding: 12px;
+  }
+
+  .modal-form {
+    overflow: hidden;
+  }
+
+  #footer {
+    background-color: white;
+  }
+
+}
+
+md-dialog md-dialog-content {
+  padding: 12px;
+}
+
+.app-container {
+  @extend %color-light-bg;
+}
+
+md-content.md-docs-dark-theme {
+  background-color: transparent;
+}
+
+body {
+  @extend %color-light-bg;
+}
+
+
+

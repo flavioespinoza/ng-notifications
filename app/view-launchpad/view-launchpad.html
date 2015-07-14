@@ -1,0 +1,56 @@
+<section id="launchPadSection">
+  <md-list>
+    <md-list-item ng-repeat="l in launchPad track by $index" class="md-whiteframe-z2">
+      <div class="go-to-url" ng-click="goTo(l.url)">
+        <div id="{{l.id}}" class="md-avatar">
+          <i class="{{l.icon}}"></i>
+        </div>
+        <div class="md-list-item-text">
+          <h4>{{l.title}}</h4>
+        </div>
+      </div>
+      <div class="notification-icon-trigger" ng-click="showMessages($event, messages)" ng-show="l.id === 'notifications'">
+        <span class="fa-stack fa-lg" ng-show="l.id === 'notifications'">
+          <i class="fa fa-circle fa-stack-2x"></i>
+          <i class="fa fa-inverse fa-stack-1x" ng-class="{'fa-stack-1x-2': messages.length > 9}">{{messages.length}}</i>
+        </span>
+        <span class="fa-stack fa-lg" ng-show="l.id === 'notifications' && criticalMessages.length > 0">
+        </span>
+      </div>
+    </md-list-item>
+  </md-list>
+</section>
+
+<script type="text/ng-template" id="dialog1.tmpl.html">
+  <md-dialog aria-label="NOTIFICATIONS" id="launchPadModalSection">
+    <form class="modal-form">
+      <md-toolbar ng-class="{'md-warn': criticalMessages.length > 0}" md-theme="docs-dark">
+        <div class="md-toolbar-tools">
+          <h4 ng-show="criticalMessages.length > 0">YOU HAVE CRITICAL NOTIFICATIONS</h4>
+          <h2 ng-show="criticalMessages.length <= 0">YOUR NOTIFICATIONS</h2>
+        </div>
+      </md-toolbar>
+      <md-dialog-content>
+        <md-card ng-repeat="m in messages | orderBy:'priority'" class="fx-fade-up fx-speed-1000 fx-trigger fx-easing-quad">
+          <md-card-content>
+            <h2 class="md-title">{{m.title}}</h2>
+            <p>
+              {{m.msg}}
+            </p>
+          </md-card-content>
+          <div class="md-actions" layout="row" layout-align="end center">
+            <md-button class="md-raised" ng-click="acknowledgeMessage(m, date)" ng-class="{'md-warn': m.priority == 'critical'}">
+              Acknowledge
+            </md-button>
+          </div>
+        </md-card>
+      </md-dialog-content>
+      <div id="footer" class="md-actions" layout="row">
+        <span flex></span>
+        <md-button ng-click="close()" ng-hide="criticalMessages.length > 0" class="md-raised md-primary">
+          CLOSE
+        </md-button>
+      </div>
+    </form>
+  </md-dialog>
+</script>
