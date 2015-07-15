@@ -479,6 +479,7 @@ md-dialog {
       font-size: 32px;
       text-align: right;
       padding-right: 12px;
+      @extend %text-color-primary;
     }
     .fa-stack-1x-2 {
       font-size: 24px;
@@ -524,8 +525,6 @@ md-dialog {
     padding: 0 0 12px 0;
     @extend %text-color-medium;
   }
-
-
 
   #modalHeader {
     .md-toolbar-tools > h4, .md-toolbar-tools > h2 {

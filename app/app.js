@@ -11,7 +11,8 @@ angular.module('myApp', [
   'ngFx',
   'slip',
   'elasticsearch',
-  'ngCsvImport'
+  'ngCsvImport',
+  'firebase'
 ])
   .controller('MyAppCtrl', ['$scope', function ($scope) {
 

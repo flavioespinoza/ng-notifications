@@ -1,4 +1,4 @@
-.panel-body .card-title {
+.panel-body .card-title, #launchPadSection .notification-icon-trigger .fa-stack-1x, #launchPadModalSection .notification-icon-trigger .fa-stack-1x {
   color: #3F51B5; }
 
 .panel-default > .panel-heading {

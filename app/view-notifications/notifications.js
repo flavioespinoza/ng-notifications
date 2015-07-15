@@ -97,7 +97,6 @@ app.controller('notificationsCtrl', ['$scope', '$http', '$parse', function ($sco
 
   $scope.recipient = {
     selected: ''
-
   };
 
   $scope.$watch(

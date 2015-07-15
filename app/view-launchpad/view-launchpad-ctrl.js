@@ -8,8 +8,6 @@ app.controller('ViewLaunchPadCtrl', ['$scope', '$window', '$mdDialog', 'PEMessag
   var messages = PEMessagesService.getCurrentMessages();
   var allMessages = PEMessagesService.getAllMessages();
 
-  console.log('messages', messages);
-  console.log('allMessages', allMessages);
 
   $scope.messages = _.sortBy(messages, 'priority');
   $scope.criticalMessages = _.where(messages, {priority: 'critical'});
@@ -64,10 +62,21 @@ app.controller('ViewLaunchPadCtrl', ['$scope', '$window', '$mdDialog', 'PEMessag
         },
         clickOutsideToClose: false
       })
-      .then(function (answer) {
-        $scope.alert = 'You said the information was "' + answer + '".';
+      .then(function (response) {
+        console.log('response to send and callback', response);
+        return PEMessagesService.putAcknowledgedMessages(response)
+          .then(function (callback) {
+            console.log('callback', callback);
+
+            $scope.$watch('messages',
+              function() {
+                $scope.messages = response;
+                console.log('$scope.messages', $scope.messages);
+              });
+          });
+
       }, function () {
-        $scope.alert = 'You cancelled the dialog.';
+
       });
   };
 
@@ -82,37 +91,49 @@ app.controller('ViewLaunchPadCtrl', ['$scope', '$window', '$mdDialog', 'PEMessag
       $window.location.href = url;
     }
   };
-
 }]);
 
 function DialogController($scope, $mdDialog, messages) {
+
+  var responseMessageArray = messages;
 
   $scope.criticalMessagesInstructions = 'Read and acknowledge your critical messages to continue';
   $scope.date = moment().format();
   $scope.messages = _.sortBy(messages, 'priority');
   $scope.criticalMessages = _.where(messages, {priority: 'critical'});
 
-  $scope.acknowledgeMessage = function (_msg, _date) {
 
-    var acknowledged = _.findWhere($scope.criticalMessages, {id: _msg.id});
 
+
+  $scope.acknowledgeMessage = function (_msg) {
+
+    var _date = moment().format();
+
+    var acknowledged = _.findWhere(messages, {id: _msg.id});
     if (acknowledged) {
       acknowledged.acknowledged = true;
       acknowledged.dateAcknowledged = _date;
-      $scope.criticalMessages = _.without($scope.criticalMessages, _.findWhere($scope.criticalMessages, {id: _msg.id}));
+      acknowledged.statusID = 2;
+      acknowledged.status = 'Read';
+
+      console.log(acknowledged);
+
+      responseMessageArray[_.indexOf(_.findWhere(responseMessageArray, {id: acknowledged.id}))] = acknowledged;
+
+      $scope.messages = _.without($scope.messages, _.findWhere($scope.messages, {id: _msg.id}));
+      $scope.criticalMessages = _.without($scope.criticalMessages, _.findWhere($scope.criticalMessages, {id: _msg.id}))
       //TODO: Add event listener to transition other cards smoothly upwards as the on that was clicked fades out
     }
 
-    $scope.messages = _.without($scope.messages, _.findWhere($scope.messages, {id: _msg.id}));
 
     if ($scope.messages.length == 0) {
-      $mdDialog.hide();
+      $mdDialog.hide(responseMessageArray);
     }
 
   };
 
   $scope.close = function () {
-    $mdDialog.hide();
+    $mdDialog.hide(responseMessageArray);
   };
 }
 
