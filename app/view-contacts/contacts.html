@@ -1,0 +1,76 @@
+<section id="contactSection">
+
+  <!-- if there is an error, display its message -->
+  <div ng-if="error" class="alert alert-danger" role="alert">{{error.message}}</div>
+
+
+  <md-list>
+    <md-list-item ng-repeat="c in contacts track by $index">
+      <div class="panel panel-default md-whiteframe-z1">
+        <div class="panel-heading md-whiteframe-z1">
+          <div class="panel-title">{{c.name}}</div>
+          <button class="md-fab md-button md-mini" ng-click="editContact($event, c)">
+            <div>
+              <i class="fa fa-edit"></i>
+            </div>
+            <div class="md-ripple-container"></div>
+          </button>
+        </div>
+        <div class="panel-body">
+          <md-list>
+            <md-list-item>
+              <div class="card-title">Credit</div>
+              <div class="card-field">{{c.credit}}</div>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-list-item>
+              <div class="card-title">Property Relationship</div>
+              <div class="card-field">{{c.property_relationship}}</div>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-list-item>
+              <div class="card-title">Contracts Signed</div>
+              <div class="card-field" ng-repeat="t in c.contracts_signed track by $index">{{t.contract}}: {{t.position}}</div>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-list-item>
+              <div class="card-title">Relationships</div>
+              <div class="card-field" ng-repeat="r in c.relationships track by $index">{{r.relation}} {{r.person}}</div>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-list-item>
+              <div class="card-title">Phone</div>
+              <div class="card-field" ng-repeat="p in c.phone track by $index">
+                <div class="card-field-label" ng-class="{ 'primary': p.primary }">{{p.type}}</div>
+                <div class="card-field-input" ng-class="{ 'primary': p.primary }">{{p.number}}</div>
+              </div>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-list-item>
+              <div class="card-title">Email</div>
+              <div class="card-field" ng-repeat="e in c.email track by $index">
+                <div class="card-field-label" ng-class="{ 'primary': e.primary }">{{e.type}}</div>
+                <div class="card-field-input" ng-class="{ 'primary': e.primary }">{{e.email}}</div>
+              </div>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-list-item>
+              <div ng-repeat="a in c.address track by $index">
+                <div class="card-title">{{a.type}} Address</div>
+                <div class="card-field">
+                  <div>{{a.street}}</div>
+                  <div>{{a.city}}, {{a.state}} {{a.zipcode}}</div>
+                </div>
+              </div>
+            </md-list-item>
+          </md-list>
+        </div>
+      </div>
+    </md-list-item>
+  </md-list>
+</section>
+
+
+
+
+

@@ -1,4 +1,5 @@
-.panel-body .card-title, #launchPadSection .notification-icon-trigger .fa-stack-1x, #launchPadModalSection .notification-icon-trigger .fa-stack-1x {
+.panel-body .card-title, #launchPadSection .notification-icon-trigger .fa-stack-1x,
+#launchPadModalSection .notification-icon-trigger .fa-stack-1x {
   color: #3F51B5; }
 
 .panel-default > .panel-heading {
@@ -7,13 +8,15 @@
 .panel-heading .md-fab {
   background-color: #FF4081; }
 
-.grey-bg, #launchPadSection, #launchPadModalSection, .app-container, body {
+.grey-bg, #launchPadSection,
+#launchPadModalSection, .app-container, body {
   background-color: #e2e2e2 !important; }
 
 .panel-default > .panel-heading {
   color: white; }
 
-.panel-body .card-field, #launchPadSection .md-subheader .md-subheader-inner, #launchPadModalSection .md-subheader .md-subheader-inner {
+.panel-body .card-field, #launchPadSection .md-subheader .md-subheader-inner,
+#launchPadModalSection .md-subheader .md-subheader-inner {
   color: #969696; }
 
 .primary, .items-slip .md-close, .items-slip .md-sort {
@@ -37,6 +40,14 @@ label {
   margin-top: 12px;
   margin-bottom: -6px;
   font-weight: bold; }
+
+.solar-card {
+  background-color: #fff !important;
+  margin-bottom: 6px;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.14), 0 2px 2px 0 rgba(0, 0, 0, 0.098), 0 1px 5px 0 rgba(0, 0, 0, 0.084); }
+
+.md-avatar {
+  float: left; }
 
 .md-toolbar-tools,
 .shadow {
@@ -293,97 +304,127 @@ md-dialog {
 #parentContentSection {
   background-color: transparent; }
 
-#launchPadSection md-list-item, #launchPadModalSection md-list-item {
-  position: relative;
-  width: 100%;
-  height: 84px;
-  margin-bottom: 6px;
-  padding: 12px;
-  background-color: white;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px; }
-  #launchPadSection md-list-item .md-avatar, #launchPadModalSection md-list-item .md-avatar {
+#launchPadSection,
+#launchPadModalSection {
+  background-color: transparent;
+  min-width: 320px;
+  max-width: 640px;
+  margin: 0 auto; }
+  #launchPadSection md-list-item,
+  #launchPadModalSection md-list-item {
     position: relative;
-    width: 64px;
-    height: 64px;
-    background-color: darkgrey;
-    color: white;
-    font-size: 24px;
-    text-align: center;
-    line-height: 62px;
-    float: left;
-    margin: 0;
-    -webkit-border-radius: 32px;
-    -moz-border-radius: 32px;
-    border-radius: 32px; }
-  #launchPadSection md-list-item .md-list-item-text, #launchPadModalSection md-list-item .md-list-item-text {
-    position: relative;
-    margin-left: 12px;
-    margin-top: 12px;
-    float: left; }
-  #launchPadSection md-list-item #timeSheet, #launchPadModalSection md-list-item #timeSheet {
-    background-color: red; }
-#launchPadSection .go-to-url, #launchPadModalSection .go-to-url {
-  position: relative;
-  height: 64px;
-  width: 80%;
-  float: left; }
-#launchPadSection .notification-icon-trigger, #launchPadModalSection .notification-icon-trigger {
-  position: relative;
-  height: 48px;
-  width: 20%;
-  padding-top: 4px;
-  padding-right: 6px;
-  float: left; }
-  #launchPadSection .notification-icon-trigger .fa-stack, #launchPadModalSection .notification-icon-trigger .fa-stack {
     width: 100%;
-    line-height: 3em;
+    height: 84px;
+    margin-bottom: 6px;
+    padding: 12px;
+    background-color: white;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px; }
+    #launchPadSection md-list-item .md-avatar,
+    #launchPadModalSection md-list-item .md-avatar {
+      position: relative;
+      width: 64px;
+      height: 64px;
+      background-color: darkgrey;
+      color: white;
+      font-size: 24px;
+      text-align: center;
+      line-height: 62px;
+      float: left;
+      margin: 0;
+      -webkit-border-radius: 32px;
+      -moz-border-radius: 32px;
+      border-radius: 32px; }
+    #launchPadSection md-list-item .md-list-item-text,
+    #launchPadModalSection md-list-item .md-list-item-text {
+      position: relative;
+      margin-left: 12px;
+      margin-top: 12px;
+      float: left; }
+    #launchPadSection md-list-item #timeSheet,
+    #launchPadModalSection md-list-item #timeSheet {
+      background-color: red; }
+  #launchPadSection .go-to-url,
+  #launchPadModalSection .go-to-url {
+    position: relative;
+    height: 64px;
+    width: 80%;
+    float: left; }
+  #launchPadSection .notification-icon-trigger,
+  #launchPadModalSection .notification-icon-trigger {
+    position: relative;
+    height: 48px;
+    width: 20%;
+    padding-top: 4px;
+    padding-right: 6px;
+    float: left; }
+    #launchPadSection .notification-icon-trigger .fa-stack,
+    #launchPadModalSection .notification-icon-trigger .fa-stack {
+      width: 100%;
+      line-height: 3em;
+      text-align: right; }
+    #launchPadSection .notification-icon-trigger .fa-stack-2x,
+    #launchPadModalSection .notification-icon-trigger .fa-stack-2x {
+      font-size: 56px;
+      text-align: right; }
+    #launchPadSection .notification-icon-trigger .fa-stack-1x,
+    #launchPadModalSection .notification-icon-trigger .fa-stack-1x {
+      font-size: 32px;
+      text-align: right;
+      padding-right: 12px; }
+    #launchPadSection .notification-icon-trigger .fa-stack-1x-2,
+    #launchPadModalSection .notification-icon-trigger .fa-stack-1x-2 {
+      font-size: 24px;
+      padding-right: 8px; }
+    #launchPadSection .notification-icon-trigger .fa-exclamation-triangle,
+    #launchPadModalSection .notification-icon-trigger .fa-exclamation-triangle {
+      font-size: 56px; }
+  #launchPadSection .notification-icon-trigger:focus,
+  #launchPadModalSection .notification-icon-trigger:focus {
+    outline-color: white; }
+  #launchPadSection .md-actions,
+  #launchPadModalSection .md-actions {
+    border-top: 2px solid lightgray; }
+  #launchPadSection md-card,
+  #launchPadModalSection md-card {
+    margin: 0;
+    margin-bottom: 12px; }
+  #launchPadSection md-card-content,
+  #launchPadModalSection md-card-content {
+    padding: 12px; }
+  #launchPadSection .modal-form,
+  #launchPadModalSection .modal-form {
+    height: 100%;
+    overflow: hidden; }
+  #launchPadSection .start-date, #launchPadSection .due-date,
+  #launchPadModalSection .start-date,
+  #launchPadModalSection .due-date {
+    width: 50%;
+    float: left; }
+  #launchPadSection .due-date,
+  #launchPadModalSection .due-date {
     text-align: right; }
-  #launchPadSection .notification-icon-trigger .fa-stack-2x, #launchPadModalSection .notification-icon-trigger .fa-stack-2x {
-    font-size: 56px;
-    text-align: right; }
-  #launchPadSection .notification-icon-trigger .fa-stack-1x, #launchPadModalSection .notification-icon-trigger .fa-stack-1x {
-    font-size: 32px;
-    text-align: right;
-    padding-right: 12px; }
-  #launchPadSection .notification-icon-trigger .fa-stack-1x-2, #launchPadModalSection .notification-icon-trigger .fa-stack-1x-2 {
-    font-size: 24px;
-    padding-right: 8px; }
-  #launchPadSection .notification-icon-trigger .fa-exclamation-triangle, #launchPadModalSection .notification-icon-trigger .fa-exclamation-triangle {
-    font-size: 56px; }
-#launchPadSection .notification-icon-trigger:focus, #launchPadModalSection .notification-icon-trigger:focus {
-  outline-color: white; }
-#launchPadSection .md-actions, #launchPadModalSection .md-actions {
-  border-top: 2px solid lightgray; }
-#launchPadSection md-card, #launchPadModalSection md-card {
-  margin: 0;
-  margin-bottom: 12px; }
-#launchPadSection md-card-content, #launchPadModalSection md-card-content {
-  padding: 12px; }
-#launchPadSection .modal-form, #launchPadModalSection .modal-form {
-  height: 100%;
-  overflow: hidden; }
-#launchPadSection .start-date, #launchPadSection .due-date, #launchPadModalSection .start-date, #launchPadModalSection .due-date {
-  width: 50%;
-  float: left; }
-#launchPadSection .due-date, #launchPadModalSection .due-date {
-  text-align: right; }
-#launchPadSection .md-subheader .md-subheader-inner, #launchPadModalSection .md-subheader .md-subheader-inner {
-  padding: 0 0 12px 0; }
-#launchPadSection #modalHeader .md-toolbar-tools > h4, #launchPadSection #modalHeader .md-toolbar-tools > h2, #launchPadModalSection #modalHeader .md-toolbar-tools > h4, #launchPadModalSection #modalHeader .md-toolbar-tools > h2 {
-  width: 100%;
-  text-align: center;
-  color: white; }
-#launchPadSection #modalFooter, #launchPadModalSection #modalFooter {
-  position: absolute;
-  width: 100%;
-  bottom: 0px;
-  padding: 12px; }
-  #launchPadSection #modalFooter h4, #launchPadModalSection #modalFooter h4 {
+  #launchPadSection .md-subheader .md-subheader-inner,
+  #launchPadModalSection .md-subheader .md-subheader-inner {
+    padding: 0 0 12px 0; }
+  #launchPadSection #modalHeader .md-toolbar-tools > h4, #launchPadSection #modalHeader .md-toolbar-tools > h2,
+  #launchPadModalSection #modalHeader .md-toolbar-tools > h4,
+  #launchPadModalSection #modalHeader .md-toolbar-tools > h2 {
     width: 100%;
     text-align: center;
     color: white; }
+  #launchPadSection #modalFooter,
+  #launchPadModalSection #modalFooter {
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    padding: 12px; }
+    #launchPadSection #modalFooter h4,
+    #launchPadModalSection #modalFooter h4 {
+      width: 100%;
+      text-align: center;
+      color: white; }
 
 #launchPadModalSection {
   height: 100%; }
@@ -396,5 +437,30 @@ md-content.md-docs-dark-theme {
 
 :focus {
   outline-color: white !important; }
+
+#notificationsSection md-list-item .md-list-item-inner > .md-avatar:first-child, #notificationsSection md-list-item > .md-avatar:first-child {
+  width: 40px;
+  height: 40px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  margin-right: 16px;
+  border-radius: 50%;
+  box-sizing: content-box; }
+#notificationsSection .md-3-line .solar-card {
+  height: 80px;
+  text-overflow: ellipsis; }
+
+md-tabs-content-wrapper {
+  height: 90% !important;
+  background-color: pink; }
+
+md-tab-content {
+  overflow-x: hidden; }
+
+md-tabs:not(.md-no-tab-content):not(.md-dynamic-height) {
+  min-height: 600px !important; }
+
+md-tab-item {
+  width: 50% !important; }
 
 /*# sourceMappingURL=notifications-style.css.map */

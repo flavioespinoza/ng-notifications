@@ -1,0 +1,221 @@
+<md-dialog id="editContactModalSection">
+  <md-dialog-content class="sticky-container scroll-container">
+    <md-list>
+
+      <md-list-item id="editContactInfo">
+        <div class="panel panel-default md-whiteframe-z1">
+          <div class="panel-heading md-whiteframe-z1">
+            <div class="panel-title">Edit Contact</div>
+          </div>
+          <div class="panel-body">
+            <md-input-container>
+              <label>First Name</label>
+              <input type="text" ng-model="contact.firstName">
+            </md-input-container>
+            <md-input-container>
+              <label>Middle Name or Initial</label>
+              <input type="text" ng-model="contact.middleName">
+            </md-input-container>
+            <md-input-container>
+              <label>Last Name</label>
+              <input type="text" ng-model="contact.lastName">
+            </md-input-container>
+          </div>
+        </div>
+      </md-list-item>
+
+      <md-list-item id="editPhoneNumber">
+        <div class="panel panel-default md-whiteframe-z1">
+          <div class="panel-heading md-whiteframe-z1">
+            <div class="panel-title">Edit Phone</div>
+            <md-button class="md-fab md-button md-mini" ng-click="addItem('phone')" aria-label="Add Phone">
+              <i class="fa fa-plus"></i>
+            </md-button>
+          </div>
+          <section class="items-section panel-body">
+            <div ng-show="addPhoneAlert" class="add-alert alert-danger">
+              <div>You must enter the NUMBER & TYPE before you can add another phone number!</div>
+              <md-button class="md-raised md-primary pull-right" ng-click="hideAlert('phone')">GOT IT!</md-button>
+            </div>
+
+            <div class="md-padding" ng-class="{'fade-disabled': addPhoneAlert}">
+              <div class="md-subhead">Primary Phone</div>
+              <div class="items-slip slip-list"
+                   slip-before-reorder="beforeReorder($event)"
+                   slip-before-swipe="beforeSwipe($event)"
+                   slip-before-wait="beforeWait($event)"
+                   slip-after-swipe="afterSwipe($event)"
+                   slip-reorder="reorder($event, $spliceIndex, $originalIndex, 'phone')">
+                <div class="phone-list" ng-class="{'animate-repeat': !p.number}"
+                     ng-repeat="p in contact.phone track by $index" layout="row">
+                  <i class="fa fa-bars instant md-sort md-button"></i>
+                  <!-- Add Phone Number -->
+                  <md-input-container>
+                    <label>{{p.type}} Number</label>
+                    <input type="text" ng-model="p.number" ng-required="requireTel" ng-pattern="phoneNumberPattern">
+                  </md-input-container>
+                  <!-- Select Phone Type -->
+                  <md-select placeholder="{{p.type}}" ng-model="p.type">
+                    <md-option ng-repeat="t in types track by $index" value="{{t.type}}">{{t.type}}</md-option>
+                  </md-select>
+                  <!-- Remove Phone Number -->
+                  <i class="fa fa-times-circle md-close md-button" ng-click="removeItem('phone', p.number)"></i>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </md-list-item>
+
+      <md-list-item id="editEmail">
+        <div class="panel panel-default md-whiteframe-z1">
+          <div class="panel-heading md-whiteframe-z1">
+            <div class="panel-title">Edit Email</div>
+            <md-button class="md-fab md-button md-mini" ng-click="addItem('email')" aria-label="Add Item">
+              <i class="fa fa-plus"></i>
+            </md-button>
+          </div>
+          <section class="items-section panel-body">
+            <div ng-show="addEmailAlert" class="add-alert alert-danger">
+              <div>You must enter the EMAIL & TYPE before you can add another phone number!</div>
+              <md-button class="md-raised md-primary pull-right" ng-click="hideAlert('email')">GOT IT!</md-button>
+            </div>
+
+            <div class="md-padding" ng-class="{'fade-disabled': addEmailAlert}">
+              <div class="md-subhead">Primary Email</div>
+              <div class="items-slip slip-list"
+                   slip-before-reorder="beforeReorder($event)"
+                   slip-before-swipe="beforeSwipe($event)"
+                   slip-before-wait="beforeWait($event)"
+                   slip-after-swipe="afterSwipe($event)"
+                   slip-reorder="reorder($event, $spliceIndex, $originalIndex, 'email')">
+                <div class="phone-list" ng-class="{'animate-repeat': !e.email}"
+                     ng-repeat="e in contact.email track by $index" layout="row">
+                  <i class="fa fa-bars instant md-sort md-button"></i>
+                  <!-- Add Email -->
+                  <md-input-container>
+                    <label>{{e.type}} Number</label>
+                    <input type="text" ng-model="e.email">
+                  </md-input-container>
+                  <!-- Select Email Type -->
+                  <md-select placeholder="{{e.type}}" ng-model="e.type">
+                    <md-option ng-repeat="t in types track by $index" value="{{t.type}}">{{t.type}}</md-option>
+                  </md-select>
+                  <!-- Remove Email -->
+                  <i class="fa fa-times-circle md-close md-button" ng-click="removeItem('email', e.email)"></i>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </md-list-item>
+
+
+
+
+
+      <md-list-item id="editAddress">
+        <div class="panel panel-default md-whiteframe-z1">
+          <div class="panel-heading md-whiteframe-z1">
+            <div class="panel-title">Edit Address</div>
+            <md-button class="md-fab md-button md-mini" ng-click="addItem('email')" aria-label="Add Item">
+              <i class="fa fa-plus"></i>
+            </md-button>
+          </div>
+          <section class="items-section panel-body">
+
+            <div ng-show="addEmailAlert" class="add-alert alert-danger">
+              <div>You must complete the first one!</div>
+              <md-button class="md-raised md-primary pull-right" ng-click="hideAlert('email')">GOT IT!</md-button>
+            </div>
+
+            <div class="md-padding" ng-class="{'fade-disabled': addEmailAlert}">
+
+              <div class="md-subhead">Primary Address</div>
+
+              <div class="items-slip slip-list"
+                   slip-before-reorder="beforeReorder($event)"
+                   slip-before-swipe="beforeSwipe($event)"
+                   slip-before-wait="beforeWait($event)"
+                   slip-after-swipe="afterSwipe($event)"
+                   slip-reorder="reorder($event, $spliceIndex, $originalIndex, 'email')">
+                <div class="phone-list" ng-class="{'animate-repeat': !e.email}" ng-repeat="a in contact.address track by $index" layout="row">
+                  <i class="fa fa-bars instant md-sort md-button"></i>
+                  <!-- Add Email -->
+                  <md-list-item>
+                    <md-content layout-padding="">
+                      <form name="userForm">
+
+                        <div layout="" layout-sm="column">
+                          <md-input-container flex="">
+                            <label>Street</label>
+                            <input ng-model="a.street">
+                          </md-input-container>
+
+                          <md-imput-container>
+                            <md-select placeholder="{{a.type}}" ng-model="a.type">
+                              <md-option ng-repeat="t in types track by $index" value="{{t.type}}">{{t.type}}</md-option>
+                            </md-select>
+                          </md-imput-container>
+
+                        </div>
+
+
+                        <div layout="" layout-sm="column">
+                          <md-input-container flex="">
+                            <label>City</label>
+                            <input ng-model="a.city">
+                          </md-input-container>
+                          <md-input-container flex="">
+                            <label>State</label>
+                            <input ng-model="a.state">
+                          </md-input-container>
+                          <md-input-container flex="">
+                            <label>Postal Code</label>
+                            <input ng-model="a.zipcode">
+                          </md-input-container>
+
+                          <!-- Select Email Type -->
+
+                        </div>
+                      </form>
+                    </md-content>
+                  </md-list-item>
+
+                  <!-- Remove Email -->
+                  <i class="fa fa-times-circle md-close md-button" ng-click="removeItem('email', e.email)"></i>
+                </div>
+              </div>
+
+            </div>
+          </section>
+        </div>
+      </md-list-item>
+
+
+
+
+
+
+
+
+
+
+
+
+    </md-list>
+
+  </md-dialog-content>
+  <div class="md-actions" layout="row">
+    <span flex></span>
+    <md-button class="md-raised md-warn" ng-click="cancel()">CANCEL</md-button>
+    <md-button ng-click="save(contact)" class="md-raised md-primary">SAVE</md-button>
+  </div>
+</md-dialog>
+
+<script>
+
+</script>
+
+
+

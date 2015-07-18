@@ -54,8 +54,14 @@ label {
   margin-bottom: -6px;
   font-weight: bold;
 }
-
-
+.solar-card {
+  background-color: #fff !important;
+  margin-bottom: 6px;
+  box-shadow: 0 3px 1px -2px rgba(0,0,0,.14),0 2px 2px 0 rgba(0,0,0,.098),0 1px 5px 0 rgba(0,0,0,.084);
+}
+.md-avatar {
+  float: left;
+}
 .md-toolbar-tools,
 .shadow {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,.26);
@@ -407,7 +413,13 @@ md-dialog {
   background-color: transparent;
 }
 
-#launchPadSection, #launchPadModalSection {
+#launchPadSection,
+#launchPadModalSection {
+
+  background-color: transparent;
+  min-width: 320px;
+  max-width: 640px;
+  margin: 0 auto;
 
   @extend %color-light-bg;
 
@@ -552,7 +564,6 @@ md-dialog {
   height: 100%;
 }
 
-
 md-dialog md-dialog-content {
   padding: 12px;
 }
@@ -571,4 +582,35 @@ body {
 
 :focus {
   outline-color: white !important;
+}
+
+#notificationsSection {
+  md-list-item .md-list-item-inner>.md-avatar:first-child, md-list-item>.md-avatar:first-child {
+    width: 40px;
+    height: 40px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    margin-right: 16px;
+    border-radius: 50%;
+    box-sizing: content-box;
+  }
+  .md-3-line .solar-card {
+    height: 80px;
+    text-overflow: ellipsis;
+  }
+}
+
+md-tabs-content-wrapper {
+  height: 90% !important;
+  background-color: pink;
+}
+md-tab-content {
+  overflow-x: hidden;
+}
+md-tabs:not(.md-no-tab-content):not(.md-dynamic-height) {
+  min-height: 600px !important;
+}
+
+md-tab-item {
+  width: 50% !important;
 }

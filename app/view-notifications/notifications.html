@@ -1,128 +1,14 @@
-<section id="notificationsSection" layout="column">
-
-  <!-- Composer -->
-  <div class="panel panel-default md-whiteframe-z1">
-    <div class="panel-heading md-whiteframe-z1">
-      <div class="panel-title">Composer</div>
-    </div>
-    <md-content md-theme="docs-dark" layout-padding layout="row" layout-sm="column">
-      <md-input-container ng-repeat="c in composer track by $index">
-        <label>{{c.title}}</label>
-        <input ng-model="c.value">
-      </md-input-container>
-    </md-content>
-  </div>
-
-  <!-- Notification -->
-  <div class="panel panel-default md-whiteframe-z1">
-    <div class="panel-heading md-whiteframe-z1">
-      <div class="panel-title">Notification</div>
-    </div>
-    <md-content layout-padding>
-      <form name="notificationInfoForm">
-        <h1 class="md-title">Enter Notification Info</h1>
-        <div id="notificationInfo" layout="row">
-          <md-input-container id="notificationTitle">
-            <label>Notification Title</label>
-            <input ng-model="notification.title" type="text" md-maxlength="32"/>
-          </md-input-container>
-          <md-input-container>
-            <label>Start Date</label>
-            <input ng-model="notification.startDate" type="date"/>
-          </md-input-container>
-          <md-input-container>
-            <label>End Date</label>
-            <input ng-model="notification.endDate" type="date"/>
-          </md-input-container>
-          <md-select placeholder="Priority" ng-model="notification.priority">
-            <md-option ng-repeat="p in priorityList" value="{{p.title}}">{{p.title}}</md-option>
-          </md-select>
-        </div>
-      </form>
-      <form name="notificationForm">
-        <md-input-container flex>
-          <label>Notification</label>
-          <textarea ng-model="notification.message" columns="1" md-maxlength="350"></textarea>
-        </md-input-container>
-      </form>
-    </md-content>
-  </div>
-
-  <!-- Select Recipient Group -->
-  <div class="panel panel-default md-whiteframe-z1">
-    <div class="panel-heading md-whiteframe-z1">
-      <div class="panel-title">Recipients</div>
-    </div>
-    <md-content layout-padding layout="row" id="selectRecipient">
-      <md-select placeholder="Recipients" ng-model="recipient.selected">
-        <md-option ng-repeat="p in recipientList" value="{{p.title}}">{{p.title}}</md-option>
-      </md-select>
-
-      <div ng-show="checkboxes[0].visible">
-        <div class="md-padding">
-          <fieldset class="standard">
-            <div layout="row" layout-wrap md-scroll-y flex>
-              <md-checkbox flex="50" layout="row" ng-repeat="b in checkboxes[0].boxes track by $index" ng-model="b.checked" aria-label="{{b.title}}">
-                {{b.title}}
-              </md-checkbox>
-            </div>
-          </fieldset>
-        </div>
+<section id="notificationsSection" layout="column" style="background-color: transparent; width: 640px; margin: 0 auto;">
+  <md-list>
+    <md-list-item class="md-3-line solar-card" ng-repeat="m in allMessages | orderBy:'priorityID'">
+      <img ng-src="images/omnom.jpg" class="md-avatar" alt="Omnom"/>
+      <div class="md-list-item-text">
+        <h3>{{ m.title }}</h3>
+        <h4>{{m.startDate | date:'MMM d, yyyy'}}</h4>
+        <p>{{ m.msg }}</p>
       </div>
-
-      <div ng-show="checkboxes[1].visible">
-        <div class="md-padding">
-          <fieldset class="standard">
-            <div layout="row" layout-wrap md-scroll-y flex>
-              <md-checkbox flex="20" layout="row" ng-repeat="b in checkboxes[1].boxes track by $index" ng-model="b.checked" aria-label="{{b.title}}">
-                {{b.title}}
-              </md-checkbox>
-            </div>
-          </fieldset>
-        </div>
-      </div>
-
-      <div ng-show="checkboxes[2].visible">
-        <div class="md-padding">
-          <fieldset class="standard">
-            <div layout="row" layout-wrap md-scroll-y flex>
-              <md-checkbox flex="20" layout="row" ng-repeat="b in checkboxes[2].boxes track by $index" ng-model="b.checked" aria-label="{{b.title}}">
-                {{b.title}}
-              </md-checkbox>
-            </div>
-          </fieldset>
-        </div>
-      </div>
-
-      <div ng-show="checkboxes[3].visible">
-        <div class="md-padding">
-          <fieldset class="standard">
-            <div layout="row" layout-wrap md-scroll-y flex>
-              <md-checkbox flex="20" layout="row" ng-repeat="b in checkboxes[3].boxes track by $index" ng-model="b.checked" aria-label="{{b.title}}">
-                {{b.title}}
-              </md-checkbox>
-            </div>
-          </fieldset>
-        </div>
-      </div>
-
-      <div ng-show="checkboxes[4].visible">
-        <md-content layout-padding>
-          <ng-csv-import
-              class="import"
-              content="csv.content"
-              header="true"
-              separator="false"
-              result="csv.result"></ng-csv-import>
-          <div ng-if="csv.content" class="block right">
-            <h3>List of Employee IDs</h3>
-            <div class="content"><pre>{{ csv.content }}</pre></div>
-            <md-button class="md-raised md-primary" ng-click="sendNotification(csv.result, notification, userObj)">SEND</md-button>
-          </div>
-      </div>
-
-    </md-content>
-  </div>
-
-
+    </md-list-item>
+    <md-divider></md-divider>
+  </md-list>
+  <md-list>
 </section>

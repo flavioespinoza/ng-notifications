@@ -6,134 +6,66 @@ var app = angular.module('myApp.viewLaunchPad', ['ngMaterial']);
 app.controller('ViewLaunchPadCtrl', ['$scope', '$window', '$mdDialog', 'PEMessagesService', function ($scope, $window, $mdDialog, PEMessagesService) {
 
   var messages = PEMessagesService.getCurrentMessages();
-  var allMessages = PEMessagesService.getAllMessages();
-
 
   $scope.messages = _.sortBy(messages, 'priority');
   $scope.criticalMessages = _.where(messages, {priority: 'critical'});
-  $scope.launchPad = [
+
+  $scope.notificationButton = [
     {
       id: 'notifications',
       title: 'Notifications',
       icon: 'fa fa-bullhorn',
       url: 'messageCount'
-    },
+    }
+  ];
+
+  $scope.launchPad = [
     {
       id: 'timeSheet',
       title: 'Time Sheet',
       icon: 'fa fa-pencil-square-o',
-      url: '#'
+      url: 'TimeSheet.html#pageTimeSheetCrewList'
     },
     {
       id: 'pay',
       title: 'Pay',
       icon: 'fa fa-usd',
-      url: '#'
+      url: 'TimeSheetReview.html'
     },
     {
       id: 'customers',
       title: 'Customers',
       icon: 'fa fa-heart',
-      url: '#'
+      url: 'Customer.html'
     },
     {
       id: 'university',
       title: 'University',
       icon: 'fa fa-graduation-cap',
-      url: '#'
+      url: 'Training.html#pageTraining'
     },
     {
       id: 'teammates',
       title: 'Teammates',
       icon: 'fa fa-users',
-      url: '#'
+      url: 'Teammates.html'
     }
   ];
 
-  $scope.showMessages = function (ev, messages) {
-    $mdDialog
-      .show({
-        controller: DialogController,
-        templateUrl: 'dialog1.tmpl.html',
-        parent: angular.element(document.body),
-        targetEvent: ev,
-        locals: {
-          messages: messages
-        },
-        clickOutsideToClose: false
-      })
-      .then(function (response) {
-        console.log('response to send and callback', response);
-        return PEMessagesService.putAcknowledgedMessages(response)
-          .then(function (callback) {
-            console.log('callback', callback);
+  $scope.acknowledgeMessage = function (message) {
 
-            $scope.$watch('messages',
-              function() {
-                $scope.messages = response;
-                console.log('$scope.messages', $scope.messages);
-              });
-          });
+    $scope.messages = _.without($scope.messages, message);
 
-      }, function () {
-
+    $scope.$watch('messages',
+      function() {
+        $scope.criticalMessages = _.where($scope.messages, {priority: 'critical'});
       });
-  };
 
-  if ($scope.criticalMessages.length > 0) {
-    $scope.showMessages(null, $scope.messages);
+    //PEMessagesService.putAcknowledgedMessages(message).then(function (res) {
+    //  $scope.messages = _.without($scope.messages, message);
+    //})
   }
 
-  $scope.goTo = function (url) {
-    if (url === 'messageCount') {
-      $scope.showMessages(null, $scope.messages);
-    } else {
-      $window.location.href = url;
-    }
-  };
 }]);
 
-function DialogController($scope, $mdDialog, messages) {
-
-  var responseMessageArray = messages;
-
-  $scope.criticalMessagesInstructions = 'Read and acknowledge your critical messages to continue';
-  $scope.date = moment().format();
-  $scope.messages = _.sortBy(messages, 'priority');
-  $scope.criticalMessages = _.where(messages, {priority: 'critical'});
-
-
-
-
-  $scope.acknowledgeMessage = function (_msg) {
-
-    var _date = moment().format();
-
-    var acknowledged = _.findWhere(messages, {id: _msg.id});
-    if (acknowledged) {
-      acknowledged.acknowledged = true;
-      acknowledged.dateAcknowledged = _date;
-      acknowledged.statusID = 2;
-      acknowledged.status = 'Read';
-
-      console.log(acknowledged);
-
-      responseMessageArray[_.indexOf(_.findWhere(responseMessageArray, {id: acknowledged.id}))] = acknowledged;
-
-      $scope.messages = _.without($scope.messages, _.findWhere($scope.messages, {id: _msg.id}));
-      $scope.criticalMessages = _.without($scope.criticalMessages, _.findWhere($scope.criticalMessages, {id: _msg.id}))
-      //TODO: Add event listener to transition other cards smoothly upwards as the on that was clicked fades out
-    }
-
-
-    if ($scope.messages.length == 0) {
-      $mdDialog.hide(responseMessageArray);
-    }
-
-  };
-
-  $scope.close = function () {
-    $mdDialog.hide(responseMessageArray);
-  };
-}
 

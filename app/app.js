@@ -4,6 +4,7 @@ angular.module('myApp', [
   'ngRoute',
   'myApp.viewLaunchPad',
   'myApp.notifications',
+  'myApp.contacts',
   'myApp.d3Directives',
   'ui.bootstrap',
   'ngMaterial',
@@ -16,7 +17,7 @@ angular.module('myApp', [
 ])
   .controller('MyAppCtrl', ['$scope', function ($scope) {
 
-    $scope.title = 'PE Notifications';
+    $scope.title = 'Solar City';
 
     $scope.menu = [
       {
@@ -28,8 +29,13 @@ angular.module('myApp', [
         title: 'Notifications',
         url: '/notifications',
         icon: 'fa fa-envelope-o'
+      },
+      {
+        title: 'Contacts',
+        url: '/contacts',
+        icon: 'fa fa-user'
       }
-    ]
+    ];
 
   }])
   .config(['$routeProvider', function ($routeProvider) {
@@ -43,6 +49,10 @@ angular.module('myApp', [
       .when('/notifications', {
         templateUrl: 'view-notifications/notifications.html',
         controller: 'notificationsCtrl'
+      })
+      .when('/contacts', {
+        templateUrl: 'view-contacts/contacts.html',
+        controller: 'contactsCtrl'
       });
 
   }])

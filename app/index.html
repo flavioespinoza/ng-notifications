@@ -51,6 +51,7 @@
   <script src="view-launchpad/view-launchpad-ctrl.js"></script>
   <script src="view-notifications/notifications.js"></script>
   <script src="view-analytics/view-analytics-ctrl.js"></script>
+  <script src="view-contacts/contacts-ctrl.js"></script>
 
   <!-- Directive -->
   <script src="directives/d3-directives.js"></script>
@@ -66,7 +67,7 @@
     <md-toolbar md-scroll-shrink>
       <div class="md-toolbar-tools">
         <h3>
-          <span>PE Notifications</span>
+          <span></span>
         </h3>
         <span flex></span>
         <md-button ng-repeat="m in menu track by $index" href="#{{m.url}}" class="md-icon-button" aria-label="{{m.title}}">
@@ -78,8 +79,6 @@
       <div class="ng-view-container" ng-view></div>
     </md-content>
   </div>
-
-
 
 </body>
 </html>
