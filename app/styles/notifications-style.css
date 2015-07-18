@@ -451,8 +451,7 @@ md-content.md-docs-dark-theme {
   text-overflow: ellipsis; }
 
 md-tabs-content-wrapper {
-  height: 90% !important;
-  background-color: pink; }
+  height: 90% !important; }
 
 md-tab-content {
   overflow-x: hidden; }

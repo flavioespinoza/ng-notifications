@@ -59,7 +59,7 @@
                   <md-button class="md-raised" ng-click="acknowledgeMessage(m)" ng-class="{'md-warn': m.priority == 'critical', 'md-fab md-mini grey-bg': m.priority != 'critical'}">
                     <span ng-show="m.priority == 'critical'">Acknowledge</span>
                   <span ng-hide="m.priority == 'critical'">
-                    <i class="fa fa-check"></i>
+                    <i class="`` fa-check"></i>
                   </span>
                   </md-button>
                 </div>
@@ -68,6 +68,17 @@
           </form>
         </md-tab-body>
       </md-tab>
+
+      <md-tab label disabled md-on-select="getAllNotifications()" md-on-deselect ng-disabled="criticalMessages.length > 0">
+        <md-tab-label>
+          <i class="fa fa fa-list"></i>
+          <span>{{messages.length}}</span>
+        </md-tab-label>
+        <md-body>
+
+        </md-body>
+      </md-tab>
+
     </md-tabs>
 
   </section>

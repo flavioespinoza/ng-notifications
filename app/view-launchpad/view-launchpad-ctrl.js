@@ -64,7 +64,12 @@ app.controller('ViewLaunchPadCtrl', ['$scope', '$window', '$mdDialog', 'PEMessag
     //PEMessagesService.putAcknowledgedMessages(message).then(function (res) {
     //  $scope.messages = _.without($scope.messages, message);
     //})
-  }
+
+  };
+
+  $scope.getAllNotifications = function () {
+
+  };
 
 }]);
 
