@@ -132,8 +132,6 @@ ul {
 #contactSection {
   position: relative;
   width: 50%;
-  min-width: 320px;
-  max-width: 640px;
   margin: 0 auto;
 }
 
@@ -253,8 +251,6 @@ md-divider {
 md-dialog {
   width: 95%;
   min-height: 95%;
-  min-width: 320px;
-  max-width: 640px;
 }
 
 .scroll-container {
@@ -417,8 +413,6 @@ md-dialog {
 #launchPadModalSection {
 
   background-color: transparent;
-  min-width: 320px;
-  max-width: 640px;
   margin: 0 auto;
 
   @extend %color-light-bg;

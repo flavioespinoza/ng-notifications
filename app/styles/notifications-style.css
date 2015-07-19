@@ -101,8 +101,6 @@ ul {
 #contactSection {
   position: relative;
   width: 50%;
-  min-width: 320px;
-  max-width: 640px;
   margin: 0 auto; }
 
 .panel, .panel-heading {
@@ -183,9 +181,7 @@ md-divider {
 
 md-dialog {
   width: 95%;
-  min-height: 95%;
-  min-width: 320px;
-  max-width: 640px; }
+  min-height: 95%; }
 
 .scroll-container {
   overflow: auto;
@@ -307,8 +303,6 @@ md-dialog {
 #launchPadSection,
 #launchPadModalSection {
   background-color: transparent;
-  min-width: 320px;
-  max-width: 640px;
   margin: 0 auto; }
   #launchPadSection md-list-item,
   #launchPadModalSection md-list-item {

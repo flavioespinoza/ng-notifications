@@ -1,0 +1,12 @@
+%color-light-bg {
+  background-color: #e2e2e2 !important;
+}
+
+body {
+  @extend %color-light-bg;
+}
+
+.tab-body-title {
+  width: 100%;
+  text-align: center;
+}

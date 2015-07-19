@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
 
   <link rel="stylesheet" href="styles/notifications-style.css">
-  <link rel="stylesheet" href="styles/lp-styles.css">
+  <link rel="stylesheet" href="styles/rip-styles.css">
 
   <!-- scripts -->
   <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
@@ -38,21 +38,17 @@
   <script src="bower_components/angular-csv-import/dist/angular-csv-import.js"></script>
   <script src="bower_components/elasticsearch/elasticsearch.angular.js"></script>
   <script src="bower_components/moment/moment.js"></script>
-  
-  <!-- Firebase -->
-  <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
-
-  <!-- AngularFire -->
-  <script src="https://cdn.firebase.com/libs/angularfire/1.1.2/angularfire.min.js"></script>
 
   <!-- App -->
   <script src="app.js"></script>
 
   <!-- Controllers -->
-  <script src="view-launchpad/view-launchpad-ctrl.js"></script>
-  <script src="view-notifications/notifications.js"></script>
-  <script src="view-analytics/view-analytics-ctrl.js"></script>
-  <script src="view-contacts/contacts-ctrl.js"></script>
+  <script src="view-ripometer/ripometer-ctrl.js"></script>
+  <script src="view-social-weedia/social-weedia-ctrl.js"></script>
+  <script src="view-rip-session/rip-session-ctrl.js"></script>
+  <script src="view-stats-and-stash/stats-and-stash-ctrl.js"></script>
+  <script src="view-global-feed/global-feed-ctrl.js"></script>
+  <script src="view-settings/settings-ctrl.js"></script>
 
   <!-- Directive -->
   <script src="directives/d3-directives.js"></script>
@@ -66,7 +62,34 @@
 
   <div ng-controller="MyAppCtrl" layout="column" layout-fill>
     <md-content id="parentContentSection" class="md-padding">
-      <div class="ng-view-container" ng-view></div>
+      <!-- Launch Pad Landing Page -->
+      <section id="launchPadSection" class="ng-app">
+        <section class="ng-controller">
+          <md-tabs md-dynamic-height="false">
+
+            <!-- TODO: Change ng-repeat to new ionic version -->
+            <!-- tab -->
+            <md-tab label disabled md-on-select md-on-deselect ng-repeat="tab in tabs track by $index">
+
+              <!-- icon label -->
+              <md-tab-label>
+                <i class="{{tab.labelIcon}}"></i>
+              </md-tab-label>
+
+              <!-- tab content -->
+              <md-tab-body>
+                <h3 class="tab-body-title">{{tab.bodyTitle}}</h3>
+
+                <section id="tabBodyContent" ng-include src="tab.html">
+
+                </section>
+
+              </md-tab-body>
+            </md-tab>
+
+          </md-tabs>
+        </section>
+      </section>
     </md-content>
   </div>
 

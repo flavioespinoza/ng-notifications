@@ -2,10 +2,12 @@
 
 angular.module('myApp', [
   'ngRoute',
-  'myApp.viewLaunchPad',
-  'myApp.notifications',
-  'myApp.contacts',
-  'myApp.d3Directives',
+  'myApp.ripometer',
+  'myApp.socialWeedia',
+  'myApp.ripSession',
+  'myApp.statsAndStash',
+  'myApp.globalFeed',
+  'myApp.settings',
   'ui.bootstrap',
   'ngMaterial',
   'ngAnimate',
@@ -13,7 +15,7 @@ angular.module('myApp', [
   'slip',
   'elasticsearch',
   'ngCsvImport',
-  'firebase'
+  'myApp.d3Directives'
 ])
   .controller('MyAppCtrl',function($scope, $location, $log){
 
@@ -53,12 +55,12 @@ angular.module('myApp', [
   })
   .config(['$routeProvider', function ($routeProvider) {
 
-    $routeProvider.otherwise({redirectTo: '/launchpad'});
+    $routeProvider.otherwise({redirectTo: '/'});
 
     $routeProvider
-      .when('/launchpad', {
-        templateUrl: 'view-launchpad/view-launchpad.html',
-        controller: 'ViewLaunchPadCtrl'
+      .when('/', {
+        templateUrl: 'view-launchpad/launchpad.html',
+        controller: 'launchPadCtrl'
       });
 
   }])
