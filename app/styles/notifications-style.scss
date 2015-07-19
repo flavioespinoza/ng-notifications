@@ -1,610 +1,595 @@
-// SolarCity global colors
-
-%color-primary, %text-color-primary {
-  color: #3F51B5
-}
-%color-primary-bg {
-  background-color: #3F51B5;
-}
-
-%color-action-bg {
-  background-color: #FF4081;
-}
-
-%color-light-bg {
-  background-color: #e2e2e2 !important;
-}
-
-%text-color-light {
-  color: white;
-}
-
-%text-color-medium {
-  color: #969696;
-}
-
-%text-color-action {
-  color: #FF4081;
-}
-
-%border-primary {
-  border: 1px solid #FF4081;
-}
-
-.white-bg {
-  background-color: white !important;
-}
-.grey-bg {
-  @extend %color-light-bg;
-}
-.red-bg {
-  background-color: red !important;
-}
-
-.btn {
-  opacity: 0;
-}
-
-// SolarCity md-class global styles
-
-label {
-  display: inline-block;
-  max-width: 100%;
-  margin-top: 12px;
-  margin-bottom: -6px;
-  font-weight: bold;
-}
-.solar-card {
-  background-color: #fff !important;
-  margin-bottom: 6px;
-  box-shadow: 0 3px 1px -2px rgba(0,0,0,.14),0 2px 2px 0 rgba(0,0,0,.098),0 1px 5px 0 rgba(0,0,0,.084);
-}
-.md-avatar {
-  float: left;
-}
-.md-toolbar-tools,
-.shadow {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,.26);
-}
-
-#notificationInfo {
-  #notificationTitle {
-    width: 40%;
-  }
-  md-input-container {
-    margin-right: 12px;
-  }
-}
-
-.md-button {
-  min-width: 40px;
-}
-
-.md-close {
-  font-size: 16px;
-}
-
-md-backdrop.md-opaque.md-default-theme {
-  background-color: rgba(0, 0, 0, 0.8) !important;
-}
-
-.md-select-menu-container.md-active {
-  @extend %border-primary;
-}
-
-md-select-menu:not(.md-overflow) md-content {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-md-select-menu.md-default-theme md-option:focus:not([selected]) {
-  background-color: white !important;
-}
-
-md-select-menu.md-default-theme md-option:hover:not([selected]) {
-  background-color: rgb(232,234,246) !important;
-}
-
-md-list-item, md-list-item .md-list-item-inner {
-  display: block;
-}
-md-divider.md-default-theme {
-  position: relative;
-}
-
-body .card-field,
-body .card-title,
-html .card-field,
-html .card-title {
-  display: block;
-  -webkit-margin-before: 12px;
-  -webkit-margin-after: 12px;
-  -webkit-margin-start: 0;
-  -webkit-margin-end: 0;
-}
-
-ul {
-  padding: 0;
-  margin: 0;
-  list-style-type: none;
-}
-
-#contactSection {
-  position: relative;
-  width: 50%;
-  margin: 0 auto;
-}
-
-
-
-.panel, .panel-heading {
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
-  border: none;
-}
-
-.panel-default > .panel-heading {
-  border: none;
-  font-size: 48px;
-  font-weight: bold;
-  @extend %color-primary-bg;
-  @extend %text-color-light;
-}
-
-.panel-heading {
-  padding: 6px 12px;
-}
-
-.panel-body {
-  .card-title {
-    margin-bottom: 1px;
-    font-weight: 400;
-    @extend %text-color-primary;
-  }
-  .card-field {
-    margin-top: 0;
-    margin-bottom: 0;
-    font-size: 16px;
-    font-weight: 500;
-    @extend %text-color-medium;
-    .card-field-label {
-      position: relative;
-      width: 48px;
-      font-size: 12px;
-      float: left;
-      line-height: 20px;
-    }
-  }
-}
-
-md-divider {
-  margin-top: 16px;
-  margin-bottom: 16px;
-  border-top: 1px solid lightgray;
-}
-
-.primary {
-  @extend %text-color-action;
-}
-
-.panel-heading {
-  position: relative;
-  .md-fab {
-    position: absolute;
-    right: 24px;
-    bottom: -20px;
-    @extend %color-action-bg;
-    div {
-      position: relative;
-      i {
-        font-size: 20px;
-        position: absolute;
-        top: 10px;
-        left: 6px;
-      }
-    }
-  }
-}
-
-#editContactModalSection {
-
-  md-list {
-    padding: 0;
-  }
-
-  .panel {
-    margin-bottom: 0;
-    .panel-body {
-      padding-left: 6px;
-      padding-right: 6px;
-    }
-  }
-}
-
-.md-select-menu-container {
-  z-index: 2000;
-}
-
-
-#editContactModalFooter {
-  position: relative;
-  height: 48px;
-  padding: 4px;
-  text-align: right;
-  background-color: rgba(0, 0, 0, 0.12);
-  .md-button {
-    min-width: 100px;
-  }
-  .md-warn {
-    position: absolute;
-    top: 8px;
-    left: 8px;
-  }
-  .md-primary {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-  }
-}
-
-md-dialog {
-  width: 95%;
-  min-height: 95%;
-}
-
-.scroll-container {
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-
-.items-section {
-  position: relative;
-}
-
-
-.add-alert {
-  position: absolute;
-  padding: 24px 12px 12px 12px;
-  top: 24px;
-  left: 20%;
-  right: 20%;
-  border: 2px solid red;
-  z-index: 2000;
-  .md-raised {
-    margin-top: 18px;
-  }
-}
-
-.fade-disabled {
-  opacity: .25;
-  pointer-events: none;
-}
-
-.items-slip {
-  position: relative;
-  md-input-container {
-    width: 40%;
-  }
-  md-select {
-    width: 40%;
-    margin-left: 5%;
-  }
-  .md-close, .md-sort {
-    width: 40px;
-    height: 40px;
-    margin-top: 30px;
-    margin-left: 0;
-    margin-right: 0;
-    padding: 6px;
-    text-align: center;
-    @extend %text-color-action;
-  }
-}
-
-.phone-list:first-child {
-  border-top: 4px solid lightgray;
-  border-bottom: 4px solid lightgray;
-}
-
-#reorder {
-  .group:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-
-  ul {
-    max-width: 200px;
-    list-style: none;
-    margin: 20px auto;
-  }
-
-  li {
-    background-color: white;
-    padding: 10px;
-    margin: 5px 0;
-    border-radius: 2px;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    img {
-      display: block;
-      float: left;
-    }
-  }
-
-  .handle {
-    float: right;
-    //cursor: -webkit-grab;
-    &:after {
-      content: "\2261";
-      font-size: 35px;
-      line-height: 50px;
-      color: gray;
-    }
-  }
-
-  .slip-reordering {
-    -webkit-box-shadow: 0 0 5px 5px rgba(0,0,0,0.02);
-    box-shadow: 0 0 5px 5px rgba(0,0,0,0.03);
-  }
-}
-
-.animate-repeat.ng-move,
-.animate-repeat.ng-enter,
-.animate-repeat.ng-leave {
-  -webkit-transition:all linear 0.5s;
-  transition:all linear 0.5s;
-}
-
-.animate-repeat.ng-leave.ng-leave-active,
-.animate-repeat.ng-move,
-.animate-repeat.ng-enter {
-  opacity:0;
-  max-height:0;
-}
-
-.animate-repeat.ng-leave,
-.animate-repeat.ng-move.ng-move-active,
-.animate-repeat.ng-enter.ng-enter-active {
-  opacity:1;
-  max-height: 84px;
-}
-
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-  -webkit-border-radius: 0px;
-  border-radius: 0px;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  height: 30px;
-  -webkit-border-radius: 0px;
-  border-radius: 0px;
-  background: rgba(255,64,129,0.25);
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
-}
-::-webkit-scrollbar-thumb:window-inactive {
-  background: rgba(255,64,129,0.25);
-}
-
-
-@media (min-width: 600px) {
-  #phoneNumbersSection .md-padding {
-    padding: 6px; }
-}
-
-//Launch Pad Styling
-
-#parentContentSection {
-  background-color: transparent;
-}
-
-#launchPadSection,
-#launchPadModalSection {
-
-  background-color: transparent;
-  margin: 0 auto;
-
-  @extend %color-light-bg;
-
-  md-list-item {
-
-    position: relative;
-    width: 100%;
-    height: 84px;
-    margin-bottom: 6px;
-    padding: 12px;
-    background-color: white;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-
-    .md-avatar {
-      position: relative;
-      width: 64px;
-      height: 64px;
-      background-color: darkgrey;
-      color: white;
-      font-size: 24px;
-      text-align: center;
-      line-height: 62px;
-      float: left;
-      margin: 0;
-      -webkit-border-radius: 32px;
-      -moz-border-radius: 32px;
-      border-radius: 32px;
-    }
-
-    .md-list-item-text {
-      position: relative;
-      margin-left: 12px;
-      margin-top: 12px;
-      float: left;
-    }
-
-    #timeSheet {
-      background-color: red;
-    }
-
-  }
-
-  .go-to-url {
-    position: relative;
-    height: 64px;
-    width: 80%;
-    float: left;
-  }
-
-  .notification-icon-trigger {
-    position: relative;
-    height: 48px;
-    width: 20%;
-    padding-top: 4px;
-    padding-right: 6px;
-    float: left;
-    .fa-stack {
-      width: 100%;
-      line-height: 3em;
-      text-align: right;
-    }
-    .fa-stack-2x {
-      font-size: 56px;
-      text-align: right;
-    }
-    .fa-stack-1x {
-      font-size: 32px;
-      text-align: right;
-      padding-right: 12px;
-      @extend %text-color-primary;
-    }
-    .fa-stack-1x-2 {
-      font-size: 24px;
-      padding-right: 8px;
-    }
-    .fa-exclamation-triangle {
-      font-size: 56px;
-    }
-  }
-
-  .notification-icon-trigger:focus {
-    outline-color: white;
-  }
-
-  .md-actions {
-    border-top: 2px solid lightgray;
-  }
-
-  md-card {
-    margin: 0;
-    margin-bottom: 12px;
-  }
-
-  md-card-content {
-    padding: 12px;
-  }
-
-  .modal-form {
-    height: 100%;
-    overflow: hidden;
-  }
-
-  .start-date, .due-date {
-    width: 50%;
-    float: left;
-  }
-
-  .due-date {
-    text-align: right;
-  }
-
-  .md-subheader .md-subheader-inner {
-    padding: 0 0 12px 0;
-    @extend %text-color-medium;
-  }
-
-  #modalHeader {
-    .md-toolbar-tools > h4, .md-toolbar-tools > h2 {
-      width: 100%;
-      text-align: center;
-      color: white;
-    }
-  }
-
-  #modalFooter {
-    position: absolute;
-    width: 100%;
-    bottom: 0px;
-    padding: 12px;
-    h4 {
-      width: 100%;
-      text-align: center;
-      color: white;
-    }
-  }
-
-}
-
-#launchPadModalSection {
-  height: 100%;
-}
-
-md-dialog md-dialog-content {
-  padding: 12px;
-}
-
-.app-container {
-  @extend %color-light-bg;
-}
-
-md-content.md-docs-dark-theme {
-  background-color: transparent;
-}
-
-body {
-  @extend %color-light-bg;
-}
-
-:focus {
-  outline-color: white !important;
-}
-
-#notificationsSection {
-  md-list-item .md-list-item-inner>.md-avatar:first-child, md-list-item>.md-avatar:first-child {
-    width: 40px;
-    height: 40px;
-    margin-top: 8px;
-    margin-bottom: 8px;
-    margin-right: 16px;
-    border-radius: 50%;
-    box-sizing: content-box;
-  }
-  .md-3-line .solar-card {
-    height: 80px;
-    text-overflow: ellipsis;
-  }
-}
-
-md-tabs-content-wrapper {
-  height: 90% !important;
-  //background-color: pink;
-}
-md-tab-content {
-  overflow-x: hidden;
-}
-md-tabs:not(.md-no-tab-content):not(.md-dynamic-height) {
-  min-height: 600px !important;
-}
-
-md-tab-item {
-  width: 50% !important;
-}
+//// SolarCity global colors
+//
+//%color-primary, %text-color-primary {
+//  color: #3F51B5
+//}
+//%color-primary-bg {
+//  background-color: #3F51B5;
+//}
+//
+//%color-action-bg {
+//  background-color: #FF4081;
+//}
+//
+//%color-light-bg {
+//  background-color: #e2e2e2 !important;
+//}
+//
+//%text-color-light {
+//  color: white;
+//}
+//
+//%text-color-medium {
+//  color: #969696;
+//}
+//
+//%text-color-action {
+//  color: #FF4081;
+//}
+//
+//%border-primary {
+//  border: 1px solid #FF4081;
+//}
+//
+//.white-bg {
+//  background-color: white !important;
+//}
+//.grey-bg {
+//  @extend %color-light-bg;
+//}
+//.red-bg {
+//  background-color: red !important;
+//}
+//
+//.btn {
+//  opacity: 0;
+//}
+//
+//// SolarCity md-class global styles
+//
+//label {
+//  display: inline-block;
+//  max-width: 100%;
+//  margin-top: 12px;
+//  margin-bottom: -6px;
+//  font-weight: bold;
+//}
+//.solar-card {
+//  background-color: #fff !important;
+//  margin-bottom: 6px;
+//  box-shadow: 0 3px 1px -2px rgba(0,0,0,.14),0 2px 2px 0 rgba(0,0,0,.098),0 1px 5px 0 rgba(0,0,0,.084);
+//}
+//.md-avatar {
+//  float: left;
+//}
+//.md-toolbar-tools,
+//.shadow {
+//  box-shadow: 0 4px 8px 0 rgba(0,0,0,.26);
+//}
+//
+//#notificationInfo {
+//  #notificationTitle {
+//    width: 40%;
+//  }
+//  md-input-container {
+//    margin-right: 12px;
+//  }
+//}
+//
+//.md-button {
+//  min-width: 40px;
+//}
+//
+//.md-close {
+//  font-size: 16px;
+//}
+//
+//md-backdrop.md-opaque.md-default-theme {
+//  background-color: rgba(0, 0, 0, 0.8) !important;
+//}
+//
+//.md-select-menu-container.md-active {
+//  @extend %border-primary;
+//}
+//
+//md-select-menu:not(.md-overflow) md-content {
+//  padding-top: 0;
+//  padding-bottom: 0;
+//}
+//
+//md-select-menu.md-default-theme md-option:focus:not([selected]) {
+//  background-color: white !important;
+//}
+//
+//md-select-menu.md-default-theme md-option:hover:not([selected]) {
+//  background-color: rgb(232,234,246) !important;
+//}
+//
+//md-list-item, md-list-item .md-list-item-inner {
+//  display: block;
+//}
+//md-divider.md-default-theme {
+//  position: relative;
+//}
+//
+//body .card-field,
+//body .card-title,
+//html .card-field,
+//html .card-title {
+//  display: block;
+//  -webkit-margin-before: 12px;
+//  -webkit-margin-after: 12px;
+//  -webkit-margin-start: 0;
+//  -webkit-margin-end: 0;
+//}
+//
+//ul {
+//  padding: 0;
+//  margin: 0;
+//  list-style-type: none;
+//}
+//
+//#contactSection {
+//  position: relative;
+//  width: 50%;
+//  margin: 0 auto;
+//}
+//
+//
+//
+//.panel, .panel-heading {
+//  -webkit-border-radius: 0;
+//  -moz-border-radius: 0;
+//  border-radius: 0;
+//  border: none;
+//}
+//
+//.panel-default > .panel-heading {
+//  border: none;
+//  font-size: 48px;
+//  font-weight: bold;
+//  @extend %color-primary-bg;
+//  @extend %text-color-light;
+//}
+//
+//.panel-heading {
+//  padding: 6px 12px;
+//}
+//
+//.panel-body {
+//  .card-title {
+//    margin-bottom: 1px;
+//    font-weight: 400;
+//    @extend %text-color-primary;
+//  }
+//  .card-field {
+//    margin-top: 0;
+//    margin-bottom: 0;
+//    font-size: 16px;
+//    font-weight: 500;
+//    @extend %text-color-medium;
+//    .card-field-label {
+//      position: relative;
+//      width: 48px;
+//      font-size: 12px;
+//      float: left;
+//      line-height: 20px;
+//    }
+//  }
+//}
+//
+//md-divider {
+//  margin-top: 16px;
+//  margin-bottom: 16px;
+//  border-top: 1px solid lightgray;
+//}
+//
+//.primary {
+//  @extend %text-color-action;
+//}
+//
+//.panel-heading {
+//  position: relative;
+//  .md-fab {
+//    position: absolute;
+//    right: 24px;
+//    bottom: -20px;
+//    @extend %color-action-bg;
+//    div {
+//      position: relative;
+//      i {
+//        font-size: 20px;
+//        position: absolute;
+//        top: 10px;
+//        left: 6px;
+//      }
+//    }
+//  }
+//}
+//
+//#editContactModalSection {
+//
+//  md-list {
+//    padding: 0;
+//  }
+//
+//  .panel {
+//    margin-bottom: 0;
+//    .panel-body {
+//      padding-left: 6px;
+//      padding-right: 6px;
+//    }
+//  }
+//}
+//
+//.md-select-menu-container {
+//  z-index: 2000;
+//}
+//
+//
+//#editContactModalFooter {
+//  position: relative;
+//  height: 48px;
+//  padding: 4px;
+//  text-align: right;
+//  background-color: rgba(0, 0, 0, 0.12);
+//  .md-button {
+//    min-width: 100px;
+//  }
+//  .md-warn {
+//    position: absolute;
+//    top: 8px;
+//    left: 8px;
+//  }
+//  .md-primary {
+//    position: absolute;
+//    top: 8px;
+//    right: 8px;
+//  }
+//}
+//
+//md-dialog {
+//  width: 95%;
+//  min-height: 95%;
+//}
+//
+//.scroll-container {
+//  overflow: auto;
+//  -webkit-overflow-scrolling: touch;
+//}
+//
+//
+//.items-section {
+//  position: relative;
+//}
+//
+//
+//.add-alert {
+//  position: absolute;
+//  padding: 24px 12px 12px 12px;
+//  top: 24px;
+//  left: 20%;
+//  right: 20%;
+//  border: 2px solid red;
+//  z-index: 2000;
+//  .md-raised {
+//    margin-top: 18px;
+//  }
+//}
+//
+//.fade-disabled {
+//  opacity: .25;
+//  pointer-events: none;
+//}
+//
+//.items-slip {
+//  position: relative;
+//  md-input-container {
+//    width: 40%;
+//  }
+//  md-select {
+//    width: 40%;
+//    margin-left: 5%;
+//  }
+//  .md-close, .md-sort {
+//    width: 40px;
+//    height: 40px;
+//    margin-top: 30px;
+//    margin-left: 0;
+//    margin-right: 0;
+//    padding: 6px;
+//    text-align: center;
+//    @extend %text-color-action;
+//  }
+//}
+//
+//.phone-list:first-child {
+//  border-top: 4px solid lightgray;
+//  border-bottom: 4px solid lightgray;
+//}
+//
+//#reorder {
+//  .group:after {
+//    content: "";
+//    display: table;
+//    clear: both;
+//  }
+//
+//  ul {
+//    max-width: 200px;
+//    list-style: none;
+//    margin: 20px auto;
+//  }
+//
+//  li {
+//    background-color: white;
+//    padding: 10px;
+//    margin: 5px 0;
+//    border-radius: 2px;
+//    user-select: none;
+//    -moz-user-select: none;
+//    -webkit-user-select: none;
+//    img {
+//      display: block;
+//      float: left;
+//    }
+//  }
+//
+//  .handle {
+//    float: right;
+//    //cursor: -webkit-grab;
+//    &:after {
+//      content: "\2261";
+//      font-size: 35px;
+//      line-height: 50px;
+//      color: gray;
+//    }
+//  }
+//
+//  .slip-reordering {
+//    -webkit-box-shadow: 0 0 5px 5px rgba(0,0,0,0.02);
+//    box-shadow: 0 0 5px 5px rgba(0,0,0,0.03);
+//  }
+//}
+//
+//.animate-repeat.ng-move,
+//.animate-repeat.ng-enter,
+//.animate-repeat.ng-leave {
+//  -webkit-transition:all linear 0.5s;
+//  transition:all linear 0.5s;
+//}
+//
+//.animate-repeat.ng-leave.ng-leave-active,
+//.animate-repeat.ng-move,
+//.animate-repeat.ng-enter {
+//  opacity:0;
+//  max-height:0;
+//}
+//
+//.animate-repeat.ng-leave,
+//.animate-repeat.ng-move.ng-move-active,
+//.animate-repeat.ng-enter.ng-enter-active {
+//  opacity:1;
+//  max-height: 84px;
+//}
+//
+///* Scrollbar */
+//::-webkit-scrollbar {
+//  width: 8px;
+//}
+//
+///* Track */
+//::-webkit-scrollbar-track {
+//  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+//  -webkit-border-radius: 0px;
+//  border-radius: 0px;
+//}
+//
+///* Handle */
+//::-webkit-scrollbar-thumb {
+//  height: 30px;
+//  -webkit-border-radius: 0px;
+//  border-radius: 0px;
+//  background: rgba(255,64,129,0.25);
+//  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+//}
+//::-webkit-scrollbar-thumb:window-inactive {
+//  background: rgba(255,64,129,0.25);
+//}
+//
+//
+//@media (min-width: 600px) {
+//  #phoneNumbersSection .md-padding {
+//    padding: 6px; }
+//}
+//
+////Launch Pad Styling
+//
+//#parentContentSection {
+//  background-color: transparent;
+//}
+//
+//#launchPadSection,
+//#launchPadModalSection {
+//
+//  background-color: transparent;
+//  margin: 0 auto;
+//
+//  @extend %color-light-bg;
+//
+//  md-list-item {
+//
+//    position: relative;
+//    width: 100%;
+//    height: 84px;
+//    margin-bottom: 6px;
+//    padding: 12px;
+//    background-color: white;
+//    -webkit-border-radius: 4px;
+//    -moz-border-radius: 4px;
+//    border-radius: 4px;
+//
+//    .md-avatar {
+//      position: relative;
+//      width: 64px;
+//      height: 64px;
+//      background-color: darkgrey;
+//      color: white;
+//      font-size: 24px;
+//      text-align: center;
+//      line-height: 62px;
+//      float: left;
+//      margin: 0;
+//      -webkit-border-radius: 32px;
+//      -moz-border-radius: 32px;
+//      border-radius: 32px;
+//    }
+//
+//    .md-list-item-text {
+//      position: relative;
+//      margin-left: 12px;
+//      margin-top: 12px;
+//      float: left;
+//    }
+//
+//    #timeSheet {
+//      background-color: red;
+//    }
+//
+//  }
+//
+//  .go-to-url {
+//    position: relative;
+//    height: 64px;
+//    width: 80%;
+//    float: left;
+//  }
+//
+//  .notification-icon-trigger {
+//    position: relative;
+//    height: 48px;
+//    width: 20%;
+//    padding-top: 4px;
+//    padding-right: 6px;
+//    float: left;
+//    .fa-stack {
+//      width: 100%;
+//      line-height: 3em;
+//      text-align: right;
+//    }
+//    .fa-stack-2x {
+//      font-size: 56px;
+//      text-align: right;
+//    }
+//    .fa-stack-1x {
+//      font-size: 32px;
+//      text-align: right;
+//      padding-right: 12px;
+//      @extend %text-color-primary;
+//    }
+//    .fa-stack-1x-2 {
+//      font-size: 24px;
+//      padding-right: 8px;
+//    }
+//    .fa-exclamation-triangle {
+//      font-size: 56px;
+//    }
+//  }
+//
+//  .notification-icon-trigger:focus {
+//    outline-color: white;
+//  }
+//
+//  .md-actions {
+//    border-top: 2px solid lightgray;
+//  }
+//
+//  md-card {
+//    margin: 0;
+//    margin-bottom: 12px;
+//  }
+//
+//  md-card-content {
+//    padding: 12px;
+//  }
+//
+//  .modal-form {
+//    height: 100%;
+//    overflow: hidden;
+//  }
+//
+//  .start-date, .due-date {
+//    width: 50%;
+//    float: left;
+//  }
+//
+//  .due-date {
+//    text-align: right;
+//  }
+//
+//  .md-subheader .md-subheader-inner {
+//    padding: 0 0 12px 0;
+//    @extend %text-color-medium;
+//  }
+//
+//  #modalHeader {
+//    .md-toolbar-tools > h4, .md-toolbar-tools > h2 {
+//      width: 100%;
+//      text-align: center;
+//      color: white;
+//    }
+//  }
+//
+//  #modalFooter {
+//    position: absolute;
+//    width: 100%;
+//    bottom: 0px;
+//    padding: 12px;
+//    h4 {
+//      width: 100%;
+//      text-align: center;
+//      color: white;
+//    }
+//  }
+//
+//}
+//
+//#launchPadModalSection {
+//  height: 100%;
+//}
+//
+//md-dialog md-dialog-content {
+//  padding: 12px;
+//}
+//
+//.app-container {
+//  @extend %color-light-bg;
+//}
+//
+//md-content.md-docs-dark-theme {
+//  background-color: transparent;
+//}
+//
+//body {
+//  @extend %color-light-bg;
+//}
+//
+//:focus {
+//  outline-color: white !important;
+//}
+//
+//#notificationsSection {
+//  md-list-item .md-list-item-inner>.md-avatar:first-child, md-list-item>.md-avatar:first-child {
+//    width: 40px;
+//    height: 40px;
+//    margin-top: 8px;
+//    margin-bottom: 8px;
+//    margin-right: 16px;
+//    border-radius: 50%;
+//    box-sizing: content-box;
+//  }
+//  .md-3-line .solar-card {
+//    height: 80px;
+//    text-overflow: ellipsis;
+//  }
+//}

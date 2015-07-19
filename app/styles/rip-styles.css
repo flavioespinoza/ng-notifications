@@ -1,8 +1,49 @@
-body {
+.sub-header {
   background-color: #e2e2e2 !important; }
+
+md-tabs-content-wrapper {
+  height: 100% !important; }
+
+md-tab-content {
+  overflow-x: hidden; }
+
+md-tabs:not(.md-no-tab-content):not(.md-dynamic-height) {
+  min-height: 600px !important; }
+
+md-tab-item {
+  width: 50% !important; }
 
 .tab-body-title {
   width: 100%;
   text-align: center; }
+
+.sub-header {
+  padding: 8px; }
+  .sub-header .sub-header-title {
+    margin: 0; }
+
+.gridListdemoBasicUsage md-grid-list {
+  margin: 8px; }
+
+.gridListdemoBasicUsage .gray {
+  background: #f5f5f5; }
+
+.gridListdemoBasicUsage .green {
+  background: #b9f6ca; }
+
+.gridListdemoBasicUsage .yellow {
+  background: #ffff8d; }
+
+.gridListdemoBasicUsage .blue {
+  background: #84ffff; }
+
+.gridListdemoBasicUsage .purple {
+  background: #b388ff; }
+
+.gridListdemoBasicUsage .red {
+  background: #ff8a80; }
+
+.gridListdemoBasicUsage md-grid-tile {
+  transition: all 400ms ease-out 50ms; }
 
 /*# sourceMappingURL=rip-styles.css.map */

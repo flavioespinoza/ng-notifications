@@ -20,11 +20,11 @@ angular.module('myApp', [
   .controller('MyAppCtrl',function($scope, $location, $log){
 
     $scope.tabs = [
-      {
-        labelIcon: 'fa fa-rocket',
-        bodyTitle: 'Touch to rip',
-        html: '/app/view-ripometer/ripometer.html'
-      },
+      //{
+      //  labelIcon: 'fa fa-rocket',
+      //  bodyTitle: 'Touch to rip',
+      //  html: '/app/view-ripometer/ripometer.html'
+      //},
       {
         labelIcon: 'fa fa-rocket',
         bodyTitle: 'SOCIAL WEEDIA',
@@ -57,11 +57,11 @@ angular.module('myApp', [
 
     $routeProvider.otherwise({redirectTo: '/'});
 
-    $routeProvider
-      .when('/', {
-        templateUrl: 'view-launchpad/launchpad.html',
-        controller: 'launchPadCtrl'
-      });
+    //$routeProvider
+    //  .when('/', {
+    //    templateUrl: 'view-launchpad/launchpad.html',
+    //    controller: 'launchPadCtrl'
+    //  });
 
   }])
   .config( function($mdThemingProvider){
