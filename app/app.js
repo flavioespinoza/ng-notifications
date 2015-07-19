@@ -15,49 +15,55 @@ angular.module('myApp', [
   'ngCsvImport',
   'firebase'
 ])
-  .controller('MyAppCtrl', ['$scope', function ($scope) {
+  .controller('MyAppCtrl',function($scope, $location, $log){
 
-    $scope.title = 'Solar City';
-
-    $scope.menu = [
+    $scope.tabs = [
       {
-        title: 'Launch Pad',
-        url: '/launchpad',
-        icon: 'fa fa-rocket'
+        labelIcon: 'fa fa-rocket',
+        bodyTitle: 'Touch to rip',
+        html: '/app/view-ripometer/ripometer.html'
       },
       {
-        title: 'Notifications',
-        url: '/notifications',
-        icon: 'fa fa-envelope-o'
+        labelIcon: 'fa fa-rocket',
+        bodyTitle: 'SOCIAL WEEDIA',
+        html: '/app/view-social-weedia/social-weedia.html'
       },
       {
-        title: 'Contacts',
-        url: '/contacts',
-        icon: 'fa fa-user'
+        labelIcon: 'fa fa-rocket',
+        bodyTitle: 'RIP SESSION',
+        html: '/app/view-rip-session/rip-session.html'
+      },
+      {
+        labelIcon: 'fa fa-rocket',
+        bodyTitle: 'STATS AND STASH',
+        html: '/app/view-stats-and-stash/stats-and-stash.html'
+      },
+      {
+        labelIcon: 'fa fa-rocket',
+        bodyTitle: 'GLOBAL FEED',
+        html: '/app/view-global-feed/global-feed.html'
+      },
+      {
+        labelIcon: 'fa fa-ellipsis-v',
+        bodyTitle: 'SETTINGS',
+        html: '/app/view-settings/settings.html'
       }
     ];
 
-  }])
+  })
   .config(['$routeProvider', function ($routeProvider) {
+
     $routeProvider.otherwise({redirectTo: '/launchpad'});
 
     $routeProvider
       .when('/launchpad', {
         templateUrl: 'view-launchpad/view-launchpad.html',
         controller: 'ViewLaunchPadCtrl'
-      })
-      .when('/notifications', {
-        templateUrl: 'view-notifications/notifications.html',
-        controller: 'notificationsCtrl'
-      })
-      .when('/contacts', {
-        templateUrl: 'view-contacts/contacts.html',
-        controller: 'contactsCtrl'
       });
 
   }])
   .config( function($mdThemingProvider){
-    // Configure a dark theme with primary foreground yellow
+
     $mdThemingProvider.theme('docs-dark', 'default')
       .primaryPalette('grey', {
         'default': '700'

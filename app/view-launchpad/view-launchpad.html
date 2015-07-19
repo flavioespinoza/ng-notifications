@@ -3,84 +3,27 @@
   <section class="ng-controller">
     <md-tabs md-dynamic-height="false">
 
-      <!-- Launch Pad Landing Page -->
-      <md-tab label disabled md-on-select md-on-deselect ng-disabled="criticalMessages.length > 0">
+      <!-- TODO: Change ng-repeat to new ionic version -->
+      <!-- tab -->
+      <md-tab label disabled md-on-select md-on-deselect ng-repeat="tab in tabs track by $index">
+        
+        <!-- icon label -->
         <md-tab-label>
-          <i class="fa fa-rocket"></i>
+          <i class="{{tab.labelIcon}}"></i>
         </md-tab-label>
+
+        <!-- tab content -->
         <md-tab-body>
-          <md-list>
-            <md-list-item ng-repeat="l in launchPad track by $index" class="md-whiteframe-z2">
-              <a class="go-to-url" href="{{l.url}}" style="color: black !important;">
-                <div id="{{l.id}}" class="md-avatar">
-                  <i class="{{l.icon}}"></i>
-                </div>
-                <div class="md-list-item-text">
-                  <h4>{{l.title}}</h4>
-                </div>
-              </a>
-              <div class="notification-icon-trigger">
-            <span class="fa-stack fa-lg" ng-show="l.id === 'notifications'">
-              <i class="fa fa-inverse fa-stack-1x">{{messages.length}}</i>
-            </span>
-            <span class="fa-stack fa-lg" ng-show="l.id === 'notifications' && criticalMessages.length > 0">
-            </span>
-              </div>
-            </md-list-item>
-          </md-list>
+          <h3 class="tab-body-title">{{tab.bodyTitle}}</h3>
+
+          <section id="tabBodyContent" ng-include src="tab.html">
+
+          </section>
+
         </md-tab-body>
-      </md-tab>
-
-      <!-- Notifications Page -->
-      <md-tab label disabled md-on-select md-on-deselect ng-disabled="messages.length <= 0">
-        <md-tab-label>
-          <i class="fa fa fa-bullhorn"></i>
-          <span>{{messages.length}}</span>
-        </md-tab-label>
-        <md-tab-body>
-          <form class="modal-form">
-            <md-toolbar id="modalHeader" ng-class="{'md-warn': criticalMessages.length > 0}">
-              <div class="md-toolbar-tools">
-                <h4 ng-show="criticalMessages.length > 0">YOU HAVE CRITICAL NOTIFICATIONS</h4>
-                <h2 ng-show="criticalMessages.length <= 0">YOUR NOTIFICATIONS</h2>
-              </div>
-            </md-toolbar>
-            <md-dialog-content>
-              <md-card ng-repeat="m in messages | orderBy:'priorityID'" class="fx-zoom-normal fx-speed-800 fx-trigger fx-easing-quad">
-                <md-card-content>
-                  <md-subheader class="start-date">Sent: {{m.startDate | date:'MMM d, yyyy'}}</md-subheader>
-                  <md-subheader class="due-date">Due: {{m.endDate | date:'MMM d, yyyy'}}</md-subheader>
-                  <h2 class="md-title">{{m.title}}</h2>
-                  <p>
-                    {{m.msg}}
-                  </p>
-                </md-card-content>
-                <div class="md-actions" layout="row" layout-align="end center">
-                  <md-button class="md-raised" ng-click="acknowledgeMessage(m)" ng-class="{'md-warn': m.priority == 'critical', 'md-fab md-mini grey-bg': m.priority != 'critical'}">
-                    <span ng-show="m.priority == 'critical'">Acknowledge</span>
-                  <span ng-hide="m.priority == 'critical'">
-                    <i class="`` fa-check"></i>
-                  </span>
-                  </md-button>
-                </div>
-              </md-card>
-            </md-dialog-content>
-          </form>
-        </md-tab-body>
-      </md-tab>
-
-      <md-tab label disabled md-on-select="getAllNotifications()" md-on-deselect ng-disabled="criticalMessages.length > 0">
-        <md-tab-label>
-          <i class="fa fa fa-list"></i>
-          <span>{{messages.length}}</span>
-        </md-tab-label>
-        <md-body>
-
-        </md-body>
       </md-tab>
 
     </md-tabs>
-
   </section>
 </section>
 

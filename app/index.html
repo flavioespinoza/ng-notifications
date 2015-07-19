@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
 
   <link rel="stylesheet" href="styles/notifications-style.css">
+  <link rel="stylesheet" href="styles/lp-styles.css">
 
   <!-- scripts -->
   <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
@@ -64,17 +65,6 @@
 <body>
 
   <div ng-controller="MyAppCtrl" layout="column" layout-fill>
-    <md-toolbar md-scroll-shrink>
-      <div class="md-toolbar-tools">
-        <h3>
-          <span></span>
-        </h3>
-        <span flex></span>
-        <md-button ng-repeat="m in menu track by $index" href="#{{m.url}}" class="md-icon-button" aria-label="{{m.title}}">
-            <i class="{{m.icon}}"></i>
-        </md-button>
-      </div>
-    </md-toolbar>
     <md-content id="parentContentSection" class="md-padding">
       <div class="ng-view-container" ng-view></div>
     </md-content>
