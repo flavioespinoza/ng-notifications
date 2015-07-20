@@ -20,33 +20,33 @@ angular.module('myApp', [
   .controller('MyAppCtrl',function($scope, $location, $log){
 
     $scope.tabs = [
-      //{
-      //  labelIcon: 'fa fa-rocket',
-      //  bodyTitle: 'Touch to rip',
-      //  html: '/app/view-ripometer/ripometer.html'
-      //},
       {
-        labelIcon: 'fa fa-rocket',
+        labelIcon: 'icon-rip-ripometer',
+        bodyTitle: 'Touch to rip',
+        html: '/app/view-ripometer/ripometer.html'
+      },
+      {
+        labelIcon: 'icon-rip-social-weedia',
         bodyTitle: 'SOCIAL WEEDIA',
         html: '/app/view-social-weedia/social-weedia.html'
       },
       {
-        labelIcon: 'fa fa-rocket',
+        labelIcon: 'icon-rip-rip-session',
         bodyTitle: 'RIP SESSION',
         html: '/app/view-rip-session/rip-session.html'
       },
       {
-        labelIcon: 'fa fa-rocket',
+        labelIcon: 'icon-rip-stats-and-stash',
         bodyTitle: 'STATS AND STASH',
         html: '/app/view-stats-and-stash/stats-and-stash.html'
       },
       {
-        labelIcon: 'fa fa-rocket',
+        labelIcon: 'icon-rip-global-feed',
         bodyTitle: 'GLOBAL FEED',
         html: '/app/view-global-feed/global-feed.html'
       },
       {
-        labelIcon: 'fa fa-ellipsis-v',
+        labelIcon: 'icon-rip-settings',
         bodyTitle: 'SETTINGS',
         html: '/app/view-settings/settings.html'
       }
