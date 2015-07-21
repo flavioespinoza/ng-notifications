@@ -420,10 +420,14 @@ md-dialog {
   min-width: 320px;
   max-width: 640px;
   margin: 0 auto;
-
   @extend %color-light-bg;
 
-  md-list-item {
+  .list-item-all-messages {
+    background-color: white;
+    margin-bottom: 2px;
+  }
+
+  .lp-button {
 
     position: relative;
     width: 100%;
@@ -609,8 +613,4 @@ md-tab-content {
 }
 md-tabs:not(.md-no-tab-content):not(.md-dynamic-height) {
   min-height: 600px !important;
-}
-
-md-tab-item {
-  width: 50% !important;
 }

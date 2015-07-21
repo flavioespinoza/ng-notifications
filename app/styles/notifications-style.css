@@ -310,8 +310,12 @@ md-dialog {
   min-width: 320px;
   max-width: 640px;
   margin: 0 auto; }
-  #launchPadSection md-list-item,
-  #launchPadModalSection md-list-item {
+  #launchPadSection .list-item-all-messages,
+  #launchPadModalSection .list-item-all-messages {
+    background-color: white;
+    margin-bottom: 2px; }
+  #launchPadSection .lp-button,
+  #launchPadModalSection .lp-button {
     position: relative;
     width: 100%;
     height: 84px;
@@ -321,8 +325,8 @@ md-dialog {
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px; }
-    #launchPadSection md-list-item .md-avatar,
-    #launchPadModalSection md-list-item .md-avatar {
+    #launchPadSection .lp-button .md-avatar,
+    #launchPadModalSection .lp-button .md-avatar {
       position: relative;
       width: 64px;
       height: 64px;
@@ -336,14 +340,14 @@ md-dialog {
       -webkit-border-radius: 32px;
       -moz-border-radius: 32px;
       border-radius: 32px; }
-    #launchPadSection md-list-item .md-list-item-text,
-    #launchPadModalSection md-list-item .md-list-item-text {
+    #launchPadSection .lp-button .md-list-item-text,
+    #launchPadModalSection .lp-button .md-list-item-text {
       position: relative;
       margin-left: 12px;
       margin-top: 12px;
       float: left; }
-    #launchPadSection md-list-item #timeSheet,
-    #launchPadModalSection md-list-item #timeSheet {
+    #launchPadSection .lp-button #timeSheet,
+    #launchPadModalSection .lp-button #timeSheet {
       background-color: red; }
   #launchPadSection .go-to-url,
   #launchPadModalSection .go-to-url {
@@ -458,8 +462,5 @@ md-tab-content {
 
 md-tabs:not(.md-no-tab-content):not(.md-dynamic-height) {
   min-height: 600px !important; }
-
-md-tab-item {
-  width: 50% !important; }
 
 /*# sourceMappingURL=notifications-style.css.map */

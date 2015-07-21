@@ -37,12 +37,7 @@
   <script src="bower_components/angular-csv-import/dist/angular-csv-import.js"></script>
   <script src="bower_components/elasticsearch/elasticsearch.angular.js"></script>
   <script src="bower_components/moment/moment.js"></script>
-  
-  <!-- Firebase -->
-  <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
 
-  <!-- AngularFire -->
-  <script src="https://cdn.firebase.com/libs/angularfire/1.1.2/angularfire.min.js"></script>
 
   <!-- App -->
   <script src="app.js"></script>
@@ -64,21 +59,21 @@
 <body>
 
   <div ng-controller="MyAppCtrl" layout="column" layout-fill>
-    <md-toolbar md-scroll-shrink>
-      <div class="md-toolbar-tools">
-        <h3>
-          <span></span>
-        </h3>
-        <span flex></span>
-        <md-button ng-repeat="m in menu track by $index" href="#{{m.url}}" class="md-icon-button" aria-label="{{m.title}}">
-            <i class="{{m.icon}}"></i>
-        </md-button>
-      </div>
-    </md-toolbar>
+    <!--<md-toolbar md-scroll-shrink>-->
+      <!--<div class="md-toolbar-tools">-->
+        <!--<h3>-->
+          <!--<span></span>-->
+        <!--</h3>-->
+        <!--<span flex></span>-->
+        <!--<md-button ng-repeat="m in menu track by $index" href="#{{m.url}}" class="md-icon-button" aria-label="{{m.title}}">-->
+            <!--<i class="{{m.icon}}"></i>-->
+        <!--</md-button>-->
+      <!--</div>-->
+    <!--</md-toolbar>-->
     <md-content id="parentContentSection" class="md-padding">
       <div class="ng-view-container" ng-view></div>
     </md-content>
   </div>
-
+a
 </body>
 </html>

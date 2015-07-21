@@ -69,7 +69,7 @@ app.service('PEMessagesService', ['$http', '$q', '$location', function ($http, $
     "ModifyBy": 22876
   }, {
     "MessageID": 27,
-    "MessagePriorityName": "Critical",
+    "MessagePriorityName": "Normal",
     "MessagePriorityID": 1,
     "MessageTitle": "Erics Test Title",
     "MessageBody": "Erics Test Body",
@@ -83,7 +83,7 @@ app.service('PEMessagesService', ['$http', '$q', '$location', function ($http, $
     "ModifyBy": 22876
   }, {
     "MessageID": 28,
-    "MessagePriorityName": "Critical",
+    "MessagePriorityName": "Normal",
     "MessagePriorityID": 1,
     "MessageTitle": "Erics Test Title",
     "MessageBody": "Erics Test Body",
@@ -100,9 +100,27 @@ app.service('PEMessagesService', ['$http', '$q', '$location', function ($http, $
   //var url = host + '/webapi/PEMessageApi/GetUsersMessagesByUserID?userID=';
 
 
-  PEMessagesService.getAllMessages = function (userID) {
-    var url = 'https://solarworks-dev.solarcity.com/api/ContactsNewApi/GetAddress?contactGUID=32D2510B-3513-412B-B54A-BA70D2C7B5D9'
-
+  PEMessagesService.getAllMessages = function () {
+    var array = [];
+    //TODO: Need to add date acknowledged
+    _.each(data, function (message) {
+      array.push(
+        {
+          id: message.MessageID,
+          startDate: message.ExpirationStartDate,
+          endDate: message.ExpirationEndDate,
+          acknowledged: false,
+          dateAcknowledged: '',
+          statusID: message.UserMessageStatusTypeID,
+          status: message.UserMessageStatusTypeName,
+          priority: message.MessagePriorityName.toLowerCase(),
+          priorityID: message.MessagePriorityID,
+          title: message.MessageTitle,
+          msg: message.MessageBody
+        }
+      )
+    });
+    return array;
 
   };
 

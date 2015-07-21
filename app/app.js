@@ -12,8 +12,7 @@ angular.module('myApp', [
   'ngFx',
   'slip',
   'elasticsearch',
-  'ngCsvImport',
-  'firebase'
+  'ngCsvImport'
 ])
   .controller('MyAppCtrl', ['$scope', function ($scope) {
 
@@ -56,7 +55,7 @@ angular.module('myApp', [
       });
 
   }])
-  .config( function($mdThemingProvider){
+  .config( function($mdThemingProvider, $mdIconProvider){
     // Configure a dark theme with primary foreground yellow
     $mdThemingProvider.theme('docs-dark', 'default')
       .primaryPalette('grey', {
@@ -65,6 +64,9 @@ angular.module('myApp', [
       .accentPalette('purple', {
         'default': '200' // use shade 200 for default, and keep all other shades the same
       });
+
+    $mdIconProvider
+      .defaultFontSet( 'fontawesome' );
 
   });
 
