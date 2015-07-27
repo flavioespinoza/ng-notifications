@@ -55,7 +55,7 @@ angular.module('myApp', [
       });
 
   }])
-  .config( function($mdThemingProvider, $mdIconProvider){
+  .config(function ($mdThemingProvider, $mdIconProvider) {
     // Configure a dark theme with primary foreground yellow
     $mdThemingProvider.theme('docs-dark', 'default')
       .primaryPalette('grey', {
@@ -66,7 +66,8 @@ angular.module('myApp', [
       });
 
     $mdIconProvider
-      .defaultFontSet( 'fontawesome' );
+      .defaultFontSet('fontawesome');
+
 
   });
 

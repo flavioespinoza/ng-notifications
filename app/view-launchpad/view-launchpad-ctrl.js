@@ -50,7 +50,7 @@ app.controller('ViewLaunchPadCtrl', ['$scope', '$window', '$mdDialog', 'PEMessag
     {
       id: 'teammates',
       title: 'Teammates',
-      icon: 'fa fa-users',
+      icon: 'icon-heart',
       url: 'Teammates.html'
     }
   ];

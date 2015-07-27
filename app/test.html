@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+
+
+  <style>
+    .container {
+      height: auto;
+      overflow: hidden;
+    }
+
+    .right {
+      width: 180px;
+      height: 180px;
+      float: right;
+      background: #aafed6;
+    }
+
+    .left {
+      height: 180px;
+      float: none; /* not needed, just for clarification */
+      background: #e8f6fe;
+      /* the next props are meant to keep this block independent from the other floated one */
+      width: auto;
+      overflow: hidden;
+    }​​
+  </style>
+
+</head>
+<body>
+
+<div class="container">
+  <div class="right">
+    right content fixed width
+  </div>
+  <div class="left">
+    left content flexible width
+  </div>
+</div>
+
+</body>
+</html>
