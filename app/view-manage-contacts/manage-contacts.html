@@ -1,0 +1,69 @@
+<section id="manageContactSection">
+  <md-card class="grey-bg">
+    <h4 class="md-headline grey-text fw-300">
+      <div>{{job.number}}</div>
+      <div class="sub-headline">{{job.type}}</div>
+      <div class="sub-headline">{{job.installAddress}}</div>
+    </h4>
+    <div layout="row" layout-wrap>
+      <md-card ng-repeat="c in contact" flex="49">
+        <md-button id="editBtn" class="md-fab md-button md-mini" ng-click="editContact(c)" aria-label="Edit Contact">
+          <div>
+            <i class="fa fa-edit"></i>
+          </div>
+          <div class="md-ripple-container"></div>
+        </md-button>
+        <div layout="row" class="md-padding">
+          <div flex="60">
+            <h3 class="md-headline grey-text fw-300">{{c.FirstName}} {{c.LastName}}</h3>
+            <md-subheader class="md-no-sticky">Email <span class="red-text warning-right" ng-show="c.DoNotEmail">DO NOT EMAIL</span></md-subheader>
+            <md-list>
+              <md-list-item class="md-3-line" flex>
+                <div class="md-list-item-text email">
+                  <a ng-hide="c.DoNotEmail" href="mailto:{{c.EmailAddress}}">{{c.EmailAddress}}</a>
+                  <div ng-show="c.DoNotEmail">{{c.EmailAddress}}</div>
+                </div>
+              </md-list-item>
+            </md-list>
+            <md-subheader class="md-no-sticky">Addresses</md-subheader>
+            <md-list>
+              <md-list-item class="md-3-line" ng-repeat="a in c.Addresses" flex>
+                <div class="md-list-item-text">
+                  <h4 class="grey-text">{{a.AddressType}}</h4>
+                  <p>{{a.LongStreetNumber}}</p>
+                  <p><span ng-show="a.AddressLineTwo.length > 0">{{a.AddressLineTwo}}</span></p>
+                  <p>{{a.LongLocality}} {{a.LongAdministrativeAreaLevel1}} {{a.LongPostalCode}}</p>
+                </div>
+              </md-list-item>
+            </md-list>
+            <md-subheader class="md-no-sticky">Phone Numbers <span class="red-text warning-right" ng-show="c.DoNotCall">DO NOT CALL</span></md-subheader>
+            <md-list>
+              <md-list-item class="md-3-line" ng-repeat="p in c.Phones" flex>
+                <div>
+                  <div class="md-list-item-text">
+                    <h4 class="grey-text">{{p.PhoneType}}</h4>
+                    <p><span ng-hide="countryCode(p.CountryCode)">{{p.CountryCode}}</span> {{p.PhoneNo}} <span ng-show="p.Extension">Ext. {{p.Extension}}</span></p>
+                  </div>
+                </div>
+              </md-list-item>
+            </md-list>
+          </div>
+          <div flex class="margin-none">
+            <h3 class="md-headline white-text fw-300">.</h3><!-- spacer to align tops of subheaders -->
+            <md-subheader class="md-no-sticky mr-none">Relationships</md-subheader>
+            <md-list>
+              <md-list-item class="md-3-line" ng-repeat="r in c.Relationships" flex>
+                <div>
+                  <div class="md-list-item-text">
+                    <h4 class="grey-text">{{r.RelationshipType}} of</h4>
+                    <p>{{r.ContactName}}</p>
+                  </div>
+                </div>
+              </md-list-item>
+            </md-list>
+          </div>
+        </div>
+      </md-card>
+    </div>
+  </md-card>
+</section>

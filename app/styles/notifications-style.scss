@@ -15,6 +15,10 @@
   background-color: #e2e2e2 !important;
 }
 
+%color-lighter-bg {
+  background-color: #eeeeee !important;
+}
+
 %text-color-light {
   color: white;
 }
@@ -34,11 +38,23 @@
 .white-bg {
   background-color: white !important;
 }
+.white-text {
+  color: white !important;
+}
 .grey-bg {
   @extend %color-light-bg;
 }
+.grey-text {
+  color: #A7A7A7 !important;
+}
+.fw-300 {
+  font-weight: 300;
+}
 .red-bg {
   background-color: red !important;
+}
+.red-text {
+  color: red !important;
 }
 
 .btn {
@@ -411,6 +427,8 @@ md-dialog {
 
 #parentContentSection {
   background-color: transparent;
+  width: 1280px;
+  margin: 0 auto;
 }
 
 #launchPadSection,
@@ -580,9 +598,7 @@ md-content.md-docs-dark-theme {
   background-color: transparent;
 }
 
-body {
-  @extend %color-light-bg;
-}
+
 
 :focus {
   outline-color: white !important;
@@ -613,4 +629,86 @@ md-tab-content {
 }
 md-tabs:not(.md-no-tab-content):not(.md-dynamic-height) {
   min-height: 600px !important;
+}
+
+
+// Manage Contacts Styling
+
+.general-info {
+  position: relative;
+  width: 216px;
+  height: 640px;
+  float: left;
+  background-color: pink;
+}
+
+.specific-info {
+  position: relative;
+  width: 400px;
+  height: 216px;
+  float: left;
+  background-color: cornflowerblue;
+}
+
+.md-subheader {
+  display: block;
+  background-color: #eeeeee;
+  height: 32px;
+  line-height: 0;
+}
+
+md-list-item.md-2-line .md-list-item-text, md-list-item.md-2-line > .md-no-style .md-list-item-text, md-list-item.md-3-line .md-list-item-text, md-list-item.md-3-line > .md-no-style .md-list-item-text {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  padding: 0;
+  text-overflow: ellipsis;
+}
+
+md-list {
+  display: block;
+  padding: 0 0 12px 0;
+}
+
+#manageContactSection {
+  h4.md-headline {
+    padding-left: 12px;
+    .sub-headline {
+      font-size: 16px;
+      margin: 0;
+    }
+  }
+  .email {
+    margin-top: 8px;
+  }
+  md-list {
+    display: block;
+    padding: 0;
+  }
+  .warning-right {
+    float: right;
+    padding-right: 8px;
+  }
+  md-card {
+    position: relative;
+    margin: .5%;
+    #editBtn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+    }
+  }
+  [flex="49"] {
+    -webkit-flex: 0 0 49%;
+    -ms-flex: 0 0 49%;
+    flex: 0 0 49%;
+  }
+  .mr-none {
+    margin-right: 0;
+  }
+}
+
+#editContactModalSection {
+  md-list-item.md-no-proxy, md-list-item .md-no-style {
+    padding: 0;
+  }
 }

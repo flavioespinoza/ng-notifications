@@ -3,7 +3,7 @@
  */
 var app = angular.module('myApp.viewLaunchPad', ['ngMaterial']);
 
-app.controller('ViewLaunchPadCtrl', ['$scope', '$window', '$mdDialog', 'PEMessagesService', function ($scope, $window, $mdDialog, PEMessagesService) {
+app.controller('ViewLaunchPadCtrl', ['$scope', '$window', '$mdDialog', 'PEMessagesService','$location', function ($scope, $window, $mdDialog, PEMessagesService, $location) {
 
   var messages = PEMessagesService.getCurrentMessages();
 

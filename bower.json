@@ -18,7 +18,7 @@
     "elasticsearch": "~5.0.0",
     "slip": "~1.2.0",
     "angular-slip": "~1.0.5",
-    "ui-bootstrap": "~0.13.0",
+    "ui-bootstrap": "~0.13.1",
     "d3": "~3.5.6",
     "angular-material": "~0.10.0",
     "angular-bootstrap": "~0.13.0",
@@ -26,6 +26,7 @@
     "moment": "~2.10.3",
     "ngFx": "~1.1.0",
     "gsap": "~1.17.0",
-    "angular-animate": "~1.4.2"
+    "angular-animate": "~1.4.2",
+    "lodash": "~3.10.0"
   }
 }

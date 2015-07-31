@@ -2,9 +2,10 @@
 
 angular.module('myApp', [
   'ngRoute',
-  'myApp.viewLaunchPad',
-  'myApp.notifications',
+  'myApp.manageContacts',
   'myApp.contacts',
+  //'myApp.viewLaunchPad',
+  'myApp.notifications',
   'myApp.d3Directives',
   'ui.bootstrap',
   'ngMaterial',
@@ -20,38 +21,49 @@ angular.module('myApp', [
 
     $scope.menu = [
       {
-        title: 'Launch Pad',
-        url: '/launchpad',
-        icon: 'fa fa-rocket'
-      },
-      {
-        title: 'Notifications',
-        url: '/notifications',
-        icon: 'fa fa-envelope-o'
+        title: 'Manage Contacts',
+        url: '/manage-contacts',
+        icon: 'fa fa-edit'
       },
       {
         title: 'Contacts',
         url: '/contacts',
         icon: 'fa fa-user'
+      },
+      //{
+      //  title: 'Launch Pad',
+      //  url: '/launchpad',
+      //  icon: 'fa fa-rocket'
+      //},
+      {
+        title: 'Notifications',
+        url: '/notifications',
+        icon: 'fa fa-envelope-o'
       }
     ];
 
   }])
   .config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.otherwise({redirectTo: '/launchpad'});
+    $routeProvider.otherwise({redirectTo: '/manage-contacts'});
 
     $routeProvider
-      .when('/launchpad', {
-        templateUrl: 'view-launchpad/view-launchpad.html',
-        controller: 'ViewLaunchPadCtrl'
+
+      .when('/manage-contacts', {
+        templateUrl: 'view-manage-contacts/manage-contacts.html',
+        controller: 'manageContactsCtrl'
       })
-      .when('/notifications', {
-        templateUrl: 'view-notifications/notifications.html',
-        controller: 'notificationsCtrl'
-      })
+
       .when('/contacts', {
         templateUrl: 'view-contacts/contacts.html',
         controller: 'contactsCtrl'
+      })
+      //.when('/launchpad', {
+      //  templateUrl: 'view-launchpad/view-launchpad.html',
+      //  controller: 'ViewLaunchPadCtrl'
+      //})
+      .when('/notifications', {
+        templateUrl: 'view-notifications/notifications.html',
+        controller: 'notificationsCtrl'
       });
 
   }])
