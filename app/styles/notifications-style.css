@@ -533,8 +533,20 @@ md-list {
   flex: 0 0 49%; }
 #manageContactSection .mr-none {
   margin-right: 0; }
+#manageContactSection #addContactBtn {
+  position: absolute;
+  top: 12px;
+  right: 18px; }
 
 #editContactModalSection md-list-item.md-no-proxy, #editContactModalSection md-list-item .md-no-style {
   padding: 0; }
+
+#addContactSectionModal .md-padding {
+  padding-top: 6px;
+  padding-bottom: 6px; }
+#addContactSectionModal #ripAddNewAddressBtn {
+  position: absolute;
+  top: 0px;
+  right: 18px; }
 
 /*# sourceMappingURL=notifications-style.css.map */

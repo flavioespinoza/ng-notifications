@@ -24,183 +24,19 @@ app.controller('manageContactsCtrl', ['$scope', '$modal', '$log', function ($sco
     }
   };
 
-  $scope.contact = [
+  $scope.contacts = [
     {
-    "ContactID": 4492664,
-    "ContactGUID": "6579625C-AC2D-4508-B1C4-98EB50F8A200",
-    "SourceApplication": "rohitChauhan3",
-    "ContactImage": null,
-    "IsDefaultEmail": true,
-    "Title": null,
-    "Prefix": null,
-    "DisplayName": "B LynetteBoston",
-    "FirstName": "Rohit",
-    "MiddleName": null,
-    "LastName": "Chauhan1",
-    "Suffix": null,
-    "DateOfBirth": "1984-03-14T00:00:00",
-    "Gender": "Z",
-    "CountryCode": 1,
-    "DoNotEmail": true,
-    "DoNotCall": false,
-    "Note": "Any special Comments",
-    "CreateBy": 1201,
-    "CreateDate": "0001-01-01T00:00:00",
-    "ModifyBy": 1201,
-    "ModifyDate": "0001-01-01T00:00:00",
-    "FacebookUserId": null,
-    "GoogleUserId": null,
-    "HasConfirmedContactInfo": false,
-    "EmailAddress": "rohit@rohit16.com",
-    "ContactTypes": [
-      {
-        "ContactTypeID": 3,
-        "ContactTypeName": "Customer"
-      }
-    ],
-    "Relationships": [
-      {
-        "ContactName": "B LynetteBoston",
-        "RelationContactName": "B LynetteBoston",
-        "RelationshipType": "Spouse",
-        "RelationshipTypeDescription": "Spouse"
-      },
-      {
-        "ContactName": "B LynetteBoston",
-        "RelationContactName": "B LynetteBoston",
-        "RelationshipType": "Parent",
-        "RelationshipTypeDescription": "Parent"
-      }
-    ],
-    "Phones": [
-      {
-        "PhoneGUID": "3289D297-3488-4BBF-AC73-AEB535AA70E3",
-        "CountryCode": "+1",
-        "PhoneNo": "817-504-3232",
-        "Extension": null,
-        "DNCFederal": true,
-        "DNCState": true,
-        "DNCSolarcity": true,
-        "PhoneType": "Home",
-        "PhoneTypeDescription": "Home",
-        "isPreferredPhone": true,
-        "ContactPreferenceNote": null
-      },
-      {
-        "PhoneGUID": "1DDD6867-1426-46C3-BF77-03B040BD59A4",
-        "CountryCode": "+1",
-        "PhoneNo": "817-504-3232",
-        "Extension": null,
-        "DNCFederal": true,
-        "DNCState": true,
-        "DNCSolarcity": true,
-        "PhoneType": "Home",
-        "PhoneTypeDescription": "Home",
-        "isPreferredPhone": true,
-        "ContactPreferenceNote": null
-      },
-      {
-        "PhoneGUID": "4C811465-30BC-402A-AF7F-978D9E3B4977",
-        "CountryCode": "+1",
-        "PhoneNo": "817-504-3232",
-        "Extension": null,
-        "DNCFederal": true,
-        "DNCState": true,
-        "DNCSolarcity": true,
-        "PhoneType": "Other",
-        "PhoneTypeDescription": "Other",
-        "isPreferredPhone": true,
-        "ContactPreferenceNote": null
-      },
-      {
-        "PhoneGUID": "5DBD2072-B8CB-497C-855E-C6105BF8B44C",
-        "CountryCode": "+1",
-        "PhoneNo": "817-345-3700",
-        "Extension": "2314",
-        "DNCFederal": true,
-        "DNCState": true,
-        "DNCSolarcity": true,
-        "PhoneType": "Work",
-        "PhoneTypeDescription": "Work",
-        "isPreferredPhone": true,
-        "ContactPreferenceNote": null
-      }
-    ],
-    "Addresses": [
-      {
-        "IsActive": true,
-        "IsStandardAddress": false,
-        "FormattedStreetAddress": "704 Benvenue AvenueLos AltosCA94024SANTA CLARAUS",
-        "LongStreetNumber": "704 Benvenue Avenue",
-        "LongRoute": null,
-        "AddressLineTwo": "Apt 205",
-        "LongSublocality": null,
-        "LongLocality": "Los Altos",
-        "LongAdministrativeAreaLevel2": "SANTA CLARA",
-        "LongAdministrativeAreaLevel1": "CA",
-        "LongCountry": "US",
-        "LongPostalCode": "94024",
-        "ShortPostalCode": null,
-        "Latitude": 37.3746020000,
-        "Longitude": -122.0995850000,
-        "AddressTypeID": 4,
-        "isSameAsInstallAddress": true,
-        "AddressId": 20090297,
-        "RecipientName": null,
-        "Label": null,
-        "SubLabel": null,
-        "AddressGUID": "4AEC7549-CB6D-4C5A-872A-1BCF74E926C8",
-        "CompanyName": null,
-        "IsGeoCoded": null,
-        "GeoCodeProvider": null,
-        "IsGeoCodeOverride": null,
-        "AddressType": "Billing",
-        "AddressTypeDescription": "Billing"
-      },
-      {
-        "IsActive": true,
-        "IsStandardAddress": false,
-        "FormattedStreetAddress": "171 E Floresta WayPortola ValleyCA94028SAN MATEOUS",
-        "LongStreetNumber": "171 E Floresta Way",
-        "LongRoute": null,
-        "AddressLineTwo": "",
-        "LongSublocality": null,
-        "LongLocality": "Portola Valley",
-        "LongAdministrativeAreaLevel2": "SAN MATEO",
-        "LongAdministrativeAreaLevel1": "CA",
-        "LongCountry": "US",
-        "LongPostalCode": "94028",
-        "ShortPostalCode": null,
-        "Latitude": 37.4012760000,
-        "Longitude": -122.1958870000,
-        "AddressTypeID": 5,
-        "isSameAsInstallAddress": true,
-        "AddressId": 20090298,
-        "RecipientName": null,
-        "Label": null,
-        "SubLabel": null,
-        "AddressGUID": "F0C766B8-B0E5-4048-8B56-4134E49AF339",
-        "CompanyName": null,
-        "IsGeoCoded": null,
-        "GeoCodeProvider": null,
-        "IsGeoCodeOverride": null,
-        "AddressType": "Mailing",
-        "AddressTypeDescription": "Mailing"
-      }
-    ]
-  },
-    {
-      "ContactID": 4492111,
+      "ContactID": 4492664,
       "ContactGUID": "6579625C-AC2D-4508-B1C4-98EB50F8A200",
-      "SourceApplication": "rohitChauhan3",
+      "SourceApplication": "rohitChauhan",
       "ContactImage": null,
       "IsDefaultEmail": true,
       "Title": null,
       "Prefix": null,
-      "DisplayName": "B LynetteBoston",
-      "FirstName": "Richard",
+      "DisplayName": "Betty White",
+      "FirstName": "Betty",
       "MiddleName": null,
-      "LastName": "Wood",
+      "LastName": "White",
       "Suffix": null,
       "DateOfBirth": "1984-03-14T00:00:00",
       "Gender": "Z",
@@ -215,7 +51,7 @@ app.controller('manageContactsCtrl', ['$scope', '$modal', '$log', function ($sco
       "FacebookUserId": null,
       "GoogleUserId": null,
       "HasConfirmedContactInfo": false,
-      "EmailAddress": "rohit@rohit16.com",
+      "EmailAddress": "betty@goldengirls.com",
       "ContactTypes": [
         {
           "ContactTypeID": 3,
@@ -224,68 +60,55 @@ app.controller('manageContactsCtrl', ['$scope', '$modal', '$log', function ($sco
       ],
       "Relationships": [
         {
-          "ContactName": "B LynetteBoston",
-          "RelationContactName": "B LynetteBoston",
-          "RelationshipType": "Spouse",
-          "RelationshipTypeDescription": "Spouse"
-        },
-        {
-          "ContactName": "B LynetteBoston",
-          "RelationContactName": "B LynetteBoston",
+          "ContactName": "Blanche Dubois",
+          "RelationContactName": "Blanche Dubois",
           "RelationshipType": "Parent",
           "RelationshipTypeDescription": "Parent"
+        },
+        {
+          "ContactName": "Rhett Butler",
+          "RelationContactName": "Rhett Butler",
+          "RelationshipType": "Spouse",
+          "RelationshipTypeDescription": "Spouse"
         }
       ],
       "Phones": [
         {
-          "PhoneGUID": "3289D297-3488-4BBF-AC73-AEB535AA70E3",
+          "PhoneGUID": "6E083E95-0143-4254-8864-AD6DA745968D",
           "CountryCode": "+1",
-          "PhoneNo": "817-504-3232",
+          "PhoneNo": "817-504-1111",
           "Extension": null,
-          "DNCFederal": true,
-          "DNCState": true,
-          "DNCSolarcity": true,
+          "DNCFederal": false,
+          "DNCState": false,
+          "DNCSolarcity": false,
           "PhoneType": "Home",
           "PhoneTypeDescription": "Home",
           "isPreferredPhone": true,
           "ContactPreferenceNote": null
         },
         {
-          "PhoneGUID": "1DDD6867-1426-46C3-BF77-03B040BD59A4",
+          "PhoneGUID": "6E083E95-0143-4254-8864-AD6DA745968D",
           "CountryCode": "+1",
-          "PhoneNo": "817-504-3232",
-          "Extension": null,
-          "DNCFederal": true,
-          "DNCState": true,
-          "DNCSolarcity": true,
-          "PhoneType": "Home",
-          "PhoneTypeDescription": "Home",
-          "isPreferredPhone": true,
-          "ContactPreferenceNote": null
-        },
-        {
-          "PhoneGUID": "4C811465-30BC-402A-AF7F-978D9E3B4977",
-          "CountryCode": "+1",
-          "PhoneNo": "817-504-3232",
-          "Extension": null,
-          "DNCFederal": true,
-          "DNCState": true,
-          "DNCSolarcity": true,
-          "PhoneType": "Other",
-          "PhoneTypeDescription": "Other",
-          "isPreferredPhone": true,
-          "ContactPreferenceNote": null
-        },
-        {
-          "PhoneGUID": "5DBD2072-B8CB-497C-855E-C6105BF8B44C",
-          "CountryCode": "+1",
-          "PhoneNo": "817-345-3700",
-          "Extension": "2314",
-          "DNCFederal": true,
-          "DNCState": true,
-          "DNCSolarcity": true,
+          "PhoneNo": "817-504-2222",
+          "Extension": "3241",
+          "DNCFederal": false,
+          "DNCState": false,
+          "DNCSolarcity": false,
           "PhoneType": "Work",
           "PhoneTypeDescription": "Work",
+          "isPreferredPhone": true,
+          "ContactPreferenceNote": null
+        },
+        {
+          "PhoneGUID": "6E083E95-0143-4254-8864-AD6DA745968D",
+          "CountryCode": "+1",
+          "PhoneNo": "817-504-3333",
+          "Extension": null,
+          "DNCFederal": false,
+          "DNCState": false,
+          "DNCSolarcity": false,
+          "PhoneType": "Other",
+          "PhoneTypeDescription": "Other",
           "isPreferredPhone": true,
           "ContactPreferenceNote": null
         }
@@ -295,28 +118,22 @@ app.controller('manageContactsCtrl', ['$scope', '$modal', '$log', function ($sco
           "IsActive": true,
           "IsStandardAddress": false,
           "FormattedStreetAddress": "704 Benvenue AvenueLos AltosCA94024SANTA CLARAUS",
-          "LongStreetNumber": "704 Benvenue Avenue",
-          "LongRoute": null,
-          "AddressLineTwo": "Apt 205",
-          "LongSublocality": null,
-          "LongLocality": "Los Altos",
-          "LongAdministrativeAreaLevel2": "SANTA CLARA",
-          "LongAdministrativeAreaLevel1": "CA",
-          "LongCountry": "US",
-          "LongPostalCode": "94024",
-          "ShortPostalCode": null,
+          "AddressLine1": "704 Benvenue Avenue",
+          "AddressLineTwo": "North West",
+          "City": "Los Altos",
+          "County": "SANTA CLARA",
+          "State": "CA",
+          "Country": "US",
+          "PostalCode": "94024",
           "Latitude": 37.3746020000,
           "Longitude": -122.0995850000,
           "AddressTypeID": 4,
           "isSameAsInstallAddress": true,
           "AddressId": 20090297,
-          "RecipientName": null,
           "Label": null,
           "SubLabel": null,
           "AddressGUID": "4AEC7549-CB6D-4C5A-872A-1BCF74E926C8",
-          "CompanyName": null,
           "IsGeoCoded": null,
-          "GeoCodeProvider": null,
           "IsGeoCodeOverride": null,
           "AddressType": "Billing",
           "AddressTypeDescription": "Billing"
@@ -325,192 +142,22 @@ app.controller('manageContactsCtrl', ['$scope', '$modal', '$log', function ($sco
           "IsActive": true,
           "IsStandardAddress": false,
           "FormattedStreetAddress": "171 E Floresta WayPortola ValleyCA94028SAN MATEOUS",
-          "LongStreetNumber": "171 E Floresta Way",
-          "LongRoute": null,
+          "AddressLine1": "171 E Floresta Way",
           "AddressLineTwo": "",
-          "LongSublocality": null,
-          "LongLocality": "Portola Valley",
-          "LongAdministrativeAreaLevel2": "SAN MATEO",
-          "LongAdministrativeAreaLevel1": "CA",
-          "LongCountry": "US",
-          "LongPostalCode": "94028",
-          "ShortPostalCode": null,
+          "City": "Portola Valley",
+          "County": "SAN MATEO",
+          "Country": "US",
+          "State": "CA",
+          "PostalCode": "94028",
           "Latitude": 37.4012760000,
           "Longitude": -122.1958870000,
           "AddressTypeID": 5,
           "isSameAsInstallAddress": true,
           "AddressId": 20090298,
-          "RecipientName": null,
           "Label": null,
           "SubLabel": null,
           "AddressGUID": "F0C766B8-B0E5-4048-8B56-4134E49AF339",
-          "CompanyName": null,
           "IsGeoCoded": null,
-          "GeoCodeProvider": null,
-          "IsGeoCodeOverride": null,
-          "AddressType": "Mailing",
-          "AddressTypeDescription": "Mailing"
-        }
-      ]
-    },
-    {
-      "ContactID": 4492111,
-      "ContactGUID": "6579625C-AC2D-4508-B1C4-98EB50F8A200",
-      "SourceApplication": "rohitChauhan3",
-      "ContactImage": null,
-      "IsDefaultEmail": true,
-      "Title": null,
-      "Prefix": null,
-      "DisplayName": "B LynetteBoston",
-      "FirstName": "Richard",
-      "MiddleName": null,
-      "LastName": "Wood",
-      "Suffix": null,
-      "DateOfBirth": "1984-03-14T00:00:00",
-      "Gender": "Z",
-      "CountryCode": 1,
-      "DoNotEmail": true,
-      "DoNotCall": false,
-      "Note": "Any special Comments",
-      "CreateBy": 1201,
-      "CreateDate": "0001-01-01T00:00:00",
-      "ModifyBy": 1201,
-      "ModifyDate": "0001-01-01T00:00:00",
-      "FacebookUserId": null,
-      "GoogleUserId": null,
-      "HasConfirmedContactInfo": false,
-      "EmailAddress": "rohit@rohit16.com",
-      "ContactTypes": [
-        {
-          "ContactTypeID": 3,
-          "ContactTypeName": "Customer"
-        }
-      ],
-      "Relationships": [
-        {
-          "ContactName": "B LynetteBoston",
-          "RelationContactName": "B LynetteBoston",
-          "RelationshipType": "Spouse",
-          "RelationshipTypeDescription": "Spouse"
-        },
-        {
-          "ContactName": "B LynetteBoston",
-          "RelationContactName": "B LynetteBoston",
-          "RelationshipType": "Parent",
-          "RelationshipTypeDescription": "Parent"
-        }
-      ],
-      "Phones": [
-        {
-          "PhoneGUID": "3289D297-3488-4BBF-AC73-AEB535AA70E3",
-          "CountryCode": "+1",
-          "PhoneNo": "817-504-3232",
-          "Extension": null,
-          "DNCFederal": true,
-          "DNCState": true,
-          "DNCSolarcity": true,
-          "PhoneType": "Home",
-          "PhoneTypeDescription": "Home",
-          "isPreferredPhone": true,
-          "ContactPreferenceNote": null
-        },
-        {
-          "PhoneGUID": "1DDD6867-1426-46C3-BF77-03B040BD59A4",
-          "CountryCode": "+1",
-          "PhoneNo": "817-504-3232",
-          "Extension": null,
-          "DNCFederal": true,
-          "DNCState": true,
-          "DNCSolarcity": true,
-          "PhoneType": "Home",
-          "PhoneTypeDescription": "Home",
-          "isPreferredPhone": true,
-          "ContactPreferenceNote": null
-        },
-        {
-          "PhoneGUID": "4C811465-30BC-402A-AF7F-978D9E3B4977",
-          "CountryCode": "+1",
-          "PhoneNo": "817-504-3232",
-          "Extension": null,
-          "DNCFederal": true,
-          "DNCState": true,
-          "DNCSolarcity": true,
-          "PhoneType": "Other",
-          "PhoneTypeDescription": "Other",
-          "isPreferredPhone": true,
-          "ContactPreferenceNote": null
-        },
-        {
-          "PhoneGUID": "5DBD2072-B8CB-497C-855E-C6105BF8B44C",
-          "CountryCode": "+1",
-          "PhoneNo": "817-345-3700",
-          "Extension": "2314",
-          "DNCFederal": true,
-          "DNCState": true,
-          "DNCSolarcity": true,
-          "PhoneType": "Work",
-          "PhoneTypeDescription": "Work",
-          "isPreferredPhone": true,
-          "ContactPreferenceNote": null
-        }
-      ],
-      "Addresses": [
-        {
-          "IsActive": true,
-          "IsStandardAddress": false,
-          "FormattedStreetAddress": "704 Benvenue AvenueLos AltosCA94024SANTA CLARAUS",
-          "LongStreetNumber": "704 Benvenue Avenue",
-          "LongRoute": null,
-          "AddressLineTwo": "Apt 205",
-          "LongSublocality": null,
-          "LongLocality": "Los Altos",
-          "LongAdministrativeAreaLevel2": "SANTA CLARA",
-          "LongAdministrativeAreaLevel1": "CA",
-          "LongCountry": "US",
-          "LongPostalCode": "94024",
-          "ShortPostalCode": null,
-          "Latitude": 37.3746020000,
-          "Longitude": -122.0995850000,
-          "AddressTypeID": 4,
-          "isSameAsInstallAddress": true,
-          "AddressId": 20090297,
-          "RecipientName": null,
-          "Label": null,
-          "SubLabel": null,
-          "AddressGUID": "4AEC7549-CB6D-4C5A-872A-1BCF74E926C8",
-          "CompanyName": null,
-          "IsGeoCoded": null,
-          "GeoCodeProvider": null,
-          "IsGeoCodeOverride": null,
-          "AddressType": "Billing",
-          "AddressTypeDescription": "Billing"
-        },
-        {
-          "IsActive": true,
-          "IsStandardAddress": false,
-          "FormattedStreetAddress": "171 E Floresta WayPortola ValleyCA94028SAN MATEOUS",
-          "LongStreetNumber": "171 E Floresta Way",
-          "LongRoute": null,
-          "AddressLineTwo": "",
-          "LongSublocality": null,
-          "LongLocality": "Portola Valley",
-          "LongAdministrativeAreaLevel2": "SAN MATEO",
-          "LongAdministrativeAreaLevel1": "CA",
-          "LongCountry": "US",
-          "LongPostalCode": "94028",
-          "ShortPostalCode": null,
-          "Latitude": 37.4012760000,
-          "Longitude": -122.1958870000,
-          "AddressTypeID": 5,
-          "isSameAsInstallAddress": true,
-          "AddressId": 20090298,
-          "RecipientName": null,
-          "Label": null,
-          "SubLabel": null,
-          "AddressGUID": "F0C766B8-B0E5-4048-8B56-4134E49AF339",
-          "CompanyName": null,
-          "IsGeoCoded": null,
-          "GeoCodeProvider": null,
           "IsGeoCodeOverride": null,
           "AddressType": "Mailing",
           "AddressTypeDescription": "Mailing"
@@ -519,11 +166,30 @@ app.controller('manageContactsCtrl', ['$scope', '$modal', '$log', function ($sco
     }
   ];
 
+  $scope.addContact = function () {
+    var modalInstance = $modal.open({
+      templateUrl: 'view-manage-contacts/add-contact-modal.html',
+      controller: 'addContactModalCtrl'
+    });
+
+    modalInstance.result.then(function (res) {
+
+    }, function () {
+
+    });
+  };
+
+  $scope.flexLength = function () {
+    if ($scope.contacts.length > 1) {
+      return '49';
+    } else {
+      return '100';
+    }
+  };
 
   $scope.editContact = function (contact) {
 
     var modalInstance = $modal.open({
-      animation: $scope.animationsEnabled,
       templateUrl: 'view-manage-contacts/contacts-modal.html',
       controller: 'editContactModalCtrl',
       resolve: {

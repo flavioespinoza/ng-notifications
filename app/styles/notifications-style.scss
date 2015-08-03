@@ -705,10 +705,27 @@ md-list {
   .mr-none {
     margin-right: 0;
   }
+  #addContactBtn {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+  }
 }
 
 #editContactModalSection {
   md-list-item.md-no-proxy, md-list-item .md-no-style {
     padding: 0;
+  }
+}
+
+#addContactSectionModal {
+  .md-padding {
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+  #ripAddNewAddressBtn {
+    position: absolute;
+    top: 0px;
+    right: 18px;
   }
 }

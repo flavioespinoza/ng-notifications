@@ -1,0 +1,86 @@
+<section id="addContactSectionModal">
+
+  <md-dialog-content>
+
+    <div layout="row" class="md-padding" layout-wrap>
+      <md-subheader flex>Source Application</md-subheader>
+      <md-subheader flex>Created By</md-subheader>
+    </div>
+
+    <div layout="row" class="md-padding" layout-wrap>
+      <md-input-container class="md-padding" flex="33" ng-repeat="p in properties">
+        <label>{{p.name}}</label>
+        <input type="text" ng-model="newContact[p.prop]">
+      </md-input-container>
+    </div>
+
+    <div layout="row" class="md-padding" layout-wrap>
+
+      <md-radio-group ng-model="newContact.DoNotEmail" flex>
+        <md-subheader>Do Not Email</md-subheader>
+        <md-radio-button value="true" class="md-primary">Yes</md-radio-button>
+        <md-radio-button value="false" class="md-primary">No</md-radio-button>
+      </md-radio-group>
+
+      <md-radio-group ng-model="newContact.DoNotCall" flex>
+        <md-subheader>Do Not Call</md-subheader>
+        <md-radio-button value="true" class="md-primary">Yes</md-radio-button>
+        <md-radio-button value="false" class="md-primary">No</md-radio-button>
+      </md-radio-group>
+
+      <md-radio-group ng-model="newContact.Gender" flex>
+        <md-subheader>Gender</md-subheader>
+        <md-radio-button value="M" class="md-primary">M</md-radio-button>
+        <md-radio-button value="F" class="md-primary">F</md-radio-button>
+      </md-radio-group>
+
+    </div>
+
+    <div layout="row" class="md-padding" layout-wrap>
+
+      <md-radio-group ng-model="newContact.ConfirmedContactInfo" flex>
+        <md-subheader>Confirmed Contact Info</md-subheader>
+        <md-radio-button value="true" class="md-primary">Yes</md-radio-button>
+        <md-radio-button value="false" class="md-primary">No</md-radio-button>
+      </md-radio-group>
+
+    </div>
+
+    <md-divider></md-divider>
+
+    <div layout="row" class="md-padding" layout-wrap>
+      <md-subheader flex>Addresses</md-subheader>
+    </div>
+
+    <div layout="row" class="md-padding" layout-wrap>
+      <md-input-container class="md-padding" flex="33" ng-repeat="a in addresses">
+        <label>{{a.name}}</label>
+        <input type="text" ng-model="newContact[a.prop]">
+      </md-input-container>
+    </div>
+
+    <div layout="row" class="md-padding" layout-wrap>
+      <md-radio-group ng-model="newContact.AddressTypeID" flex>
+        <md-subheader>Address Type</md-subheader>
+        <md-radio-button value="1" class="md-primary">Home</md-radio-button>
+        <md-radio-button value="2" class="md-primary">Billing</md-radio-button>
+        <md-radio-button value="3" class="md-primary">Mailing</md-radio-button>
+      </md-radio-group>
+
+     <div flex style="position: relative;">
+       <md-subheader>Add New Address</md-subheader>
+       <md-button id="ripAddNewAddressBtn" class="md-fab md-mini">
+         <i class="fa fa-plus"></i>
+       </md-button>
+     </div>
+
+    </div>
+
+    <md-divider></md-divider>
+
+
+
+    <md-button class="md-raised md-primary" ng-click="save(newContact)">Save</md-button>
+
+  </md-dialog-content>
+</section>

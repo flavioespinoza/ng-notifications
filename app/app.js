@@ -4,7 +4,7 @@ angular.module('myApp', [
   'ngRoute',
   'myApp.manageContacts',
   'myApp.contacts',
-  //'myApp.viewLaunchPad',
+  'myApp.addContact',
   'myApp.notifications',
   'myApp.d3Directives',
   'ui.bootstrap',

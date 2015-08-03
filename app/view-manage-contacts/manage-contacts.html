@@ -5,8 +5,13 @@
       <div class="sub-headline">{{job.type}}</div>
       <div class="sub-headline">{{job.installAddress}}</div>
     </h4>
+
+    <md-button id="addContactBtn" class="md-fab md-button md-mini" ng-click="addContact()">
+      <i class="fa fa-plus"></i>
+    </md-button>
+
     <div layout="row" layout-wrap>
-      <md-card ng-repeat="c in contact" flex="49">
+      <md-card ng-repeat="c in contacts" flex="{{flexLength}}">
         <md-button id="editBtn" class="md-fab md-button md-mini" ng-click="editContact(c)" aria-label="Edit Contact">
           <div>
             <i class="fa fa-edit"></i>
@@ -30,9 +35,9 @@
               <md-list-item class="md-3-line" ng-repeat="a in c.Addresses" flex>
                 <div class="md-list-item-text">
                   <h4 class="grey-text">{{a.AddressType}}</h4>
-                  <p>{{a.LongStreetNumber}}</p>
+                  <p>{{a.AddressLine1}}</p>
                   <p><span ng-show="a.AddressLineTwo.length > 0">{{a.AddressLineTwo}}</span></p>
-                  <p>{{a.LongLocality}} {{a.LongAdministrativeAreaLevel1}} {{a.LongPostalCode}}</p>
+                  <p>{{a.City}}, {{a.State}} {{a.PostalCode}}</p>
                 </div>
               </md-list-item>
             </md-list>
@@ -42,7 +47,7 @@
                 <div>
                   <div class="md-list-item-text">
                     <h4 class="grey-text">{{p.PhoneType}}</h4>
-                    <p><span ng-hide="countryCode(p.CountryCode)">{{p.CountryCode}}</span> {{p.PhoneNo}} <span ng-show="p.Extension">Ext. {{p.Extension}}</span></p>
+                    <p><span ng-hide="countryCode(p.CountryCode)">{{p.CountryCode}}</span> {{p.PhoneNo}} <span ng-show="p.Extension"> (Ext. {{p.Extension}})</span></p>
                   </div>
                 </div>
               </md-list-item>
