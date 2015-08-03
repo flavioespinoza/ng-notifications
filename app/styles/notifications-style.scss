@@ -723,9 +723,10 @@ md-list {
     padding-top: 6px;
     padding-bottom: 6px;
   }
-  #ripAddNewAddressBtn {
+  #ripAddNewAddressBtn,
+  #ripAddNewPhoneBtn {
     position: absolute;
-    top: 0px;
+    top: 36px;
     right: 18px;
   }
 }

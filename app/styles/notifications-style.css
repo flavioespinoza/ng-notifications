@@ -544,9 +544,10 @@ md-list {
 #addContactSectionModal .md-padding {
   padding-top: 6px;
   padding-bottom: 6px; }
-#addContactSectionModal #ripAddNewAddressBtn {
+#addContactSectionModal #ripAddNewAddressBtn,
+#addContactSectionModal #ripAddNewPhoneBtn {
   position: absolute;
-  top: 0px;
+  top: 36px;
   right: 18px; }
 
 /*# sourceMappingURL=notifications-style.css.map */

@@ -6,18 +6,18 @@
       <div class="sub-headline">{{job.installAddress}}</div>
     </h4>
 
-    <md-button id="addContactBtn" class="md-fab md-button md-mini" ng-click="addContact()">
+    <md-button id="addContactBtn" class="md-fab md-button md-mini" ng-click="addContact()" aria-label="btn">
       <i class="fa fa-plus"></i>
     </md-button>
 
     <div layout="row" layout-wrap>
       <md-card ng-repeat="c in contacts" flex="{{flexLength}}">
-        <md-button id="editBtn" class="md-fab md-button md-mini" ng-click="editContact(c)" aria-label="Edit Contact">
-          <div>
-            <i class="fa fa-edit"></i>
-          </div>
-          <div class="md-ripple-container"></div>
-        </md-button>
+        <!--<md-button id="editBtn" class="md-fab md-button md-mini" ng-click="editContact(c)" aria-label="Edit Contact">-->
+          <!--<div>-->
+            <!--<i class="fa fa-edit"></i>-->
+          <!--</div>-->
+          <!--<div class="md-ripple-container"></div>-->
+        <!--</md-button>-->
         <div layout="row" class="md-padding">
           <div flex="60">
             <h3 class="md-headline grey-text fw-300">{{c.FirstName}} {{c.LastName}}</h3>
